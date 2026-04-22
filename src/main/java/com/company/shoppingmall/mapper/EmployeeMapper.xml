@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.company.shoppingmall.mapper.EmployeeMapper">
+
+    <!-- 직원 목록 조회 -->
+    <select id="selectEmployeeList"
+            resultType="com.company.shoppingmall.dto.EmployeeDto">
+
+        SELECT
+            EMPLOYEE_ID AS employeeId,
+            FIRST_NAME AS firstName,
+            JOB_TITLE AS jobTitle,
+            LAST_NAME AS lastName,
+            FIRST_NAME || ' ' || LAST_NAME AS employeeName,
+            PHONE AS phone,
+            EMAIL AS email,
+            TO_CHAR(HIRE_DATE, 'YYYY-MM-DD') AS hireDate,
+            MANAGER_ID AS managerId,
+            FN_MAN_NM(EMPLOYEE_ID) AS managerName
+          FROM EMPLOYEES
+        <where>
+            <if test="employeeName != null and employeeName != ''">
+                AND (
+                    UPPER(REPLACE(TRIM(FIRST_NAME || LAST_NAME), ' ', ''))
+                    LIKE '%' || UPPER(REPLACE(TRIM(#{employeeName}), ' ', '')) || '%'
+                )
+            </if>
+
+            <if test="hireDateFrom != null and hireDateFrom != ''">
+                AND HIRE_DATE <![CDATA[>=]]> TO_DATE(#{hireDateFrom}, 'YYYY-MM-DD')
+            </if>
+
+            <if test="hireDateTo != null and hireDateTo != ''">
+                AND HIRE_DATE <![CDATA[<=]]> TO_DATE(#{hireDateTo}, 'YYYY-MM-DD')
+            </if>
+
+             <if test="managerId != null and managerId != ''">
+                AND MANAGER_ID = #{managerId}
+            </if>
+        </where>
+        ORDER BY EMPLOYEE_ID
+
+    </select>
+    
+    <!-- 직원 상세 조회 -->
+    <select id="employeeSearchManager"
+            resultType="com.company.shoppingmall.dto.EmployeeDto">
+
+        WITH MANAGER_COND AS (
+            <!-- ","로 구분된 관리자 ID들을 분리 -->
+            SELECT TRIM(REGEXP_SUBSTR(#{managerId}, '[^,]+', 1, LEVEL)) AS managerName
+              FROM DUAL
+           CONNECT BY REGEXP_SUBSTR(#{managerId}, '[^,]+', 1, LEVEL) IS NOT NULL
+        )
+        SELECT
+            E.EMPLOYEE_ID AS employeeId,
+            E.FIRST_NAME AS firstName,
+            E.JOB_TITLE AS jobTitle,
+            E.LAST_NAME AS lastName,
+            E.FIRST_NAME || ' ' || E.LAST_NAME AS employeeName,
+            E.PHONE AS phone,
+            E.EMAIL AS email,
+            TO_CHAR(E.HIRE_DATE, 'YYYY-MM-DD') AS hireDate,
+            E.MANAGER_ID AS managerId,
+            FN_MAN_NM(E.EMPLOYEE_ID) AS managerName
+          FROM EMPLOYEES E
+        <where>
+            <if test="employeeName != null and employeeName != ''">
+                AND (
+                    UPPER(REPLACE(TRIM(E.FIRST_NAME || E.LAST_NAME), ' ', ''))
+                    LIKE '%' || UPPER(REPLACE(TRIM(#{employeeName}), ' ', '')) || '%'
+                )
+            </if>
+
+            <if test="hireDateFrom != null and hireDateFrom != ''">
+                AND E.HIRE_DATE <![CDATA[>=]]> TO_DATE(#{hireDateFrom}, 'YYYY-MM-DD')
+            </if>
+
+            <if test="hireDateTo != null and hireDateTo != ''">
+                AND E.HIRE_DATE <![CDATA[<=]]> TO_DATE(#{hireDateTo}, 'YYYY-MM-DD')
+            </if>
+
+            <if test="managerId != null and managerId != ''">
+                AND FN_MAN_NM(E.EMPLOYEE_ID) IN (
+                    SELECT managerName
+                      FROM MANAGER_COND
+                )
+            </if>
+        </where>
+        ORDER BY E.EMPLOYEE_ID
+
+    </select>
+
+    <!-- 수정용 직원 상세 조회 -->
+    <select id="selectEmployeeDetail"
+            parameterType="Long"
+            resultType="com.company.shoppingmall.dto.EmployeeDto">
+        SELECT
+            EMPLOYEE_ID AS employeeId,
+            FIRST_NAME AS firstName,
+            LAST_NAME AS lastName,
+            EMAIL AS email,
+            CASE
+                WHEN INSTR(EMAIL, '@') > 0 THEN SUBSTR(EMAIL, 1, INSTR(EMAIL, '@') - 1)
+                ELSE EMAIL
+            END AS emailId,
+            CASE
+                WHEN INSTR(EMAIL, '@') > 0 THEN SUBSTR(EMAIL, INSTR(EMAIL, '@') + 1)
+                ELSE ''
+            END AS emailDomain,
+            PHONE AS phone,
+            TO_CHAR(HIRE_DATE, 'YYYYMMDD') AS hireDate,
+            JOB_TITLE AS jobTitle,
+            MANAGER_ID AS managerId,
+            FN_MAN_NM(EMPLOYEE_ID) AS managerName
+          FROM EMPLOYEES
+        WHERE EMPLOYEE_ID = #{employeeId}
+    </select>
+
+    <!-- 관리자 목록 조회 -->
+    <select id="selectManagerList"
+        resultType="com.company.shoppingmall.dto.ManagerDto">
+        SELECT DISTINCT
+               M.EMPLOYEE_ID AS managerId,
+               M.FIRST_NAME || ' ' || M.LAST_NAME AS managerName
+          FROM EMPLOYEES E,
+               EMPLOYEES M
+         WHERE E.MANAGER_ID = M.EMPLOYEE_ID
+        ORDER BY managerName
+    </select>
+
+    <!-- 직책 목록 조회 -->
+    <select id="selectJobList"
+        resultType="com.company.shoppingmall.dto.CommonCodeDto">
+        SELECT DISTINCT
+               E.JOB_TITLE AS code,
+               E.JOB_TITLE AS name
+          FROM EMPLOYEES E
+        WHERE E.JOB_TITLE IS NOT NULL
+        ORDER BY E.JOB_TITLE
+    </select>
+
+    <!-- 직원 저장 -->
+    <insert id="insertEmployee"
+        parameterType="com.company.shoppingmall.dto.EmployeeDto">
+        <selectKey keyProperty="employeeId" resultType="long" order="BEFORE">
+            SELECT SEQ_BS_EMPID.NEXTVAL
+             FROM DUAL
+        </selectKey>
+        INSERT INTO EMPLOYEES (
+            EMPLOYEE_ID,
+            FIRST_NAME,
+            LAST_NAME,
+            EMAIL,
+            PHONE,
+            HIRE_DATE,
+            MANAGER_ID,
+            JOB_TITLE
+        ) VALUES (
+            #{employeeId},
+            #{firstName},
+            #{lastName},
+            #{email},
+            SUBSTR(#{phone}, 1, 3) || '-' ||
+            SUBSTR(#{phone}, 4, 4) || '-' ||
+            SUBSTR(#{phone}, 8, 4),
+            TO_DATE(#{hireDate}, 'YYYYMMDD'),
+            #{managerId, jdbcType=NUMERIC},
+            #{jobTitle}
+        )
+    </insert>
+
+    <!-- 직원 수정 -->
+    <update id = "updateEmployee"
+        parameterType="com.company.shoppingmall.dto.EmployeeDto">
+        UPDATE EMPLOYEES
+        SET
+            FIRST_NAME = #{firstName},
+            LAST_NAME = #{lastName},
+            EMAIL = #{email},
+            PHONE = SUBSTR(#{phone}, 1, 3) || '-' ||
+                    SUBSTR(#{phone}, 4, 4) || '-' ||
+                    SUBSTR(#{phone}, 8, 4),
+            MANAGER_ID = #{managerId, jdbcType=NUMERIC},
+            JOB_TITLE = #{jobTitle}
+        WHERE EMPLOYEE_ID = #{employeeId}
+    </update>
+
+    <!-- 직원 삭제 -->
+    <delete id="deleteEmployee"
+        parameterType="Long">
+        DELETE FROM EMPLOYEES
+        WHERE EMPLOYEE_ID = #{employeeId}
+    </delete>
+
+</mapper>

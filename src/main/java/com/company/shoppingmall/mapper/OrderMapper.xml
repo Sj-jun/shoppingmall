@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.company.shoppingmall.mapper.OrderMapper">
+
+    <!-- 주문 완료 프로시저 호출 -->
+    <update id="callCustomerOrderProcedure"
+            parameterType="com.company.shoppingmall.dto.OrderProcedureDto"
+            statementType="CALLABLE">
+        { CALL SP_CUSTOMER_ORDER(
+            #{orderId, mode=INOUT, jdbcType=NUMERIC},
+            #{itemId, mode=INOUT, jdbcType=NUMERIC},
+            #{customerName, mode=IN, jdbcType=VARCHAR},
+            #{productId, mode=IN, jdbcType=NUMERIC},
+            #{quantity, mode=IN, jdbcType=NUMERIC},
+            #{unitPrice, mode=IN, jdbcType=NUMERIC}
+        ) }
+    </update>
+
+    <!-- 주문 상태를 '배송 완료'로 업데이트 -->
+    <update id="updateOrderStatusToShipped"
+            parameterType="long">
+        UPDATE ORDERS
+           SET STATUS = 'SHIPPED'
+         WHERE ORDER_ID = #{orderId}
+           AND STATUS = 'PENDING'
+    </update>
+
+    <!-- 주문 항목 삭제 -->
+    <delete id="deleteOrderItem"
+            parameterType="com.company.shoppingmall.dto.CustomerOrderDto">
+        DELETE FROM ORDER_ITEMS
+         WHERE ORDER_ID = #{orderId}
+           AND ITEM_ID = #{itemId}
+    </delete>
+
+    <!-- 주문 항목 수 카운트 -->
+    <select id="countOrderItems"
+            parameterType="long"
+            resultType="int">
+        SELECT COUNT(*)
+          FROM ORDER_ITEMS
+         WHERE ORDER_ID = #{orderId}
+    </select>
+
+    <!-- 주문 상태를 '주문 취소'로 업데이트 -->
+    <update id="updateOrderStatusToCanceled"
+            parameterType="long">
+        UPDATE ORDERS
+           SET STATUS = 'CANCELED'
+         WHERE ORDER_ID = #{orderId}
+           AND STATUS = 'PENDING'
+    </update>
+
+    <!-- 고객 이름으로 완료된 주문 조회 -->
+    <select id="selectCompleteOrdersByCustomerName"
+            parameterType="string"
+            resultType="com.company.shoppingmall.dto.CustomerOrderDto">
+        SELECT
+            O.ORDER_ID AS orderId,
+            OI.ITEM_ID AS itemId,
+            P.PRODUCT_ID AS productId,
+            TO_CHAR(O.ORDER_DATE, 'YYYY-MM-DD') AS orderDate,
+            P.PRODUCT_NAME AS productName,
+            OI.QUANTITY AS quantity,
+            OI.UNIT_PRICE AS price,
+            ROUND(OI.QUANTITY * OI.UNIT_PRICE, 2) AS totalPrice
+          FROM CUSTOMERS C,
+               ORDERS O,
+               ORDER_ITEMS OI,
+               PRODUCTS P
+         WHERE UPPER(TRIM(C.NAME)) = UPPER(TRIM(#{name}))
+           AND O.CUSTOMER_ID = C.CUSTOMER_ID
+           AND O.STATUS = 'SHIPPED'
+           AND O.ORDER_ID = OI.ORDER_ID
+           AND OI.PRODUCT_ID = P.PRODUCT_ID
+         ORDER BY
+            O.ORDER_ID,
+            OI.ITEM_ID
+    </select>
+
+    <!-- 월별 주문 수량 조회(Chart용) -->
+    <select id="selectMonthlyOrderQuantity"
+            parameterType="com.company.shoppingmall.dto.OrderMonthlyChartDto"
+            resultType="com.company.shoppingmall.dto.OrderMonthlyChartDto">
+        WITH MONTHS AS (
+            SELECT LPAD(LEVEL, 2, '0') AS month
+              FROM DUAL
+           CONNECT BY LEVEL &lt;= 12
+        ),
+        ORDER_SUM AS (
+            SELECT
+                TO_CHAR(O.ORDER_DATE, 'MM') AS month,
+                SUM(OI.QUANTITY) AS quantity
+              FROM CUSTOMERS C,
+                   ORDERS O,
+                   ORDER_ITEMS OI
+             WHERE UPPER(TRIM(C.NAME)) = UPPER(TRIM(#{name}))
+               AND C.CUSTOMER_ID = O.CUSTOMER_ID
+               AND O.ORDER_ID = OI.ORDER_ID
+               AND O.STATUS = 'SHIPPED'
+               AND TO_CHAR(O.ORDER_DATE, 'YYYY') = #{year}
+             GROUP BY
+                TO_CHAR(O.ORDER_DATE, 'MM')
+        )
+        SELECT
+            #{year} AS year,
+            M.month AS month,
+            NVL(OS.quantity, 0) AS quantity
+          FROM MONTHS M,
+               ORDER_SUM OS
+         WHERE M.month = OS.month(+)
+         ORDER BY
+            M.month
+    </select>
+
+</mapper>

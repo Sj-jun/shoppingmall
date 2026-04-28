@@ -13,7 +13,7 @@
             if (Form == this.constructor) {
                 this.set_name("ChangePopupForm");
                 this.set_titletext("New Form");
-                this._setFormPosition(0,0,439,224);
+                this._setFormPosition(0,0,439,222);
             }
 
             
@@ -33,32 +33,32 @@
 
             
             // UI Components Initialize
-            obj = new Div("div_category01", "absolute", "119", "145", "300", "30", null, null, this);
+            obj = new Div("div_category01", "absolute", "119", "143", "300", "30", null, null, this);
             obj.set_taborder("14");
             obj.style.set_border("1 solid black");
             this.addChild(obj.name, obj);
 
-            obj = new Div("div_category02", "absolute", "119", "116", "300", "30", null, null, this);
+            obj = new Div("div_category02", "absolute", "119", "114", "300", "30", null, null, this);
             obj.set_taborder("15");
             obj.style.set_border("1 solid black");
             this.addChild(obj.name, obj);
 
-            obj = new Div("div_category03", "absolute", "119", "174", "300", "30", null, null, this);
+            obj = new Div("div_category03", "absolute", "119", "172", "300", "30", null, null, this);
             obj.set_taborder("16");
             obj.style.set_border("1 solid black");
             this.addChild(obj.name, obj);
 
-            obj = new Div("div_category", "absolute", "119", "58", "300", "30", null, null, this);
+            obj = new Div("div_category", "absolute", "119", "56", "300", "30", null, null, this);
             obj.set_taborder("12");
             obj.style.set_border("1 solid black");
             this.addChild(obj.name, obj);
 
-            obj = new Div("div_category00", "absolute", "119", "87", "300", "30", null, null, this);
+            obj = new Div("div_category00", "absolute", "119", "85", "300", "30", null, null, this);
             obj.set_taborder("13");
             obj.style.set_border("1 solid black");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_category", "absolute", "20", "58", "100", "30", null, null, this);
+            obj = new Static("sta_category", "absolute", "20", "56", "100", "30", null, null, this);
             obj.set_taborder("7");
             obj.set_text("카테고리");
             obj.style.set_background("navajowhite");
@@ -66,7 +66,7 @@
             obj.style.set_align("center middle");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_product", "absolute", "20", "87", "100", "30", null, null, this);
+            obj = new Static("sta_product", "absolute", "20", "85", "100", "30", null, null, this);
             obj.set_taborder("8");
             obj.set_text("상품명");
             obj.style.set_background("navajowhite");
@@ -74,7 +74,7 @@
             obj.style.set_align("center middle");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_min", "absolute", "20", "116", "100", "30", null, null, this);
+            obj = new Static("sta_min", "absolute", "20", "114", "100", "30", null, null, this);
             obj.set_taborder("9");
             obj.set_text("최소 수량");
             obj.style.set_background("navajowhite");
@@ -82,7 +82,7 @@
             obj.style.set_align("center middle");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_max", "absolute", "20", "145", "100", "30", null, null, this);
+            obj = new Static("sta_max", "absolute", "20", "143", "100", "30", null, null, this);
             obj.set_taborder("10");
             obj.set_text("최대 수량");
             obj.style.set_background("navajowhite");
@@ -90,7 +90,7 @@
             obj.style.set_align("center middle");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_quantity", "absolute", "20", "174", "100", "30", null, null, this);
+            obj = new Static("sta_quantity", "absolute", "20", "172", "100", "30", null, null, this);
             obj.set_taborder("11");
             obj.set_text("수량");
             obj.style.set_background("navajowhite");
@@ -106,7 +106,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00", "absolute", "7.23%", "50", "300", "8", null, null, this);
+            obj = new Static("Static00", "absolute", "16.4%", "48", "300", "8", null, null, this);
             obj.set_taborder("18");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -114,7 +114,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_save", "absolute", "349", "20", "70", "30", null, null, this);
+            obj = new Button("btn_save", "absolute", "349", "19", "70", "30", null, null, this);
             obj.set_taborder("19");
             obj.set_text("저장");
             obj.style.set_background("midnightblue");
@@ -130,13 +130,13 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_change", "absolute", "20", "20", "120", "30", null, null, this);
+            obj = new Static("sta_change", "absolute", "19", "19", "120", "30", null, null, this);
             obj.set_taborder("21");
             obj.set_text("▣ 일괄 변경");
             obj.style.set_font("12 Dotum");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("cbo_category", "absolute", "123", "60", "292", "26", null, null, this);
+            obj = new Combo("cbo_category", "absolute", "123", "58", "292", "26", null, null, this);
             this.addChild(obj.name, obj);
             obj.set_taborder("0");
             obj.set_text("Combo00");
@@ -147,7 +147,7 @@
             obj.style.set_border("1 solid #808080ff");
             obj.style.set_align("center middle");
 
-            obj = new Combo("cbo_productName", "absolute", "235", "89", "180", "26", null, null, this);
+            obj = new Combo("cbo_productName", "absolute", "235", "87", "180", "26", null, null, this);
             this.addChild(obj.name, obj);
             obj.set_taborder("2");
             obj.set_innerdataset("@ds_allProduct");
@@ -157,21 +157,23 @@
             obj.style.set_align("center middle");
             obj.set_displaynulltext("-선택-");
 
-            obj = new Edit("edt_max", "absolute", "123", "147", "292", "26", null, null, this);
+            obj = new Edit("edt_max", "absolute", "123", "145", "292", "26", null, null, this);
             obj.set_taborder("4");
             obj.set_enable("true");
             obj.style.set_border("1 solid #808080ff");
             obj.style.set_color("#444444ff");
+            obj.style.set_padding("5 5 5 5");
             obj.style.set_bordertype("normal 1 1");
             obj.style.set_align("right middle");
             obj.style.setStyleValue("border", "disabled", "1 solid #808080ff");
             obj.set_readonly("true");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_productId", "absolute", "123", "89", "108", "26", null, null, this);
+            obj = new Edit("edt_productId", "absolute", "123", "87", "108", "26", null, null, this);
             obj.set_taborder("1");
             obj.set_enable("true");
             obj.style.set_color("#444444ff");
+            obj.style.set_padding("5 5 5 5");
             obj.style.set_align("center middle");
             obj.style.setStyleValue("align", "disabled", "right middle");
             obj.style.setStyleValue("border", "readonly", "1 solid #808080ff");
@@ -180,18 +182,19 @@
             obj.set_readonly("true");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_min", "absolute", "123", "118", "292", "26", null, null, this);
+            obj = new Edit("edt_min", "absolute", "123", "116", "292", "26", null, null, this);
             obj.set_taborder("3");
             obj.set_enable("true");
             obj.style.set_border("1 solid #808080ff");
             obj.style.set_color("#444444ff");
+            obj.style.set_padding("5 5 5 5");
             obj.style.set_bordertype("normal 1 1");
             obj.style.set_align("right middle");
             obj.style.setStyleValue("border", "disabled", "1 solid #808080ff");
             obj.set_readonly("true");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02", "absolute", "199", "204", "50", "20", null, null, this);
+            obj = new Static("Static02", "absolute", "199", "202", "50", "20", null, null, this);
             obj.set_taborder("6");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -199,7 +202,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static04", "absolute", "419", "80", "20", "48", null, null, this);
+            obj = new Static("Static04", "absolute", "419", "78", "20", "48", null, null, this);
             obj.set_taborder("22");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -207,9 +210,26 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new MaskEdit("edt_quantity", "absolute", "123", "176", "292", "26", null, null, this);
+            obj = new MaskEdit("edt_quantity", "absolute", "123", "174", "292", "26", null, null, this);
             obj.set_taborder("5");
             obj.set_mask("##,###,###");
+            obj.style.set_padding("5 5 5 5");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static05", "absolute", "415", "58", "3", "150", null, null, this);
+            obj.set_taborder("23");
+            obj.set_text("Static01");
+            obj.set_visible("false");
+            obj.style.set_background("coral");
+            obj.style.set_opacity("30");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static06", "absolute", "120", "57", "3", "150", null, null, this);
+            obj.set_taborder("24");
+            obj.set_text("Static01");
+            obj.set_visible("false");
+            obj.style.set_background("coral");
+            obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
 
@@ -238,7 +258,7 @@
             this.div_category00.addLayout(obj.name, obj);
 
             //-- Default Layout
-            obj = new Layout("default", "", 439, 224, this,
+            obj = new Layout("default", "", 439, 222, this,
             	//-- Layout function
             	function(p) {
             		p.set_titletext("New Form");

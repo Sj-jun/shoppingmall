@@ -13,7 +13,7 @@
             if (Form == this.constructor) {
                 this.set_name("ChartForm");
                 this.set_titletext("New Form");
-                this._setFormPosition(0,0,840,566);
+                this._setFormPosition(0,0,840,552);
             }
 
             
@@ -29,23 +29,23 @@
 
             
             // UI Components Initialize
-            obj = new WebBrowser("web_chart", "absolute", "21", "147", "800", "400", null, null, this);
+            obj = new WebBrowser("web_chart", "absolute", "21", "133", "800", "400", null, null, this);
             obj.set_taborder("0");
             obj.set_url("http://localhost:8080/chart/chart.html?v=4");
             this.addChild(obj.name, obj);
 
-            obj = new Static("title_chart", "absolute", "19", "17", "382", "40", null, null, this);
+            obj = new Static("title_chart", "absolute", "20", "9", "382", "40", null, null, this);
             obj.set_taborder("1");
             obj.set_text("∘ 월별 주문량 현황 차트");
             obj.style.set_font("bold 16 Dotum");
             this.addChild(obj.name, obj);
 
-            obj = new Div("div_year", "absolute", "21", "94", "799", "41", null, null, this);
+            obj = new Div("div_year", "absolute", "21", "84", "799", "41", null, null, this);
             obj.set_taborder("2");
             obj.style.set_border("1 solid lightskyblue");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static04", "absolute", "8.33%", "92", "10", "48", null, null, this);
+            obj = new Static("Static04", "absolute", "7.86%", "82", "10", "48", null, null, this);
             obj.set_taborder("4");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -53,7 +53,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03", "absolute", "2.62%", "90", "20", "48", null, null, this);
+            obj = new Static("Static03", "absolute", "2.62%", "80", "20", "48", null, null, this);
             obj.set_taborder("8");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -61,15 +61,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02", "absolute", "58.45%", "92", "20", "48", null, null, this);
-            obj.set_taborder("9");
-            obj.set_text("Static01");
-            obj.set_visible("false");
-            obj.style.set_background("coral");
-            obj.style.set_opacity("30");
-            this.addChild(obj.name, obj);
-
-            obj = new Static("Static06", "absolute", "8", "84", "74", "10", null, null, this);
+            obj = new Static("Static06", "absolute", "8", "74", "74", "10", null, null, this);
             obj.set_taborder("10");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -77,13 +69,13 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_order", "absolute", "20", "53", "118", "46", null, null, this);
+            obj = new Static("sta_order", "absolute", "20", "43", "118", "46", null, null, this);
             obj.set_taborder("11");
             obj.set_text("▣ 주문 현황");
             obj.style.set_font("bold 12 Dotum");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00", "absolute", "9", "48", "74", "20", null, null, this);
+            obj = new Static("Static00", "absolute", "9", "38", "74", "20", null, null, this);
             obj.set_taborder("12");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -91,7 +83,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01", "absolute", "0", "127", "20", "60", null, null, this);
+            obj = new Static("Static01", "absolute", "0", "117", "20", "60", null, null, this);
             obj.set_taborder("16");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -99,7 +91,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static05", "absolute", "820", "122", "20", "60", null, null, this);
+            obj = new Static("Static05", "absolute", "820", "112", "20", "60", null, null, this);
             obj.set_taborder("17");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -107,7 +99,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static07", "absolute", "0.83%", "137", "981", "8", null, null, this);
+            obj = new Static("Static07", "absolute", "0.83%", "125", "981", "8", null, null, this);
             obj.set_taborder("18");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -115,13 +107,13 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_year", "absolute", "44", "91", "28", "46", null, null, this);
+            obj = new Static("sta_year", "absolute", "42", "81", "28", "46", null, null, this);
             obj.set_taborder("20");
             obj.set_text("연도");
             obj.style.set_font("10 Dotum");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static08", "absolute", "408", "546", "40", "20", null, null, this);
+            obj = new Static("Static08", "absolute", "408", "532", "40", "20", null, null, this);
             obj.set_taborder("21");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -129,7 +121,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static09", "absolute", "283", "0", "45", "20", null, null, this);
+            obj = new Static("Static09", "absolute", "251", "0", "45", "20", null, null, this);
             obj.set_taborder("22");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -137,7 +129,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Spin("sp_year", "absolute", "81", "101", "152", "26", null, null, this);
+            obj = new Spin("sp_year", "absolute", "76", "91", "152", "26", null, null, this);
             obj.set_taborder("23");
             obj.set_value("0");
             obj.set_max("3000");
@@ -160,7 +152,7 @@
             this.div_year.addLayout(obj.name, obj);
 
             //-- Default Layout
-            obj = new Layout("default", "", 840, 566, this,
+            obj = new Layout("default", "", 840, 552, this,
             	//-- Layout function
             	function(p) {
             		p.set_titletext("New Form");
@@ -188,6 +180,12 @@
         
         // User Script
         this.registerScript("ChartForm.xfdl", function(exports) {
+        /*
+        화면명 : 주문목록 차트 화면
+        작성자 : 정상준
+        작성일자 : 2026-04-21
+        */
+
         this.fv_customerName = "";
 
         //주문 수량을 배열에 담는다.
@@ -237,15 +235,10 @@
                 alert("처리 실패 : " + sErrorMsg);
                 return;
             }
-            for(var i=0; i<this.ds_chart.getRowCount(); i++)
-            {
-        		trace("월= " + this.ds_chart.getColumn(i, "month") + " 수량= " + this.ds_chart.getColumn(i, "quantity"));
-            }
             trace("web onloadcompleted 실행");
             trace("rowcount = " + this.ds_chart.getRowCount());
         	for(var i=0; i<this.ds_chart.getRowCount(); i++){
         		this.mQuantity.push(this.ds_chart.getColumn(i, "quantity"));
-        		trace("배열 = " + this.mQuantity[i]);
         	}
         	this.fv_chartDataReady = true;
         	this.fn_drawChart();

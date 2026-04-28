@@ -49,35 +49,21 @@
             obj.set_taborder("1");
             obj.set_binddataset("ds_location");
             obj.set_nodatatext("No Data");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"48\"/><Column size=\"167\"/><Column size=\"204\"/><Column size=\"227\"/><Column size=\"324\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkbox\" edittype=\"checkbox\" style=\"background:#c8ebffff;\" text=\"bind:chk\" imagestretch=\"none\"/><Cell col=\"1\" style=\"background:#c8ebffff;\" text=\"주\"/><Cell col=\"2\" style=\"background:#c8ebffff;\" text=\"도시명\"/><Cell col=\"3\" style=\"background:#c8ebffff;\" text=\"우편번호\"/><Cell col=\"4\" style=\"background:#c8ebffff;\" text=\"창고위치\"/></Band><Band id=\"body\"><Cell displaytype=\"checkbox\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" displaytype=\"text\" edittype=\"text\" style=\"align:left middle;\" text=\"bind:state\" editlimit=\"85\" editlengthunit=\"utf8\"/><Cell col=\"2\" displaytype=\"text\" edittype=\"text\" style=\"align:left middle;\" text=\"bind:city\" editlimit=\"85\" editlengthunit=\"utf8\"/><Cell col=\"3\" displaytype=\"text\" edittype=\"text\" style=\"align:left;\" text=\"bind:postalCode\" editlimit=\"85\" editlengthunit=\"utf8\"/><Cell col=\"4\" displaytype=\"text\" edittype=\"text\" style=\"align:left middle;\" text=\"bind:locationName\" editlimit=\"85\" editlengthunit=\"utf8\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"48\"/><Column size=\"167\"/><Column size=\"204\"/><Column size=\"227\"/><Column size=\"324\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkbox\" edittype=\"checkbox\" style=\"background:#c8ebffff;\" text=\"bind:chk\" imagestretch=\"none\"/><Cell col=\"1\" style=\"background:#c8ebffff;\" text=\"주\"/><Cell col=\"2\" style=\"background:#c8ebffff;\" text=\"도시명\"/><Cell col=\"3\" style=\"background:#c8ebffff;\" text=\"우편번호\"/><Cell col=\"4\" style=\"background:#c8ebffff;\" text=\"창고위치\"/></Band><Band id=\"body\"><Cell displaytype=\"checkbox\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" displaytype=\"text\" edittype=\"text\" style=\"align:left middle;padding:0 5 0 5;\" text=\"bind:state\" editlimit=\"85\" editlengthunit=\"utf8\"/><Cell col=\"2\" displaytype=\"text\" edittype=\"text\" style=\"align:left middle;padding:0 5 0 5;\" text=\"bind:city\" editlimit=\"85\" editlengthunit=\"utf8\"/><Cell col=\"3\" displaytype=\"text\" edittype=\"text\" style=\"align:left;padding:0 5 0 5;\" text=\"bind:postalCode\" editlimit=\"85\" editlengthunit=\"utf8\"/><Cell col=\"4\" displaytype=\"text\" edittype=\"text\" style=\"align:left middle;padding:0 5 0 5;\" text=\"bind:locationName\" editlimit=\"85\" editlengthunit=\"utf8\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Div("div_cond", "absolute", "19", "56", "970", "45", null, null, this);
             obj.set_taborder("0");
             obj.style.set_background("gainsboro");
             this.addChild(obj.name, obj);
-            obj = new Static("Static06", "absolute", "57.84%", "-2", "45", "48", null, null, this.div_cond);
-            obj.set_taborder("15");
-            obj.set_text("Static01");
-            obj.set_visible("false");
-            obj.style.set_background("coral");
-            obj.style.set_opacity("30");
-            this.div_cond.addChild(obj.name, obj);
-            obj = new Static("Static03", "absolute", "65.44%", "0", "10", "48", null, null, this.div_cond);
-            obj.set_taborder("17");
-            obj.set_text("Static01");
-            obj.set_visible("false");
-            obj.style.set_background("coral");
-            obj.style.set_opacity("30");
-            this.div_cond.addChild(obj.name, obj);
-            obj = new Static("Static00", "absolute", "263", "-2", "45", "48", null, null, this.div_cond);
+            obj = new Static("Static00", "absolute", "261", "-2", "45", "48", null, null, this.div_cond);
             obj.set_taborder("20");
             obj.set_text("Static01");
             obj.set_visible("false");
             obj.style.set_background("coral");
             obj.style.set_opacity("30");
             this.div_cond.addChild(obj.name, obj);
-            obj = new Static("Static01", "absolute", "34.23%", "0", "10", "48", null, null, this.div_cond);
+            obj = new Static("Static01", "absolute", "33.92%", "0", "10", "48", null, null, this.div_cond);
             obj.set_taborder("21");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -91,14 +77,14 @@
             obj.style.set_background("coral");
             obj.style.set_opacity("30");
             this.div_cond.addChild(obj.name, obj);
-            obj = new Static("Static04", "absolute", "7.11%", "0", "10", "48", null, null, this.div_cond);
+            obj = new Static("Static04", "absolute", "6.8%", "0", "10", "48", null, null, this.div_cond);
             obj.set_taborder("23");
             obj.set_text("Static01");
             obj.set_visible("false");
             obj.style.set_background("coral");
             obj.style.set_opacity("30");
             this.div_cond.addChild(obj.name, obj);
-            obj = new Combo("cbo_region", "absolute", "79", "8", "186", "28", null, null, this.div_cond);
+            obj = new Combo("cbo_region", "absolute", "76", "8", "186", "28", null, null, this.div_cond);
             this.div_cond.addChild(obj.name, obj);
             obj.set_taborder("0");
             obj.set_text("Combo00");
@@ -107,7 +93,7 @@
             obj.set_datacolumn("regionName");
             obj.set_displaynulltext("-선택-");
             obj.style.set_align("center middle");
-            obj = new Combo("cbo_country", "absolute", "342", "8", "186", "28", null, null, this.div_cond);
+            obj = new Combo("cbo_country", "absolute", "339", "8", "186", "28", null, null, this.div_cond);
             this.div_cond.addChild(obj.name, obj);
             obj.set_taborder("1");
             obj.set_text("Combo01");
@@ -116,11 +102,11 @@
             obj.set_datacolumn("countryName");
             obj.set_displaynulltext("-선택-");
             obj.style.set_align("center middle");
-            obj = new Static("sta_region", "absolute", "46", "8", "28", "28", null, null, this.div_cond);
+            obj = new Static("sta_region", "absolute", "44", "8", "28", "28", null, null, this.div_cond);
             obj.set_taborder("26");
             obj.set_text("지역");
             this.div_cond.addChild(obj.name, obj);
-            obj = new Static("sta_country", "absolute", "307", "8", "28", "28", null, null, this.div_cond);
+            obj = new Static("sta_country", "absolute", "305", "8", "28", "28", null, null, this.div_cond);
             obj.set_taborder("27");
             obj.set_text("국가");
             this.div_cond.addChild(obj.name, obj);
@@ -138,7 +124,7 @@
             obj.style.set_font("bold 10 Dotum");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_search", "absolute", "845", "20", "70", "30", null, null, this);
+            obj = new Button("btn_search", "absolute", "847", "20", "70", "30", null, null, this);
             obj.set_taborder("4");
             obj.set_text("조회");
             obj.style.set_background("midnightblue");
@@ -162,7 +148,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static12", "absolute", "915", "3", "4", "48", null, null, this);
+            obj = new Static("Static12", "absolute", "916", "3", "4", "48", null, null, this);
             obj.set_taborder("8");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -178,7 +164,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_title", "absolute", "21", "15", "360", "40", null, null, this);
+            obj = new Static("sta_title", "absolute", "17", "15", "360", "40", null, null, this);
             obj.set_taborder("10");
             obj.set_text("▣ 창고위치 관리");
             obj.style.set_font("bold 16 Dotum");

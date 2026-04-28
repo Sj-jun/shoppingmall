@@ -245,11 +245,6 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_log", "absolute", "437", "331", "999", "362", null, null, this);
-            obj.set_taborder("30");
-            obj.style.set_background("white");
-            this.addChild(obj.name, obj);
-
 
             
             // Layout Functions
@@ -815,7 +810,6 @@
             this.btn_back.addEventHandler("onclick", this.btn_back_onclick, this);
             this.btn_delete.addEventHandler("onclick", this.btn_delete_onclick, this);
             this.btn_order.addEventHandler("onclick", this.btn_order_onclick, this);
-            this.sta_log.addEventHandler("onclick", this.sta_log_onclick, this);
 
         };
 

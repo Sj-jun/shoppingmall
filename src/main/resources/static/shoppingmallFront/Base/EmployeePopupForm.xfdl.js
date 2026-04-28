@@ -13,7 +13,7 @@
             if (Form == this.constructor) {
                 this.set_name("EmployeePopupForm");
                 this.set_titletext("New Form");
-                this._setFormPosition(0,0,738,205);
+                this._setFormPosition(0,0,737,202);
             }
 
             
@@ -41,7 +41,7 @@
 
             
             // UI Components Initialize
-            obj = new Div("Div00", "absolute", "17", "57", "711", "137", null, null, this);
+            obj = new Div("Div00", "absolute", "17", "55", "711", "137", null, null, this);
             obj.set_taborder("1");
             obj.set_text("Div00");
             this.addChild(obj.name, obj);
@@ -208,13 +208,13 @@
             obj.set_clipmode("includespace");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Static("sta_title", "absolute", "20", "21", "260", "28", null, null, this);
+            obj = new Static("sta_title", "absolute", "20", "20", "260", "28", null, null, this);
             obj.set_taborder("0");
             obj.set_text("▣  직원 등록/수정");
             obj.style.set_font("12 Dotum");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_save", "absolute", "647", "20", "70", "30", null, null, this);
+            obj = new Button("btn_save", "absolute", "648", "19", "70", "30", null, null, this);
             obj.set_taborder("2");
             obj.set_text("저장");
             obj.style.set_background("midnightblue");
@@ -222,7 +222,7 @@
             obj.style.set_color("ivory");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_update", "absolute", "647", "20", "70", "30", null, null, this);
+            obj = new Button("btn_update", "absolute", "648", "19", "70", "30", null, null, this);
             obj.set_taborder("3");
             obj.set_text("수정");
             obj.style.set_background("midnightblue");
@@ -230,7 +230,7 @@
             obj.style.set_color("ivory");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_delete", "absolute", "572", "20", "70", "30", null, null, this);
+            obj = new Button("btn_delete", "absolute", "576", "19", "70", "30", null, null, this);
             obj.set_taborder("4");
             obj.set_text("삭제");
             obj.style.set_background("midnightblue");
@@ -238,7 +238,7 @@
             obj.style.set_color("ivory");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00", "absolute", "503", "50", "235", "8", null, null, this);
+            obj = new Static("Static00", "absolute", "503", "48", "235", "8", null, null, this);
             obj.set_taborder("5");
             obj.set_text("Static00");
             obj.set_visible("false");
@@ -247,7 +247,7 @@
             obj.style.set_opacity("50");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static10", "absolute", "643", "7", "4", "48", null, null, this);
+            obj = new Static("Static10", "absolute", "645", "5", "4", "48", null, null, this);
             obj.set_taborder("6");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -255,7 +255,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01", "absolute", "0", "104", "20", "48", null, null, this);
+            obj = new Static("Static01", "absolute", "0", "102", "20", "48", null, null, this);
             obj.set_taborder("7");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -265,7 +265,7 @@
             obj.set_enableevent("false");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02", "absolute", "717", "95", "20", "48", null, null, this);
+            obj = new Static("Static02", "absolute", "717", "93", "20", "48", null, null, this);
             obj.set_taborder("8");
             obj.set_text("Static01");
             obj.set_enable("false");
@@ -285,8 +285,48 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03", "absolute", "304", "183", "128", "20", null, null, this);
+            obj = new Static("Static03", "absolute", "304", "181", "128", "20", null, null, this);
             obj.set_taborder("10");
+            obj.set_text("Static01");
+            obj.set_enable("false");
+            obj.set_visible("false");
+            obj.set_enableevent("false");
+            obj.style.set_background("coral");
+            obj.style.set_opacity("30");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static04", "absolute", "120", "62", "3", "100", null, null, this);
+            obj.set_taborder("11");
+            obj.set_text("Static01");
+            obj.set_enable("false");
+            obj.set_visible("false");
+            obj.set_enableevent("false");
+            obj.style.set_background("coral");
+            obj.style.set_opacity("30");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static05", "absolute", "415", "61", "3", "100", null, null, this);
+            obj.set_taborder("12");
+            obj.set_text("Static01");
+            obj.set_enable("false");
+            obj.set_visible("false");
+            obj.set_enableevent("false");
+            obj.style.set_background("coral");
+            obj.style.set_opacity("30");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static06", "absolute", "518", "65", "3", "100", null, null, this);
+            obj.set_taborder("13");
+            obj.set_text("Static01");
+            obj.set_enable("false");
+            obj.set_visible("false");
+            obj.set_enableevent("false");
+            obj.style.set_background("coral");
+            obj.style.set_opacity("30");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static08", "absolute", "713", "61", "3", "100", null, null, this);
+            obj.set_taborder("14");
             obj.set_text("Static01");
             obj.set_enable("false");
             obj.set_visible("false");
@@ -310,7 +350,7 @@
             this.Div00.addLayout(obj.name, obj);
 
             //-- Default Layout
-            obj = new Layout("default", "", 738, 205, this,
+            obj = new Layout("default", "", 737, 202, this,
             	//-- Layout function
             	function(p) {
             		p.set_titletext("New Form");

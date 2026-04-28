@@ -6,8 +6,9 @@ import java.util.List;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.company.shoppingmall.dto.CommonCodeDto;
@@ -90,7 +91,7 @@ public class EmployeeController {
     }
 
     //직책 목록
-    @GetMapping("/employees/common")
+    @RequestMapping(value = "/employees/common", method = {RequestMethod.GET, RequestMethod.POST})
     public void getEmployeeCommonData(HttpServletRequest request, HttpServletResponse response) throws IOException, Exception {
 
         List<CommonCodeDto> jobList = employeeService.getJobList();
@@ -118,7 +119,7 @@ public class EmployeeController {
     }
 
     //관리자 목록
-    @GetMapping("/managerList")
+    @RequestMapping(value = "/managerList", method = {RequestMethod.GET, RequestMethod.POST})
     public void getManagerList(HttpServletRequest request, HttpServletResponse response) throws IOException, Exception {
 
         List<ManagerDto> list = employeeService.getManagerList();

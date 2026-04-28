@@ -13,7 +13,7 @@
             if (Form == this.constructor) {
                 this.set_name("CategoryForm");
                 this.set_titletext("New Form");
-                this._setFormPosition(0,0,1061,602);
+                this._setFormPosition(0,0,1060,592);
             }
 
             
@@ -29,13 +29,13 @@
 
             
             // UI Components Initialize
-            obj = new Grid("grd_category", "absolute", "40", "131", "320", "410", null, null, this);
+            obj = new Grid("grd_category", "absolute", "40", "122", "320", "410", null, null, this);
             obj.set_taborder("4");
             obj.set_binddataset("ds_category");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"238\"/><Column size=\"82\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"background:#c8ebffff;\" text=\"카테고리명\"/><Cell col=\"1\" style=\"background:#c8ebffff;\" text=\"상품수\"/></Band><Band id=\"body\"><Cell style=\"align:left;padding:5 15 5 5;\" text=\"bind:categoryName\"/><Cell col=\"1\" style=\"align:right;padding:5 5 5 15;\" text=\"bind:productCount\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"238\"/><Column size=\"82\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"background:#c8ebffff;\" text=\"카테고리명\"/><Cell col=\"1\" style=\"background:#c8ebffff;\" text=\"상품수\"/></Band><Band id=\"body\"><Cell style=\"align:left;padding:5 5 5 5;\" text=\"bind:categoryName\"/><Cell col=\"1\" style=\"align:right;padding:5 5 5 5;\" text=\"bind:productCount\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("grd_order", "absolute", "376", "131", "645", "410", null, null, this);
+            obj = new Grid("grd_order", "absolute", "376", "122", "645", "410", null, null, this);
             obj.set_taborder("5");
             obj.set_binddataset("ds_order");
             obj.set_scrollbars("autovert");
@@ -43,7 +43,7 @@
             obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"300\"/><Column size=\"90\"/><Column size=\"105\"/><Column size=\"139\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell style=\"background:#c8ebffff;\" text=\"상품명\"/><Cell col=\"1\" style=\"background:#c8ebffff;\" text=\"주문 횟수\"/><Cell col=\"2\" style=\"background:#c8ebffff;\" text=\"누적 주문 수량\"/><Cell col=\"3\" style=\"background:#c8ebffff;\" text=\"누적 주문 가격\"/></Band><Band id=\"body\"><Cell style=\"align:left;padding:5 5 5 5;\" text=\"bind:productName\" tooltiptext=\"bind:productName\"/><Cell col=\"1\" style=\"align:right;padding:5 5 5 5;\" text=\"bind:orderCount\"/><Cell col=\"2\" style=\"align:right;padding:5 5 5 5;\" text=\"bind:totalOrderQuantity\"/><Cell col=\"3\" style=\"align:right;padding:5 5 5 5;\" text=\"bind:totalOrderPrice\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00", "absolute", "3.86%", "123", "981", "8", null, null, this);
+            obj = new Static("Static00", "absolute", "3.86%", "114", "981", "8", null, null, this);
             obj.set_taborder("6");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -51,7 +51,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_wReset", "absolute", "986", "96", "35", "28", null, null, this);
+            obj = new Button("btn_wReset", "absolute", "986", "87", "35", "28", null, null, this);
             obj.set_taborder("7");
             obj.style.set_image("URL('C:/Users/e1/Pictures/reset3.png')");
             obj.style.set_background("midnightblue");
@@ -60,19 +60,19 @@
             obj.style.set_font("18 Dotum");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_category", "absolute", "40", "95", "252", "28", null, null, this);
+            obj = new Static("sta_category", "absolute", "39", "92", "252", "28", null, null, this);
             obj.set_taborder("8");
             obj.set_text("▣ 카테고리 별 주문목록 현황");
             obj.style.set_font("bold 12 Dotum");
             this.addChild(obj.name, obj);
 
-            obj = new Static("title_category", "absolute", "38", "50", "382", "40", null, null, this);
+            obj = new Static("title_category", "absolute", "39", "50", "382", "40", null, null, this);
             obj.set_taborder("9");
             obj.set_text("∘ 카테고리별 현황");
             obj.style.set_font("bold 16 Dotum");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static13", "absolute", "42", "81", "93", "20", null, null, this);
+            obj = new Static("Static13", "absolute", "43", "78", "93", "20", null, null, this);
             obj.set_taborder("10");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -88,7 +88,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01", "absolute", "0", "166", "40", "60", null, null, this);
+            obj = new Static("Static01", "absolute", "0", "157", "40", "60", null, null, this);
             obj.set_taborder("13");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -96,7 +96,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02", "absolute", "396", "541", "40", "60", null, null, this);
+            obj = new Static("Static02", "absolute", "396", "532", "40", "60", null, null, this);
             obj.set_taborder("14");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -104,7 +104,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03", "absolute", "1020", "290", "40", "60", null, null, this);
+            obj = new Static("Static03", "absolute", "1020", "281", "40", "60", null, null, this);
             obj.set_taborder("15");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -112,7 +112,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_back", "absolute", "15", "15", "25", "25", null, null, this);
+            obj = new Button("btn_back", "absolute", "18", "15", "25", "25", null, null, this);
             obj.set_taborder("16");
             obj.style.set_image("URL('C:/Users/e1/Desktop/CssImage/free-icon-left-6657529.png')");
             obj.style.set_background("@gradation");
@@ -123,11 +123,19 @@
             obj.style.set_gradation("none 0,0 white 100,100 black");
             this.addChild(obj.name, obj);
 
+            obj = new Static("Static04", "absolute", "360", "90", "16", "421", null, null, this);
+            obj.set_taborder("17");
+            obj.set_text("Static01");
+            obj.set_visible("false");
+            obj.style.set_background("coral");
+            obj.style.set_opacity("30");
+            this.addChild(obj.name, obj);
+
 
             
             // Layout Functions
             //-- Default Layout
-            obj = new Layout("default", "", 1061, 602, this,
+            obj = new Layout("default", "", 1060, 592, this,
             	//-- Layout function
             	function(p) {
             		p.set_titletext("New Form");
@@ -251,17 +259,7 @@
         			"categoryId=" + this.ds_category.getColumn(0, "categoryId"),
         			"fn_orderCallback"
         		);
-         /*
-            var nRow = this.ds_order.addRow();
-            this.ds_order.setColumn(nRow, "categoryId", "");
-            this.ds_order.setColumn(nRow, "categoryName", "");
-            this.ds_order.setColumn(nRow, "productId", "");
-            this.ds_order.setColumn(nRow, "productName", "");
-        	this.ds_order.setColumn(nRow, "productId", "");
-            this.ds_order.setColumn(nRow, "orderCount", "");
-            this.ds_order.setColumn(nRow, "totalOrderPrice", "");
-            this.ds_order.setColumn(nRow, "totalOrderQuantity", "");
-            */
+
         };
         
         });

@@ -13,7 +13,7 @@
             if (Form == this.constructor) {
                 this.set_name("EmployeeForm");
                 this.set_titletext("New Form");
-                this._setFormPosition(0,0,1061,654);
+                this._setFormPosition(0,0,1061,651);
             }
             this.style.set_border("1 solid #000000ff");
             this.style.set_bordertype("normal 1 1");
@@ -43,7 +43,7 @@
 
             
             // UI Components Initialize
-            obj = new Grid("grdEmployees", "absolute", "40", "183", "982", "410", null, null, this);
+            obj = new Grid("grdEmployees", "absolute", "40", "182", "982", "410", null, null, this);
             obj.set_taborder("4");
             obj.set_binddataset("ds_employees");
             obj.set_autosizingtype("none");
@@ -73,13 +73,13 @@
             obj.style.set_font("10 Dotum");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sub", "absolute", "40", "94", "140", "28", null, null, this);
+            obj = new Static("sub", "absolute", "39", "91", "140", "30", null, null, this);
             obj.set_taborder("8");
             obj.set_text("▣ 직원 목록");
             obj.style.set_font("bold 12 Dotum");
             this.addChild(obj.name, obj);
 
-            obj = new Static("title", "absolute", "39", "49", "382", "40", null, null, this);
+            obj = new Static("title", "absolute", "38", "50", "382", "40", null, null, this);
             obj.set_taborder("13");
             obj.set_text("∘ 직원 목록 및 관리");
             obj.style.set_font("bold 16 Dotum");
@@ -98,39 +98,40 @@
             obj.set_datacolumn("managerName");
             obj.set_displaynulltext("-전체-");
             obj.style.set_align("center middle");
-            obj = new Calendar("calFrom", "absolute", "323", "8", "120", "28", null, null, this.div_cond);
+            obj = new Calendar("calFrom", "absolute", "325", "8", "120", "28", null, null, this.div_cond);
             this.div_cond.addChild(obj.name, obj);
             obj.set_taborder("13");
             obj.style.set_padding("5 5 5 10");
             obj.set_dateformat("yyyy-MM-dd ");
             obj.set_value("null");
-            obj = new Calendar("calTo", "absolute", "463", "8", "123", "28", null, null, this.div_cond);
+            obj = new Calendar("calTo", "absolute", "465", "8", "123", "28", null, null, this.div_cond);
             this.div_cond.addChild(obj.name, obj);
             obj.set_taborder("14");
             obj.style.set_padding("5 5 5 10");
             obj.set_dateformat("yyyy-MM-dd ");
             obj.set_value("null");
-            obj = new Edit("edtName", "absolute", "80", "8", "156", "28", null, null, this.div_cond);
+            obj = new Edit("edtName", "absolute", "79", "8", "156", "28", null, null, this.div_cond);
             obj.set_taborder("12");
             obj.set_maxlength("85");
             obj.set_lengthunit("utf8");
+            obj.style.set_padding("5 5 5 5");
             this.div_cond.addChild(obj.name, obj);
-            obj = new Static("ename", "absolute", "46", "8", "28", "28", null, null, this.div_cond);
+            obj = new Static("ename", "absolute", "45", "8", "28", "28", null, null, this.div_cond);
             obj.set_taborder("400");
             obj.set_text("이름");
             obj.style.set_font("10 Dotum");
             this.div_cond.addChild(obj.name, obj);
-            obj = new Static("h_date", "absolute", "277", "8", "41", "28", null, null, this.div_cond);
+            obj = new Static("h_date", "absolute", "279", "8", "41", "28", null, null, this.div_cond);
             obj.set_taborder("500");
             obj.set_text("고용일");
             obj.style.set_font("10 Dotum");
             this.div_cond.addChild(obj.name, obj);
-            obj = new Static("mgr", "absolute", "632", "8", "55", "28", null, null, this.div_cond);
+            obj = new Static("mgr", "absolute", "633", "8", "55", "28", null, null, this.div_cond);
             obj.set_taborder("600");
             obj.set_text("관리자");
             obj.style.set_font("10 Dotum");
             this.div_cond.addChild(obj.name, obj);
-            obj = new Static("Static01", "absolute", "447", "8", "12", "28", null, null, this.div_cond);
+            obj = new Static("Static01", "absolute", "449", "8", "12", "28", null, null, this.div_cond);
             obj.set_taborder("700");
             obj.set_text("~");
             obj.style.set_border("1 none #808080ff");
@@ -143,7 +144,7 @@
             obj.style.set_background("coral");
             obj.style.set_opacity("30");
             this.div_cond.addChild(obj.name, obj);
-            obj = new Static("Static05", "absolute", "458", null, "6", "48", null, "-3", this.div_cond);
+            obj = new Static("Static05", "absolute", "460", null, "6", "48", null, "-3", this.div_cond);
             obj.set_taborder("900");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -159,7 +160,7 @@
             obj.set_visible("false");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03", "absolute", "32.8%", "126", "10", "48", null, null, this);
+            obj = new Static("Static03", "absolute", "33.46%", "126", "10", "48", null, null, this);
             obj.set_taborder("16");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -167,7 +168,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static04", "absolute", "709", "128", "10", "48", null, null, this);
+            obj = new Static("Static04", "absolute", "710", "128", "10", "48", null, null, this);
             obj.set_taborder("17");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -175,7 +176,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static05", "absolute", "481", "128", "6", "48", null, null, this);
+            obj = new Static("Static05", "absolute", "483", "128", "6", "48", null, null, this);
             obj.set_taborder("18");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -183,7 +184,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static06", "absolute", "25.54%", "127", "45", "48", null, null, this);
+            obj = new Static("Static06", "absolute", "25.92%", "127", "45", "48", null, null, this);
             obj.set_taborder("19");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -191,7 +192,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btnReset", "absolute", "769", "90", "35", "30", null, null, this);
+            obj = new Button("btnReset", "absolute", "771", "90", "35", "30", null, null, this);
             obj.set_taborder("20");
             obj.style.set_image("URL('C:/Users/e1/Pictures/reset3.png')");
             obj.style.set_background("midnightblue");
@@ -210,7 +211,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00", "absolute", "58.15%", "128", "45", "48", null, null, this);
+            obj = new Static("Static00", "absolute", "59.1%", "128", "45", "48", null, null, this);
             obj.set_taborder("23");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -218,7 +219,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02", "absolute", "3.77%", "128", null, "48", "92.08%", null, this);
+            obj = new Static("Static02", "absolute", "40", "128", "45", "48", null, null, this);
             obj.set_taborder("24");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -266,7 +267,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static13", "absolute", "44", "80", "94", "20", null, null, this);
+            obj = new Static("Static13", "absolute", "44", "79", "94", "20", null, null, this);
             obj.set_taborder("30");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -290,7 +291,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_back", "absolute", "15", "15", "25", "25", null, null, this);
+            obj = new Button("btn_back", "absolute", "18", "15", "25", "25", null, null, this);
             obj.set_taborder("33");
             obj.style.set_image("URL('C:/Users/e1/Desktop/CssImage/free-icon-left-6657529.png')");
             obj.style.set_background("@gradation");
@@ -325,7 +326,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static19", "absolute", "536", "594", "40", "60", null, null, this);
+            obj = new Static("Static19", "absolute", "536", "591", "40", "60", null, null, this);
             obj.set_taborder("37");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -346,6 +347,14 @@
             obj.set_text("PopupDiv00");
             this.addChild(obj.name, obj);
 
+            obj = new Static("Static20", "absolute", "805", "82", "4", "48", null, null, this);
+            obj.set_taborder("39");
+            obj.set_text("Static01");
+            obj.set_visible("false");
+            obj.style.set_background("coral");
+            obj.style.set_opacity("30");
+            this.addChild(obj.name, obj);
+
 
             
             // Layout Functions
@@ -362,7 +371,7 @@
             this.div_cond.addLayout(obj.name, obj);
 
             //-- Default Layout
-            obj = new Layout("default", "", 1061, 654, this,
+            obj = new Layout("default", "", 1061, 651, this,
             	//-- Layout function
             	function(p) {
             		p.set_titletext("New Form");

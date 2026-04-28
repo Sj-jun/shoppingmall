@@ -13,7 +13,7 @@
             if (Form == this.constructor) {
                 this.set_name("WarehouseForm");
                 this.set_titletext("New Form");
-                this._setFormPosition(0,0,1062,667);
+                this._setFormPosition(0,0,1062,651);
             }
 
             
@@ -67,10 +67,14 @@
             obj._setContents("<ColumnInfo><Column id=\"colId\" type=\"STRING\" size=\"256\"/><Column id=\"colName\" type=\"STRING\" size=\"256\"/><Column id=\"cellIndex\" type=\"STRING\" size=\"256\"/><Column id=\"row\" type=\"STRING\" size=\"256\"/><Column id=\"colspan\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
+            obj = new Dataset("ds_excel", this);
+            obj._setContents("");
+            this.addChild(obj.name, obj);
+
 
             
             // UI Components Initialize
-            obj = new Button("btn_wExcel", "absolute", "952", "92", "70", "30", null, null, this);
+            obj = new Button("btn_wExcel", "absolute", "880", "90", "70", "30", null, null, this);
             obj.set_taborder("10");
             obj.set_text("엑셀");
             obj.style.set_background("midnightblue");
@@ -80,21 +84,21 @@
             obj.set_visible("true");
             this.addChild(obj.name, obj);
 
-            obj = new Grid("grd_warehouse", "absolute", "40", "181", "982", "410", null, null, this);
+            obj = new Grid("grd_warehouse", "absolute", "40", "179", "982", "410", null, null, this);
             obj.set_taborder("1");
             obj.set_binddataset("ds_warehouse");
             obj.set_autosizingtype("none");
             obj.set_autoenter("select");
             obj.set_readonly("false");
             obj.set_scrollbars("autovert");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"40\"/><Column size=\"127\"/><Column size=\"158\"/><Column size=\"188\"/><Column size=\"282\"/><Column size=\"186\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"25\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkbox\" edittype=\"checkbox\" style=\"background:#c8ebffff;\" text=\"bind:chk\" imagestretch=\"none\"/><Cell col=\"1\" style=\"background:#c8ebffff;\" text=\"관리번호\"/><Cell col=\"2\" style=\"background:#c8ebffff;\" text=\"지역\"/><Cell col=\"3\" style=\"background:#c8ebffff;\" text=\"국가\"/><Cell col=\"4\" style=\"background:#c8ebffff;\" text=\"창고위치\"/><Cell col=\"5\" style=\"background:#c8ebffff;\" text=\"창고명\"/></Band><Band id=\"body\"><Cell displaytype=\"checkbox\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" displaytype=\"text\" text=\"bind:warehouseId\" editlimit=\"85\" editlengthunit=\"utf8\"/><Cell col=\"2\" displaytype=\"combo\" style=\"align:left;\" text=\"bind:regionId\" editlimit=\"85\" editlengthunit=\"utf8\" combodataset=\"ds_region2\" combocodecol=\"regionId\" combodatacol=\"regionName\"/><Cell col=\"3\" displaytype=\"combo\" style=\"align:left;\" text=\"bind:countryId\" editlimit=\"85\" editlengthunit=\"utf8\" combodataset=\"ds_country2\" combocodecol=\"countryId\" combodatacol=\"countryName\"/><Cell col=\"4\" displaytype=\"combo\" style=\"align:left;\" text=\"bind:locationId\" editlimit=\"85\" editlengthunit=\"utf8\" combodataset=\"ds_location2\" combocodecol=\"locationId\" combodatacol=\"locationName\" tooltiptext=\"bind:locationName\"/><Cell col=\"5\" displaytype=\"text\" edittype=\"text\" style=\"align:left;\" text=\"bind:warehouseName\" editlimit=\"85\" editautoselect=\"false\" editacceptsenter=\"false\" editlengthunit=\"utf8\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"40\"/><Column size=\"127\"/><Column size=\"158\"/><Column size=\"188\"/><Column size=\"282\"/><Column size=\"186\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"25\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkbox\" edittype=\"checkbox\" style=\"background:#c8ebffff;\" text=\"bind:chk\" imagestretch=\"none\"/><Cell col=\"1\" style=\"background:#c8ebffff;\" text=\"관리번호\"/><Cell col=\"2\" style=\"background:#c8ebffff;\" text=\"지역\"/><Cell col=\"3\" style=\"background:#c8ebffff;\" text=\"국가\"/><Cell col=\"4\" style=\"background:#c8ebffff;\" text=\"창고위치\"/><Cell col=\"5\" style=\"background:#c8ebffff;\" text=\"창고명\"/></Band><Band id=\"body\"><Cell displaytype=\"checkbox\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" displaytype=\"text\" style=\"padding:0 5 0 5;\" text=\"bind:warehouseId\" editlimit=\"85\" editlengthunit=\"utf8\"/><Cell col=\"2\" displaytype=\"combo\" style=\"align:left;padding:0 5 0 5;\" text=\"bind:regionId\" editlimit=\"85\" editlengthunit=\"utf8\" combodataset=\"ds_region2\" combocodecol=\"regionId\" combodatacol=\"regionName\"/><Cell col=\"3\" displaytype=\"combo\" style=\"align:left;padding:0 5 0 5;\" text=\"bind:countryId\" editlimit=\"85\" editlengthunit=\"utf8\" combodataset=\"ds_country2\" combocodecol=\"countryId\" combodatacol=\"countryName\"/><Cell col=\"4\" displaytype=\"combo\" style=\"align:left;padding:0 5 0 5;\" text=\"bind:locationId\" editlimit=\"85\" editlengthunit=\"utf8\" combodataset=\"ds_location2\" combocodecol=\"locationId\" combodatacol=\"locationName\" tooltiptext=\"bind:locationName\"/><Cell col=\"5\" displaytype=\"text\" edittype=\"text\" style=\"align:left;padding:0 5 0 5;\" text=\"bind:warehouseName\" editlimit=\"85\" editautoselect=\"false\" editacceptsenter=\"false\" editlengthunit=\"utf8\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
-            obj = new Div("div_Wselect", "absolute", "40", "129", "982", "45", null, null, this);
+            obj = new Div("div_Wselect", "absolute", "40", "127", "982", "45", null, null, this);
             obj.set_taborder("0");
             obj.style.set_background("gainsboro");
             this.addChild(obj.name, obj);
-            obj = new Combo("cbo_location", "absolute", "636", "8", "186", "28", null, null, this.div_Wselect);
+            obj = new Combo("cbo_location", "absolute", "628", "8", "186", "28", null, null, this.div_Wselect);
             this.div_Wselect.addChild(obj.name, obj);
             obj.set_taborder("2");
             obj.set_text("Combo00");
@@ -103,7 +107,7 @@
             obj.set_datacolumn("locationName");
             obj.set_displaynulltext("-전체-");
             obj.style.set_align("center middle");
-            obj = new Combo("cbo_country", "absolute", "347", "8", "186", "28", null, null, this.div_Wselect);
+            obj = new Combo("cbo_country", "absolute", "341", "8", "186", "28", null, null, this.div_Wselect);
             this.div_Wselect.addChild(obj.name, obj);
             obj.set_taborder("1");
             obj.set_text("Combo00");
@@ -112,7 +116,7 @@
             obj.set_datacolumn("countryName");
             obj.set_displaynulltext("-전체-");
             obj.style.set_align("center middle");
-            obj = new Combo("cbo_region", "absolute", "79", "8", "186", "28", null, null, this.div_Wselect);
+            obj = new Combo("cbo_region", "absolute", "77", "8", "186", "28", null, null, this.div_Wselect);
             this.div_Wselect.addChild(obj.name, obj);
             obj.set_taborder("0");
             obj.set_text("Combo00");
@@ -122,42 +126,42 @@
             obj.set_displaynulltext("-전체-");
             obj.style.set_align("center middle");
             obj.set_type("dropdown");
-            obj = new Static("sta_location", "absolute", "576", "8", "69", "28", null, null, this.div_Wselect);
+            obj = new Static("sta_location", "absolute", "570", "8", "69", "28", null, null, this.div_Wselect);
             obj.set_taborder("4");
             obj.set_text("창고위치");
             obj.style.set_font("10 Dotum");
             this.div_Wselect.addChild(obj.name, obj);
-            obj = new Static("Static03", "absolute", "63.81%", "0", "10", "48", null, null, this.div_Wselect);
+            obj = new Static("Static03", "absolute", "63.03%", "0", "10", "48", null, null, this.div_Wselect);
             obj.set_taborder("5");
             obj.set_text("Static01");
             obj.set_visible("false");
             obj.style.set_background("coral");
             obj.style.set_opacity("30");
             this.div_Wselect.addChild(obj.name, obj);
-            obj = new Static("sta_region", "absolute", "45", "8", "28", "28", null, null, this.div_Wselect);
+            obj = new Static("sta_region", "absolute", "44", "8", "28", "28", null, null, this.div_Wselect);
             obj.set_taborder("6");
             obj.set_text("지역");
             this.div_Wselect.addChild(obj.name, obj);
-            obj = new Static("sta_country", "absolute", "310", "8", "41", "28", null, null, this.div_Wselect);
+            obj = new Static("sta_country", "absolute", "306", "8", "41", "28", null, null, this.div_Wselect);
             obj.set_taborder("7");
             obj.set_text("국가");
             obj.style.set_font("10 Dotum");
             this.div_Wselect.addChild(obj.name, obj);
-            obj = new Static("Static00", "absolute", "264", "-2", "45", "48", null, null, this.div_Wselect);
+            obj = new Static("Static00", "absolute", "262", "-2", "45", "48", null, null, this.div_Wselect);
             obj.set_taborder("8");
             obj.set_text("Static01");
             obj.set_visible("false");
             obj.style.set_background("coral");
             obj.style.set_opacity("30");
             this.div_Wselect.addChild(obj.name, obj);
-            obj = new Static("Static01", "absolute", "34.35%", "0", "10", "48", null, null, this.div_Wselect);
+            obj = new Static("Static01", "absolute", "33.71%", "0", "10", "48", null, null, this.div_Wselect);
             obj.set_taborder("9");
             obj.set_text("Static01");
             obj.set_visible("false");
             obj.style.set_background("coral");
             obj.style.set_opacity("30");
             this.div_Wselect.addChild(obj.name, obj);
-            obj = new Static("Static04", "absolute", "7.03%", "0", "10", "48", null, null, this.div_Wselect);
+            obj = new Static("Static04", "absolute", "6.82%", "0", "10", "48", null, null, this.div_Wselect);
             obj.set_taborder("11");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -165,7 +169,7 @@
             obj.style.set_opacity("30");
             this.div_Wselect.addChild(obj.name, obj);
 
-            obj = new Static("Static09", "absolute", "50.94%", "173", "522", "8", null, null, this);
+            obj = new Static("Static09", "absolute", "50.94%", "171", "522", "8", null, null, this);
             obj.set_taborder("8");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -173,7 +177,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00", "absolute", "50.94%", "121", "522", "8", null, null, this);
+            obj = new Static("Static00", "absolute", "49.53%", "119", "522", "8", null, null, this);
             obj.set_taborder("9");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -181,7 +185,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_wSearch", "absolute", "582", "92", "70", "30", null, null, this);
+            obj = new Button("btn_wSearch", "absolute", "520", "90", "70", "30", null, null, this);
             obj.set_taborder("11");
             obj.set_text("조회");
             obj.style.set_background("midnightblue");
@@ -189,7 +193,7 @@
             obj.style.set_color("ivory");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_wInsert", "absolute", "656", "92", "70", "30", null, null, this);
+            obj = new Button("btn_wInsert", "absolute", "592", "90", "70", "30", null, null, this);
             obj.set_taborder("12");
             obj.set_text("추가");
             obj.style.set_background("midnightblue");
@@ -197,7 +201,7 @@
             obj.style.set_color("ivory");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_wSave", "absolute", "730", "92", "70", "30", null, null, this);
+            obj = new Button("btn_wSave", "absolute", "664", "90", "70", "30", null, null, this);
             obj.set_taborder("13");
             obj.set_text("저장");
             obj.style.set_background("midnightblue");
@@ -205,7 +209,7 @@
             obj.style.set_color("ivory");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_wDel", "absolute", "804", "92", "70", "30", null, null, this);
+            obj = new Button("btn_wDel", "absolute", "736", "90", "70", "30", null, null, this);
             obj.set_taborder("14");
             obj.set_text("삭제");
             obj.style.set_background("midnightblue");
@@ -213,7 +217,7 @@
             obj.style.set_color("ivory");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_wLoc", "absolute", "878", "92", "70", "30", null, null, this);
+            obj = new Button("btn_wLoc", "absolute", "808", "90", "70", "30", null, null, this);
             obj.set_taborder("15");
             obj.set_text("위치관리");
             obj.style.set_background("midnightblue");
@@ -221,7 +225,7 @@
             obj.style.set_color("ivory");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static12", "absolute", "1019", "87", "4", "48", null, null, this);
+            obj = new Static("Static12", "absolute", "949", "84", "4", "48", null, null, this);
             obj.set_taborder("16");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -229,7 +233,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static04", "absolute", "948", "87", "4", "48", null, null, this);
+            obj = new Static("Static04", "absolute", "877", "84", "4", "48", null, null, this);
             obj.set_taborder("17");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -237,7 +241,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static05", "absolute", "874", "88", "4", "48", null, null, this);
+            obj = new Static("Static05", "absolute", "805", "86", "4", "48", null, null, this);
             obj.set_taborder("18");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -245,7 +249,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static07", "absolute", "800", "87", "4", "48", null, null, this);
+            obj = new Static("Static07", "absolute", "733", "84", "4", "48", null, null, this);
             obj.set_taborder("19");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -253,7 +257,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static08", "absolute", "726", "87", "4", "48", null, null, this);
+            obj = new Static("Static08", "absolute", "661", "83", "4", "48", null, null, this);
             obj.set_taborder("20");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -261,7 +265,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_wReset", "absolute", "543", "92", "35", "30", null, null, this);
+            obj = new Button("btn_wReset", "absolute", "483", "90", "35", "30", null, null, this);
             obj.set_taborder("21");
             obj.style.set_image("URL('C:/Users/e1/Pictures/reset3.png')");
             obj.style.set_background("midnightblue");
@@ -270,7 +274,7 @@
             obj.style.set_font("18 Dotum");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static10", "absolute", "578", "90", "4", "48", null, null, this);
+            obj = new Static("Static10", "absolute", "517", "87", "4", "48", null, null, this);
             obj.set_taborder("22");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -278,13 +282,13 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_wsub", "absolute", "40", "94", "140", "28", null, null, this);
+            obj = new Static("sta_wsub", "absolute", "40", "92", "140", "28", null, null, this);
             obj.set_taborder("23");
             obj.set_text("▣ 창고 목록");
             obj.style.set_font("bold 12 Dotum");
             this.addChild(obj.name, obj);
 
-            obj = new Static("warehouse_title", "absolute", "40", "49", "382", "40", null, null, this);
+            obj = new Static("warehouse_title", "absolute", "39", "49", "382", "40", null, null, this);
             obj.set_taborder("25");
             obj.set_text("∘ 창고 목록 및 관리");
             obj.style.set_font("bold 16 Dotum");
@@ -298,7 +302,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01", "absolute", "572", "129", "45", "48", null, null, this);
+            obj = new Static("Static01", "absolute", "566", "127", "45", "48", null, null, this);
             obj.set_taborder("28");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -306,7 +310,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02", "absolute", "40", "127", "45", "48", null, null, this);
+            obj = new Static("Static02", "absolute", "40", "125", "45", "48", null, null, this);
             obj.set_taborder("29");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -314,7 +318,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03", "absolute", "0", "215", "40", "59", null, null, this);
+            obj = new Static("Static03", "absolute", "0", "213", "40", "59", null, null, this);
             obj.set_taborder("31");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -322,7 +326,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static06", "absolute", "1021", "217", "40", "60", null, null, this);
+            obj = new Static("Static06", "absolute", "1021", "215", "40", "60", null, null, this);
             obj.set_taborder("32");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -330,7 +334,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static11", "absolute", "542", "591", "40", "60", null, null, this);
+            obj = new Static("Static11", "absolute", "542", "589", "40", "60", null, null, this);
             obj.set_taborder("33");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -346,7 +350,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static15", "absolute", "652", "88", "4", "48", null, null, this);
+            obj = new Static("Static15", "absolute", "589", "85", "4", "48", null, null, this);
             obj.set_taborder("35");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -354,7 +358,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_back", "absolute", "15", "15", "25", "25", null, null, this);
+            obj = new Button("btn_back", "absolute", "18", "15", "25", "25", null, null, this);
             obj.set_taborder("36");
             obj.style.set_image("URL('C:/Users/e1/Desktop/CssImage/free-icon-left-6657529.png')");
             obj.style.set_background("@gradation");
@@ -363,6 +367,14 @@
             obj.style.set_bordertype("normal 10 10");
             obj.style.set_font("18 arial");
             obj.style.set_gradation("none 0,0 white 100,100 black");
+            this.addChild(obj.name, obj);
+
+            obj = new Button("btn_upload", "absolute", "952", "90", "70", "30", null, null, this);
+            obj.set_taborder("37");
+            obj.set_text("엑셀업로드");
+            obj.style.set_background("midnightblue");
+            obj.style.set_border("1 none #999999ff");
+            obj.style.set_color("ivory");
             this.addChild(obj.name, obj);
 
 
@@ -380,7 +392,7 @@
             this.div_Wselect.addLayout(obj.name, obj);
 
             //-- Default Layout
-            obj = new Layout("default", "", 1062, 667, this,
+            obj = new Layout("default", "", 1062, 651, this,
             	//-- Layout function
             	function(p) {
             		p.set_titletext("New Form");
@@ -1094,10 +1106,36 @@
                         this.ds_warehouse.set_rowposition(i);
                         return;
                     }
+        			var sCurName = nexacro.trim(String(this.ds_warehouse.getColumn(i, "warehouseName") || ""));
 
+        			for (var j = 0; j < this.ds_warehouse.getRowCount(); j++)
+        			{
+        				if (i == j) continue;
+
+        				// 삭제행은 비교 제외
+        				if (this.ds_warehouse.getRowType(j) == 8) continue;
+
+        				var sCompareName = nexacro.trim(String(this.ds_warehouse.getColumn(j, "warehouseName") || ""));
+
+        				if (sCurName == sCompareName)
+        				{
+        					alert((i + 1) + "번째 행의 창고명이 " + (j + 1) + "번째 행과 중복됩니다.");
+        					this.ds_warehouse.set_rowposition(i);
+
+        					// 창고명 컬럼으로 포커스 이동하고 싶으면 컬럼 위치 맞춰서 사용
+        					
+        					this.grd_warehouse.setCellPos(this.grd_warehouse.getBindCellIndex("body", "warehouseName"));
+        					this.grd_warehouse.showEditor(true);
+
+        					return;
+        				}
+        			}
                     //마지막에 체크박스 검사
+                    trace("chk = [" + this.ds_warehouse.getColumn(i, "chk") + "]");
+        			trace("type = " + typeof this.ds_warehouse.getColumn(i, "chk"));
                     if (this.ds_warehouse.getColumn(i, "chk") != "1")
                     {
+        				alert((i + 1) +  "번째 행 체크박스를 확인해주세요.");
                         this.ds_warehouse.set_rowposition(i);
                         return;
                     }
@@ -1541,7 +1579,230 @@
             return v;
         };
 
-        
+        //==================================================================
+
+        //엑셀 내용 임포트 
+        this.btn_upload_onclick = function(obj,e)
+        {
+        	this.fn_ExcelPopup();
+        }
+        this.fn_createChildFrame = function(sPopupId,sFormUrl)
+        {
+            var objChildFrame = new ChildFrame();
+
+            objChildFrame.init(
+                sPopupId,
+                100,
+                100,
+                1000,
+                500,
+                null,
+                null
+            );
+
+            objChildFrame.set_formurl(sFormUrl);
+            objChildFrame.set_showtitlebar(true);
+            objChildFrame.set_resizable(true);
+            objChildFrame.set_openalign("center middle");
+
+            return objChildFrame;
+        };
+        this.fn_ExcelPopup = function()
+        {
+        	var objChildFrame = this.fn_createChildFrame(
+                "ExceluploadForm",
+                "Base::ExceluploadForm.xfdl"
+            );
+            objChildFrame.showModal(
+                this.getOwnerFrame(),
+                "",                     // 전달값 없으면 빈 문자열
+                this,
+                "fn_ExcelPopupCallback"
+            );
+        }
+        //팝업 콜백 함수
+        this.fn_ExcelPopupCallback = function(sPopupId,sReturn)
+        {
+            trace("popup closed");
+
+            if (!sReturn)
+            {
+                trace("sReturn 없음");
+                return;
+            }
+
+            this.ds_excel.clearData();
+            this.ds_excel.loadXML(sReturn);
+
+            // 지역 목록 없으면 기존 로직처럼 방어
+            if (this.ds_region2.getRowCount() == 0 && this.ds_region.getRowCount() > 0)
+            {
+                this.ds_region2.copyData(this.ds_region);
+            }
+
+            if (this.ds_region2.getRowCount() == 0)
+            {
+                alert("지역 목록이 아직 로드되지 않았습니다.");
+                return;
+            }
+
+            this.ds_warehouse.set_enableevent(false);
+
+            var nFirstRow = -1;
+
+            for (var i = 0; i < this.ds_excel.getRowCount(); i++)
+            {
+                var nRow = this.fn_addRowFromExcel(
+                    this.ds_excel.getColumn(i, "regionName"),
+                    this.ds_excel.getColumn(i, "countryName"),
+                    this.ds_excel.getColumn(i, "locationName"),
+                    this.ds_excel.getColumn(i, "warehouseName")
+                );
+
+                if (nFirstRow < 0)
+                {
+                    nFirstRow = nRow;
+                }
+            }
+
+            this.ds_warehouse.set_enableevent(true);
+
+            if (nFirstRow >= 0)
+            {
+                this.ds_warehouse.set_rowposition(nFirstRow);
+                this.grd_warehouse.setCellPos(2);
+            }
+        };
+
+        this.fn_addRowFromExcel = function(sRegionName,sCountryName,sLocationName,sWarehouseName)
+        {
+            var nRow = this.ds_warehouse.addRow();
+
+            // 원래 추가행처럼 먼저 전부 빈값으로 시작
+            this.ds_warehouse.setColumn(nRow, "chk", "1");
+            this.ds_warehouse.setColumn(nRow, "warehouseId", "");
+            this.ds_warehouse.setColumn(nRow, "regionId", "");
+            this.ds_warehouse.setColumn(nRow, "regionName", "");
+            this.ds_warehouse.setColumn(nRow, "countryId", "");
+            this.ds_warehouse.setColumn(nRow, "countryName", "");
+            this.ds_warehouse.setColumn(nRow, "locationId", "");
+            this.ds_warehouse.setColumn(nRow, "locationName", "");
+            this.ds_warehouse.setColumn(nRow, "warehouseName", nexacro.trim(sWarehouseName || ""));
+
+            var sRegionId = "";
+            var sCountryId = "";
+            var sLocationId = "";
+
+            // 1. regionName 비교 후 없으면 빈행 유지
+            var nRegionRow = this.fn_findRegionRowByName(sRegionName);
+            if (nRegionRow >= 0)
+            {
+                sRegionId = this.ds_region2.getColumn(nRegionRow, "regionId");
+                this.ds_warehouse.setColumn(nRow, "regionId", sRegionId);
+                this.ds_warehouse.setColumn(nRow, "regionName", this.ds_region2.getColumn(nRegionRow, "regionName"));
+            }
+            else
+            {
+                // 지역 없으면 나머지도 전부 빈칸
+                return nRow;
+            }
+
+            // 2. countryName 비교 후 없으면 country/location 빈칸 유지
+            var nCountryRow = this.fn_findCountryRowByName(sRegionId, sCountryName);
+            if (nCountryRow >= 0)
+            {
+                sCountryId = this.ds_country2.getColumn(nCountryRow, "countryId");
+                this.ds_warehouse.setColumn(nRow, "countryId", sCountryId);
+                this.ds_warehouse.setColumn(nRow, "countryName", this.ds_country2.getColumn(nCountryRow, "countryName"));
+            }
+            else
+            {
+                // 국가 없거나 region filter 불일치면 빈칸
+                return nRow;
+            }
+
+            // 3. locationName 비교 후 없으면 location 빈칸 유지
+            var nLocationRow = this.fn_findLocationRowByName(sCountryId, sLocationName);
+            if (nLocationRow >= 0)
+            {
+                sLocationId = this.ds_location2.getColumn(nLocationRow, "locationId");
+                this.ds_warehouse.setColumn(nRow, "locationId", sLocationId);
+                this.ds_warehouse.setColumn(nRow, "locationName", this.ds_location2.getColumn(nLocationRow, "locationName"));
+            }
+            else
+            {
+                // 위치 없거나 country filter 불일치면 빈칸
+                return nRow;
+            }
+
+            return nRow;
+        };
+
+        this.fn_normText = function(v)
+        {
+            v = (v == null ? "" : String(v));
+            return nexacro.trim(v).toUpperCase();
+        };
+
+        this.fn_findRegionRowByName = function(sRegionName)
+        {
+            var sRname = this.fn_normText(sRegionName);
+
+            if (!sRname) return -1;
+
+            for (var i = 0; i < this.ds_region2.getRowCount(); i++)
+            {
+                var sName = this.fn_normText(this.ds_region2.getColumn(i, "regionName"));
+
+                if (sName == sRname && sName != this.fn_normText("-선택-"))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        };
+
+        this.fn_findCountryRowByName = function(sRegionId,sCountryName)
+        {
+            var sCname = this.fn_normText(sCountryName);
+
+            if (!sRegionId || !sCname) return -1;
+
+            for (var i = 0; i < this.ds_country2.getRowCount(); i++)
+            {
+                var sName = this.fn_normText(this.ds_country2.getColumn(i, "countryName"));
+                var sRegion = String(this.ds_country2.getColumn(i, "regionId"));
+
+                if (sRegion == String(sRegionId) &&
+                    sName == sCname &&
+                    sName != this.fn_normText("-선택-"))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        };
+
+        this.fn_findLocationRowByName = function(sCountryId,sLocationName)
+        {
+            var sLname = this.fn_normText(sLocationName);
+
+            if (!sCountryId || !sLname) return -1;
+
+            for (var i = 0; i < this.ds_location2.getRowCount(); i++)
+            {
+                var sName = this.fn_normText(this.ds_location2.getColumn(i, "locationName"));
+                var sCountry = String(this.ds_location2.getColumn(i, "countryId"));
+
+                if (sCountry == String(sCountryId) &&
+                    sName == sLname &&
+                    sName != this.fn_normText("-선택-"))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        };
         });
 
 
@@ -1572,6 +1833,7 @@
             this.sta_wsub.addEventHandler("onclick", this.Static00_onclick, this);
             this.warehouse_title.addEventHandler("onclick", this.Static02_onclick, this);
             this.btn_back.addEventHandler("onclick", this.btn_back_onclick, this);
+            this.btn_upload.addEventHandler("onclick", this.btn_upload_onclick, this);
 
         };
         this.loadCss("MyCss::newcss.css");

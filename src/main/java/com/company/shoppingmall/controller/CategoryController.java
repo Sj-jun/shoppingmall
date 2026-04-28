@@ -78,7 +78,7 @@ public class CategoryController {
         PlatformData outData = new PlatformData();
         VariableList outVar = outData.getVariableList();
         outVar.add("ErrorCode", resultCode);
-        
+        // 에러 코드 띄우기 
         if (resultCode == -100) {
             outVar.add("ErrorMsg", "같은 카테고리명은 저장할 수 없습니다.");
         } else {

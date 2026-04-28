@@ -39,7 +39,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Dataset("ds_region2", this);
-            obj._setContents("<ColumnInfo><Column id=\"regionId\" type=\"STRING\" size=\"256\"/><Column id=\"regionName\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"regionId\" type=\"STRING\" size=\"256\"/><Column id=\"regionName\" type=\"STRING\" size=\"256\"/><Column id=\"chk\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
             obj = new Dataset("ds_location2", this);
@@ -87,14 +87,14 @@
             obj.set_autoenter("select");
             obj.set_readonly("false");
             obj.set_scrollbars("autovert");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"40\"/><Column size=\"127\"/><Column size=\"158\"/><Column size=\"188\"/><Column size=\"282\"/><Column size=\"186\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"25\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkbox\" edittype=\"checkbox\" style=\"background:#c8ebffff;\" text=\"bind:chk\" imagestretch=\"none\"/><Cell col=\"1\" style=\"background:#c8ebffff;\" text=\"관리번호\"/><Cell col=\"2\" style=\"background:#c8ebffff;\" text=\"지역\"/><Cell col=\"3\" style=\"background:#c8ebffff;\" text=\"국가\"/><Cell col=\"4\" style=\"background:#c8ebffff;\" text=\"창고위치\"/><Cell col=\"5\" style=\"background:#c8ebffff;\" text=\"창고명\"/></Band><Band id=\"body\"><Cell displaytype=\"checkbox\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" displaytype=\"text\" text=\"bind:warehouseId\" editlimit=\"85\" editlengthunit=\"utf8\"/><Cell col=\"2\" displaytype=\"combo\" style=\"align:left;\" text=\"bind:regionId\" editlimit=\"85\" editlengthunit=\"utf8\" combodataset=\"ds_region2\" combocodecol=\"regionId\" combodatacol=\"regionName\"/><Cell col=\"3\" displaytype=\"combo\" style=\"align:left;\" text=\"bind:countryId\" editlimit=\"85\" editlengthunit=\"utf8\" combodataset=\"ds_country2\" combocodecol=\"countryId\" combodatacol=\"countryName\"/><Cell col=\"4\" displaytype=\"combo\" style=\"align:left;\" text=\"bind:locationId\" editlimit=\"85\" editlengthunit=\"utf8\" combodataset=\"ds_location2\" combocodecol=\"locationId\" combodatacol=\"locationName\" tooltiptext=\"bind:locationName\"/><Cell col=\"5\" displaytype=\"text\" edittype=\"text\" style=\"align:left;\" text=\"bind:warehouseName\" editlimit=\"85\" editautoselect=\"false\" editacceptsenter=\"false\" editlengthunit=\"utf8\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"40\"/><Column size=\"127\"/><Column size=\"158\"/><Column size=\"188\"/><Column size=\"282\"/><Column size=\"186\"/></Columns><Rows><Row size=\"24\" band=\"head\"/><Row size=\"25\"/></Rows><Band id=\"head\"><Cell displaytype=\"checkbox\" edittype=\"checkbox\" style=\"background:#c8ebffff;\" text=\"bind:chk\" imagestretch=\"none\"/><Cell col=\"1\" style=\"background:#c8ebffff;\" text=\"관리번호\"/><Cell col=\"2\" style=\"background:#c8ebffff;\" text=\"지역\"/><Cell col=\"3\" style=\"background:#c8ebffff;\" text=\"국가\"/><Cell col=\"4\" style=\"background:#c8ebffff;\" text=\"창고위치\"/><Cell col=\"5\" style=\"background:#c8ebffff;\" text=\"창고명\"/></Band><Band id=\"body\"><Cell displaytype=\"checkbox\" edittype=\"checkbox\" text=\"bind:chk\"/><Cell col=\"1\" displaytype=\"text\" text=\"bind:warehouseId\" editlimit=\"85\" editlengthunit=\"utf8\"/><Cell col=\"2\"><Cell text=\"bind:regionName\"/><Cell text=\"bind:chk\" displaytype=\"checkbox\" edittype=\"checkbox\"/><Cell text=\"bind:regionName\"/><Cell text=\"bind:chk\" displaytype=\"checkbox\" edittype=\"checkbox\"/><Cell text=\"bind:regionName\"/><Cell text=\"bind:chk\" displaytype=\"checkbox\" edittype=\"checkbox\"/><Cell text=\"bind:regionName\"/></Cell><Cell col=\"3\" displaytype=\"combo\" style=\"align:left;\" text=\"bind:countryId\" editlimit=\"85\" editlengthunit=\"utf8\" combodataset=\"ds_country2\" combocodecol=\"countryId\" combodatacol=\"countryName\"/><Cell col=\"4\" displaytype=\"combo\" style=\"align:left;\" text=\"bind:locationId\" editlimit=\"85\" editlengthunit=\"utf8\" combodataset=\"ds_location2\" combocodecol=\"locationId\" combodatacol=\"locationName\" tooltiptext=\"bind:locationName\"/><Cell col=\"5\" displaytype=\"text\" edittype=\"text\" style=\"align:left;\" text=\"bind:warehouseName\" editlimit=\"85\" editautoselect=\"false\" editacceptsenter=\"false\" editlengthunit=\"utf8\"/></Band></Format></Formats>");
             this.addChild(obj.name, obj);
 
             obj = new Div("div_Wselect", "absolute", "40", "129", "982", "45", null, null, this);
             obj.set_taborder("0");
             obj.style.set_background("gainsboro");
             this.addChild(obj.name, obj);
-            obj = new Combo("cbo_location", "absolute", "636", "8", "186", "28", null, null, this.div_Wselect);
+            obj = new Combo("cbo_location", "absolute", "627", "7", "186", "28", null, null, this.div_Wselect);
             this.div_Wselect.addChild(obj.name, obj);
             obj.set_taborder("2");
             obj.set_text("Combo00");
@@ -354,7 +354,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_back", "absolute", "15", "15", "25", "25", null, null, this);
+            obj = new Button("btn_back", "absolute", "17", "15", "25", "25", null, null, this);
             obj.set_taborder("36");
             obj.style.set_image("URL('C:/Users/e1/Desktop/CssImage/free-icon-left-6657529.png')");
             obj.style.set_background("@gradation");
@@ -485,14 +485,27 @@
         // =====================================================================
         this.fn_setGridCombo = function()
         {
-            // 지역: 신규행이면 선택 가능
+        	  // region 본셀: 기존행만 보이기
+            this.grd_warehouse.setCellProperty(
+                "body",
+                2,
+                "displaytype",
+                "expr:dataset.getRowType(currow)==2 ? 'none' : 'text'"
+            );
+
             this.grd_warehouse.setCellProperty(
                 "body",
                 2,
                 "edittype",
-                "expr:dataset.getRowType(currow)==2 ? 'combo' : 'none'"
+                "none"
             );
 
+            this.grd_warehouse.setCellProperty(
+                "body",
+                2,
+                "text",
+                "bind:regionName"
+            );
             // 국가: 신규행 + regionId 있을 때만 선택 가능
             this.grd_warehouse.setCellProperty(
                 "body",
@@ -540,8 +553,8 @@
         		if (this.ds_region2.getColumn(i, "regionName") == "-전체-")
         		{
         			this.ds_region2.setColumn(i, "regionName", "-선택-");
-        			break;
         		}
+        		this.ds_region2.setColumn(i, "chk", "0");
         	}
 
         	this.div_Wselect.cbo_region.set_index(0);
@@ -921,6 +934,32 @@
                 return;
             }
         };
+        this.fn_prepareRegionColumns = function()
+        {
+            var nCnt = this.ds_region2.getRowCount();
+            var sColId;
+
+            for (var i = 0; i < nCnt; i++)
+            {
+                sColId = "rChk_" + i;
+                if (!this.ds_warehouse.getColumnInfo(sColId))
+                {
+                    this.ds_warehouse.addColumn(sColId, "STRING", 1);
+                }
+
+                sColId = "rName_" + i;
+                if (!this.ds_warehouse.getColumnInfo(sColId))
+                {
+                    this.ds_warehouse.addColumn(sColId, "STRING", 50);
+                }
+
+                sColId = "rId_" + i;
+                if (!this.ds_warehouse.getColumnInfo(sColId))
+                {
+                    this.ds_warehouse.addColumn(sColId, "STRING", 20);
+                }
+            }
+        };
 
         // =====================================================================
         // 추가
@@ -939,8 +978,15 @@
                 alert("지역 목록이 아직 로드되지 않았습니다.");
                 return;
             }
-
+        	this.fn_prepareRegionColumns();
             var nRow = this.ds_warehouse.addRow();
+        	
+        	for(var i=0; i<this.ds_region2.getRowCount(); i++)
+        	{
+        		this.ds_warehouse.setColumn(nRow, "rChk_" + i, this.ds_region2.getColumn(i, "chk") || "0");
+                this.ds_warehouse.setColumn(nRow, "rName_" + i, this.ds_region2.getColumn(i, "regionName"));
+                this.ds_warehouse.setColumn(nRow, "rId_" + i, this.ds_region2.getColumn(i, "regionId"));
+            }
 
             this.ds_warehouse.setColumn(nRow, "chk", "1");
             this.ds_warehouse.setColumn(nRow, "warehouseId", "");
@@ -952,6 +998,8 @@
             this.ds_warehouse.setColumn(nRow, "locationName", "");
             this.ds_warehouse.setColumn(nRow, "warehouseName", "");
 
+        	this.fn_makeRegionSubCell();
+        	
             this.ds_warehouse.set_rowposition(nRow);
             this.grd_warehouse.setCellPos(2);
             this.grd_warehouse.showEditor(true);
@@ -961,7 +1009,55 @@
         {
             this.fn_addRow();
         };
+        this.fn_makeRegionSubCell = function()
+        {
+            var nCell = 2;
+            var nCnt  = this.ds_region2.getRowCount();
 
+            this.grd_warehouse.setCellProperty("body", nCell, "subcells", String(nCnt * 2));
+
+            for (var i = 0; i < nCnt; i++)
+            {
+                var chkIdx = i * 2;
+                var txtIdx = i * 2 + 1;
+
+                // 체크박스
+                this.grd_warehouse.setSubCellProperty(
+                    "body", nCell, chkIdx, "displaytype",
+                    "expr:dataset.getRowType(currow)==2 ? 'checkbox' : 'none'"
+                );
+                this.grd_warehouse.setSubCellProperty(
+                    "body", nCell, chkIdx, "edittype",
+                    "expr:dataset.getRowType(currow)==2 ? 'checkbox' : 'none'"
+                );
+                this.grd_warehouse.setSubCellProperty(
+                    "body", nCell, chkIdx, "text",
+                    "bind:rChk_" + i
+                );
+                this.grd_warehouse.setSubCellProperty(
+                    "body", nCell, chkIdx, "size",
+                    "30"
+                );
+
+                // 지역명
+                this.grd_warehouse.setSubCellProperty(
+                    "body", nCell, txtIdx, "displaytype",
+                    "expr:dataset.getRowType(currow)==2 ? 'text' : 'none'"
+                );
+                this.grd_warehouse.setSubCellProperty(
+                    "body", nCell, txtIdx, "edittype",
+                    "none"
+                );
+                this.grd_warehouse.setSubCellProperty(
+                    "body", nCell, txtIdx, "text",
+                    "bind:rName_" + i
+                );
+                this.grd_warehouse.setSubCellProperty(
+                    "body", nCell, txtIdx, "size",
+                    "80"
+                );
+            }
+        };
         // =====================================================================
         // 실제 변경 여부 체크
         // =====================================================================

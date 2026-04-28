@@ -34,37 +34,37 @@
 
             
             // UI Components Initialize
-            obj = new Div("div_product", "absolute", "14", "35", "616", "245", null, null, this);
+            obj = new Div("div_product", "absolute", "14", "34", "616", "245", null, null, this);
             obj.set_taborder("5");
             this.addChild(obj.name, obj);
 
-            obj = new Div("div_category", "absolute", "119", "58", "500", "32", null, null, this);
+            obj = new Div("div_category", "absolute", "119", "57", "500", "32", null, null, this);
             obj.set_taborder("6");
             obj.style.set_border("1 solid black");
             this.addChild(obj.name, obj);
 
-            obj = new Div("div_productId", "absolute", "119", "89", "500", "32", null, null, this);
+            obj = new Div("div_productId", "absolute", "119", "88", "500", "32", null, null, this);
             obj.set_taborder("7");
             obj.style.set_border("1 solid black");
             this.addChild(obj.name, obj);
 
-            obj = new Div("div_price", "absolute", "119", "120", "500", "32", null, null, this);
+            obj = new Div("div_price", "absolute", "119", "119", "500", "32", null, null, this);
             obj.set_taborder("8");
             obj.style.set_border("1 solid black");
             this.addChild(obj.name, obj);
 
-            obj = new Div("div_description", "absolute", "119", "151", "500", "125", null, null, this);
+            obj = new Div("div_description", "absolute", "119", "150", "500", "125", null, null, this);
             obj.set_taborder("9");
             obj.style.set_border("1 solid black");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_productTitle", "absolute", "20", "19", "320", "28", null, null, this);
+            obj = new Static("sta_productTitle", "absolute", "20", "21", "320", "28", null, null, this);
             obj.set_taborder("10");
             obj.set_text("Static00");
             obj.style.set_font("12 Dotum");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static00", "absolute", "10.14%", "50", "522", "8", null, null, this);
+            obj = new Static("Static00", "absolute", "10.14%", "49", "522", "8", null, null, this);
             obj.set_taborder("15");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -72,7 +72,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static01", "absolute", "545", "4", "4", "48", null, null, this);
+            obj = new Static("Static01", "absolute", "546", "4", "4", "48", null, null, this);
             obj.set_taborder("16");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -80,7 +80,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static02", "absolute", "472", "4", "4", "48", null, null, this);
+            obj = new Static("Static02", "absolute", "473", "4", "4", "48", null, null, this);
             obj.set_taborder("17");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -88,7 +88,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_description", "absolute", "123", "156", "492", "115", null, null, this);
+            obj = new Edit("edt_description", "absolute", "123", "155", "492", "115", null, null, this);
             obj.set_taborder("4");
             obj.set_maxlength("666");
             obj.set_lengthunit("utf8");
@@ -98,7 +98,7 @@
             obj.style.set_align("left top");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_description", "absolute", "20", "151", "100", "125", null, null, this);
+            obj = new Static("sta_description", "absolute", "20", "150", "100", "125", null, null, this);
             obj.set_taborder("18");
             obj.set_text("비고");
             obj.style.set_background("navajowhite");
@@ -106,7 +106,7 @@
             obj.style.set_align("center middle");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_price", "absolute", "20", "120", "100", "32", null, null, this);
+            obj = new Static("sta_price", "absolute", "20", "119", "100", "32", null, null, this);
             obj.set_taborder("19");
             obj.set_text("가격");
             obj.style.set_background("navajowhite");
@@ -114,7 +114,7 @@
             obj.style.set_align("center middle");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_productId", "absolute", "20", "89", "100", "32", null, null, this);
+            obj = new Static("sta_productId", "absolute", "20", "88", "100", "32", null, null, this);
             obj.set_taborder("20");
             obj.set_text("상품관리번호");
             obj.style.set_background("navajowhite");
@@ -122,7 +122,7 @@
             obj.style.set_align("center middle");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_category", "absolute", "20", "58", "100", "32", null, null, this);
+            obj = new Static("sta_category", "absolute", "20", "57", "100", "32", null, null, this);
             obj.set_taborder("21");
             obj.set_text("카테고리");
             obj.style.set_background("navajowhite");
@@ -130,7 +130,7 @@
             obj.style.set_align("center middle");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("edt_productName", "absolute", "383", "92", "232", "26", null, null, this);
+            obj = new Edit("edt_productName", "absolute", "382", "91", "233", "26", null, null, this);
             obj.set_taborder("2");
             obj.set_maxlength("85");
             obj.set_lengthunit("utf8");
@@ -139,7 +139,7 @@
             obj.style.set_padding("5 5 5 5");
             this.addChild(obj.name, obj);
 
-            obj = new Static("sta_productName", "absolute", "279", "89", "100", "32", null, null, this);
+            obj = new Static("sta_productName", "absolute", "279", "88", "100", "32", null, null, this);
             obj.set_taborder("22");
             obj.set_text("상품명");
             obj.style.set_background("navajowhite");
@@ -147,7 +147,7 @@
             obj.style.set_align("center middle");
             this.addChild(obj.name, obj);
 
-            obj = new Combo("cbo_category", "absolute", "123", "61", "152", "26", null, null, this);
+            obj = new Combo("cbo_category", "absolute", "123", "60", "153", "26", null, null, this);
             this.addChild(obj.name, obj);
             obj.set_taborder("0");
             obj.set_displaynulltext("-선택-");
@@ -158,7 +158,7 @@
             obj.style.set_color("#444444ff");
             obj.style.set_align("center middle");
 
-            obj = new Edit("edt_productId", "absolute", "123", "92", "152", "26", null, null, this);
+            obj = new Edit("edt_productId", "absolute", "123", "91", "153", "26", null, null, this);
             obj.set_taborder("1");
             obj.set_readonly("true");
             obj.style.set_border("1 solid #808080ff");
@@ -167,7 +167,7 @@
             obj.style.set_align("center middle");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static03", "absolute", "416", "-1", "45", "20", null, null, this);
+            obj = new Static("Static03", "absolute", "416", "0", "45", "20", null, null, this);
             obj.set_taborder("24");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -175,7 +175,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static04", "absolute", "0", "88", "20", "128", null, null, this);
+            obj = new Static("Static04", "absolute", "0", "87", "20", "128", null, null, this);
             obj.set_taborder("25");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -183,7 +183,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static05", "absolute", "620", "96", "20", "128", null, null, this);
+            obj = new Static("Static05", "absolute", "620", "95", "20", "128", null, null, this);
             obj.set_taborder("26");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -191,7 +191,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new Static("Static06", "absolute", "416", "276", "45", "20", null, null, this);
+            obj = new Static("Static06", "absolute", "416", "275", "45", "20", null, null, this);
             obj.set_taborder("27");
             obj.set_text("Static01");
             obj.set_visible("false");
@@ -199,7 +199,7 @@
             obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
-            obj = new MaskEdit("edt_price", "absolute", "123", "123", "152", "26", null, null, this);
+            obj = new MaskEdit("edt_price", "absolute", "123", "122", "153", "26", null, null, this);
             obj.set_taborder("3");
             obj.set_displaynulltext("0000000.00 형태로 입력");
             obj.set_mask("#,###,###.##");
@@ -210,7 +210,7 @@
             obj.set_limitbymask("decimal");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_insert", "absolute", "476", "19", "70", "30", null, null, this);
+            obj = new Button("btn_insert", "absolute", "476", "20", "70", "30", null, null, this);
             obj.set_taborder("28");
             obj.set_text("등록");
             obj.style.set_background("midnightblue");
@@ -218,7 +218,7 @@
             obj.style.set_color("ivory");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_index", "absolute", "549", "19", "70", "30", null, null, this);
+            obj = new Button("btn_index", "absolute", "549", "20", "70", "30", null, null, this);
             obj.set_taborder("29");
             obj.set_text("목록");
             obj.style.set_background("midnightblue");
@@ -226,7 +226,7 @@
             obj.style.set_color("ivory");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_delete", "absolute", "476", "19", "70", "30", null, null, this);
+            obj = new Button("btn_delete", "absolute", "477", "20", "70", "30", null, null, this);
             obj.set_taborder("30");
             obj.set_text("삭제");
             obj.style.set_background("midnightblue");
@@ -234,12 +234,44 @@
             obj.style.set_color("ivory");
             this.addChild(obj.name, obj);
 
-            obj = new Button("btn_update", "absolute", "402", "19", "70", "30", null, null, this);
+            obj = new Button("btn_update", "absolute", "404", "20", "70", "30", null, null, this);
             obj.set_taborder("31");
             obj.set_text("수정");
             obj.style.set_background("midnightblue");
             obj.style.set_border("1 none #999999ff");
             obj.style.set_color("ivory");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static07", "absolute", "615", "103", "3", "128", null, null, this);
+            obj.set_taborder("32");
+            obj.set_text("Static01");
+            obj.set_visible("false");
+            obj.style.set_background("coral");
+            obj.style.set_opacity("30");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static08", "absolute", "120", "79", "3", "150", null, null, this);
+            obj.set_taborder("33");
+            obj.set_text("Static01");
+            obj.set_visible("false");
+            obj.style.set_background("coral");
+            obj.style.set_opacity("30");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static09", "absolute", "379", "71", "3", "50", null, null, this);
+            obj.set_taborder("34");
+            obj.set_text("Static01");
+            obj.set_visible("false");
+            obj.style.set_background("coral");
+            obj.style.set_opacity("30");
+            this.addChild(obj.name, obj);
+
+            obj = new Static("Static10", "absolute", "276", "70", "3", "50", null, null, this);
+            obj.set_taborder("35");
+            obj.set_text("Static01");
+            obj.set_visible("false");
+            obj.style.set_background("coral");
+            obj.style.set_opacity("30");
             this.addChild(obj.name, obj);
 
 

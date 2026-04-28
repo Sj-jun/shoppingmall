@@ -1,0 +1,741 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="EmployeePopupForm" left="0" top="0" width="737" height="202" titletext="New Form" onload="EmployeePopupForm_onload" onbeforeclose="EmployeePopupForm_close">
+    <Layouts>
+      <Layout>
+        <Div id="Div00" taborder="1" text="Div00" left="17" top="55" width="711" height="137">
+          <Layouts>
+            <Layout width="796" height="254">
+              <Static id="sta_employeeId" taborder="9" text="관리번호" left="3" top="1" height="32" style="background:navajowhite;border:1 solid black ;align:center middle;" onclick="Div00_Static00_onclick" width="100"/>
+              <Static id="sta_name" taborder="10" text="이름" onclick="Div00_Static00_onclick" left="3" top="32" width="100" height="32" style="background:navajowhite;border:1 solid black ;align:center middle;"/>
+              <Static id="sta_email" taborder="11" text="EMAIL" onclick="Div00_Static00_onclick" left="3" top="63" width="100" height="32" style="background:navajowhite;border:1 solid black ;align:center middle;"/>
+              <Static id="sta_job" taborder="13" text="직책" onclick="Div00_Static00_onclick" left="401" top="32" width="100" height="32" style="background:navajowhite;border:1 solid black ;align:center middle;"/>
+              <Static id="sta_manager" taborder="14" text="관리자" onclick="Div00_Static00_onclick" left="401" top="1" width="100" height="32" style="background:navajowhite;border:1 solid black ;align:center middle;"/>
+              <Static id="sta_hiredate" taborder="15" text="고용일" onclick="Div00_Static00_onclick" left="401" top="63" width="100" height="32" style="background:navajowhite;border:1 solid black ;align:center middle;"/>
+              <Static id="sta_phone" taborder="16" text="PHONE" onclick="Div00_Static00_onclick" left="3" top="94" width="100" height="32" style="background:navajowhite;border:1 solid black ;align:center middle;"/>
+              <Static id="Static00" taborder="20" left="102" top="1" width="300" height="32" style="border:1 solid black ;" enable="false" enableevent="true" onclick="Div00_Static00_onclick"/>
+              <Static id="Static01" taborder="21" left="102" top="32" width="300" height="32" style="border:1 solid black ;" onclick="Div00_Static01_onclick" enable="false" enableevent="true"/>
+              <Static id="Static02" taborder="8" onclick="Div00_Static01_onclick" left="102" top="63" width="300" height="32" style="border:1 solid black ;" enable="false" enableevent="true"/>
+              <Static id="Static03" taborder="23" onclick="Div00_Static01_onclick" left="102" top="94" width="598" height="32" style="border:1 solid black ;"/>
+              <Static id="Static04" taborder="24" onclick="Div00_Static01_onclick" left="500" top="32" width="200" height="32" style="border:1 solid black ;"/>
+              <Static id="Static05" taborder="25" onclick="Div00_Static01_onclick" left="500" top="63" width="200" height="32" style="border:1 solid black ;"/>
+              <Static id="Static06" taborder="26" left="500" top="1" width="200" height="32" style="border:1 solid black ;" onclick="Div00_Static06_onclick"/>
+              <Edit id="edt_employeeId" taborder="12" left="106" top="4" width="292" height="26" oneditclick="Div00_edt_employeeId_oneditclick" style="displaynulltextcolor:darkgray;border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid black,1 solid #a6a6a9ff;align:center middle;" readonly="true"/>
+              <Edit id="edt_firstName" taborder="1" left="106" top="35" width="145" height="26" oneditclick="Div00_edt_firstName_oneditclick" style="displaynulltextcolor:darkgray;align:center middle;" maxlength="85" displaynulltext="First name" lengthunit="utf8"/>
+              <Edit id="edt_lastName" taborder="2" left="253" top="35" width="145" height="26" style="displaynulltextcolor:darkgray;align:center middle;" maxlength="85" oneditclick="Div00_edt_lastName_oneditclick" displaynulltext="Last name" lengthunit="utf8"/>
+              <Combo id="cbo_emailDomain" taborder="5" left="274" top="66" width="125" height="26" onitemchanged="Div00_Combo00_onitemchanged" innerdataset="@ds_email" codecolumn="code" datacolumn="name" displaynulltext="-선택-" index="-1" style="align:center middle;"/>
+              <Combo id="cbo_manager" taborder="0" text="Combo01" left="504" top="4" width="192" height="26" onitemchanged="Div00_Combo01_onitemchanged" innerdataset="@ds_manager" codecolumn="managerId" datacolumn="managerName" displaynulltext="-선택-" style="align:center middle;"/>
+              <Combo id="cbo_jobTitle" taborder="3" text="Combo01" left="504" top="35" width="192" height="26" innerdataset="@ds_job" codecolumn="code" datacolumn="name" onitemchanged="Div00_cbo_jobTitle_onitemchanged" displaynulltext="-선택-" style="align:center middle;"/>
+              <Calendar id="cal_hireDate" taborder="6" left="504" top="66" width="192" height="26" dateformat="yyyy-MM-dd " value="null" style="padding:5 5 5 10;"/>
+              <Edit id="edt_emailId" taborder="4" left="106" top="66" width="145" height="26" oneditclick="Div00_Edit04_oneditclick" maxlength="85" lengthunit="utf8" imemode="alpha" inputfilter="dot,comma,sign,symbol,space" inputtype="number,english" style="align:center middle;"/>
+              <Static id="sta_at" taborder="27" text="@" left="255" top="66" width="16" height="26" style="font:10 Microsoft Sans Serif;"/>
+              <MaskEdit id="edt_phone" taborder="7" displaynulltext="010-0000-0000 형식으로 입력해주세요" left="106" top="97" width="292" height="26" style="displaynulltextcolor:darkgray;align:center middle;" oneditclick="Div00_edt_phone_oneditclick" type="string" mask="###-####-####" clipmode="includespace" onchanged="Div00_edt_phone_onchanged"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="sta_title" taborder="0" text="▣  직원 등록/수정" left="20" top="20" width="260" height="28" style="font:12 Dotum;"/>
+        <Button id="btn_save" taborder="2" text="저장" left="648" top="19" width="70" height="30" onclick="btn_save_onclick" style="background:midnightblue;border:1 none #999999ff ;color:ivory;"/>
+        <Button id="btn_update" taborder="3" text="수정" onclick="btn_update_onclick" left="648" top="19" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;"/>
+        <Button id="btn_delete" taborder="4" text="삭제" onclick="btn_delete_onclick" left="576" top="19" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;"/>
+        <Static id="Static00" taborder="5" text="Static00" left="503" top="48" width="235" height="8" visible="false" enable="false" style="background:#ff80c0ff;opacity:50;"/>
+        <Static id="Static10" taborder="6" text="Static01" visible="false" left="645" top="5" width="4" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static01" taborder="7" text="Static01" visible="false" left="0" top="102" width="20" height="48" style="background:coral;opacity:30;" enable="false" enableevent="false"/>
+        <Static id="Static02" taborder="8" text="Static01" enable="false" visible="false" enableevent="false" left="717" top="93" width="20" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static07" taborder="9" text="Static01" enable="false" visible="false" enableevent="false" left="576" top="0" width="128" height="20" style="background:coral;opacity:30;"/>
+        <Static id="Static03" taborder="10" text="Static01" enable="false" visible="false" enableevent="false" left="304" top="181" width="128" height="20" style="background:coral;opacity:30;"/>
+        <Static id="Static04" taborder="11" text="Static01" enable="false" visible="false" enableevent="false" left="120" top="62" width="3" height="100" style="background:coral;opacity:30;"/>
+        <Static id="Static05" taborder="12" text="Static01" enable="false" visible="false" enableevent="false" left="415" top="61" width="3" height="100" style="background:coral;opacity:30;"/>
+        <Static id="Static06" taborder="13" text="Static01" enable="false" visible="false" enableevent="false" left="518" top="65" width="3" height="100" style="background:coral;opacity:30;"/>
+        <Static id="Static08" taborder="14" text="Static01" enable="false" visible="false" enableevent="false" left="713" top="61" width="3" height="100" style="background:coral;opacity:30;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_employee">
+        <ColumnInfo>
+          <Column id="employeeId" type="STRING" size="256"/>
+          <Column id="firstName" type="STRING" size="256"/>
+          <Column id="lastName" type="STRING" size="256"/>
+          <Column id="email" type="STRING" size="256"/>
+          <Column id="emailId" type="STRING" size="256"/>
+          <Column id="emailDomain" type="STRING" size="256"/>
+          <Column id="phone" type="STRING" size="256"/>
+          <Column id="managerId" type="STRING" size="256"/>
+          <Column id="managerName" type="STRING" size="256"/>
+          <Column id="hireDate" type="STRING" size="256"/>
+          <Column id="jobTitle" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_origin">
+        <ColumnInfo>
+          <Column id="employeeId" type="STRING" size="256"/>
+          <Column id="firstName" type="STRING" size="256"/>
+          <Column id="lastName" type="STRING" size="256"/>
+          <Column id="email" type="STRING" size="256"/>
+          <Column id="emailId" type="STRING" size="256"/>
+          <Column id="emailDomain" type="STRING" size="256"/>
+          <Column id="phone" type="STRING" size="256"/>
+          <Column id="managerId" type="STRING" size="256"/>
+          <Column id="managerName" type="STRING" size="256"/>
+          <Column id="hireDate" type="STRING" size="256"/>
+          <Column id="jobTitle" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_manager">
+        <ColumnInfo>
+          <Column id="managerId" type="STRING" size="256"/>
+          <Column id="managerName" type="STRING" size="256"/>
+          <Column id="jobTitle" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_job">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="name" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_email">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="name" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="Div00.edt_employeeId" propid="value" datasetid="ds_employee" columnid="employeeId"/>
+      <BindItem id="item1" compid="Div00.edt_firstName" propid="value" datasetid="ds_employee" columnid="firstName"/>
+      <BindItem id="item2" compid="Div00.edt_lastName" propid="value" datasetid="ds_employee" columnid="lastName"/>
+      <BindItem id="item3" compid="Div00.edt_emailId" propid="value" datasetid="ds_employee" columnid="emailId"/>
+      <BindItem id="item4" compid="Div00.cbo_emailDomain" propid="value" datasetid="ds_employee" columnid="emailDomain"/>
+      <BindItem id="item6" compid="Div00.cbo_manager" propid="value" datasetid="ds_employee" columnid="managerId"/>
+      <BindItem id="item7" compid="Div00.cbo_jobTitle" propid="value" datasetid="ds_employee" columnid="jobTitle"/>
+      <BindItem id="item8" compid="Div00.cal_hireDate" propid="value" datasetid="ds_employee" columnid="hireDate"/>
+      <BindItem id="item5" compid="Div00.edt_phone" propid="value" datasetid="ds_employee" columnid="phone"/>
+    </Bind>
+    <Style url="MyCss::newcss.css"/>
+    <Script type="xscript5.0"><![CDATA[/*
+화면명 : 직원 등록/수정 팝업
+작성자 : 정상준
+작성일자 : 2026-03-26
+*/
+
+// 팝업 모드 (I: 등록, U: 수정)
+this.fv_mode = "";
+// 직책 콤보에서 PRESIDENT 표시 가능 여부
+this.fv_canSelectPresident = false;
+// 수정 시 사용할 직원번호
+this.fv_employeeId = "";
+
+this.EmployeePopupForm_onload = function(obj, e)
+{
+	//등록 후 창을 닫으면 refresh하기 위해
+	this.fv_needRefresh = false;
+	
+    // 부모 화면에서 전달한 값 받기
+    this.fv_mode = this.parent.mode || "I";
+    this.fv_employeeId = this.parent.employeeId || "";
+    
+    // 서버에서 직책 조회
+    this.fn_loadJobList();
+
+    // 서버에서 관리자 목록 조회
+    this.fn_loadManagerList();
+
+    // 화면/데이터셋/콤보 기본 초기화
+    
+    this.fn_initDataset();
+    this.fn_initCombo();
+	
+	if (this.fv_mode == "I"){
+		// 등록 모드 세팅
+		this.fn_initInsertMode();
+	}else if(this.fv_mode == "U"){
+		// 수정 모드 세팅
+		this.fn_initUpdateMode();
+		this.fn_detail();
+	}else alert("잘못 된 접근입니다.");
+    
+};
+
+//----------------------------------------------------------------------------------------------------
+//dataset 초기화
+this.fn_initDataset = function()
+{
+    // 입력용 dataset 초기화
+    this.ds_employee.clearData();
+    this.ds_employee.addRow();
+
+    // 원본 비교용 dataset 초기화
+    this.ds_origin.clearData();
+};
+
+
+//콤보박스 기본 연결
+this.fn_initCombo = function()
+{
+    // 이메일 도메인 콤보
+    this.ds_email.clearData();
+    
+    var nRow = this.ds_email.addRow();
+    this.ds_email.setColumn(nRow, "code", "");
+    this.ds_email.setColumn(nRow, "name", "-선택-");
+    
+    var nRow = this.ds_email.addRow();
+    this.ds_email.setColumn(nRow, "code", "EXAMPLE.COM");
+    this.ds_email.setColumn(nRow, "name", "EXAMPLE.COM");
+
+    var nRow = this.ds_email.addRow();
+    this.ds_email.setColumn(nRow, "code", "GMAIL.COM");
+    this.ds_email.setColumn(nRow, "name", "GMAIL.COM");
+
+    var nRow = this.ds_email.addRow();
+    this.ds_email.setColumn(nRow, "code", "NAVER.COM");
+    this.ds_email.setColumn(nRow, "name", "NAVER.COM");
+
+    this.Div00.cbo_emailDomain.set_innerdataset("ds_email");
+    this.Div00.cbo_emailDomain.set_codecolumn("code");
+    this.Div00.cbo_emailDomain.set_datacolumn("name");
+    this.Div00.cbo_emailDomain.set_index(-1); 
+};
+
+
+//등록 모드 UI 세팅
+this.fn_initInsertMode = function()
+{
+    // 제목
+    this.sta_title.set_text("▣ 직원 등록");
+
+    // 버튼 상태
+    this.btn_save.set_enable(true);
+    this.btn_save.set_visible(true);
+    
+    this.btn_update.set_enable(false);
+    this.btn_update.set_visible(false);
+    
+    this.btn_delete.set_enable(false);
+    this.btn_delete.set_visible(false);
+
+    // 고용일 입력 가능
+    this.Div00.cal_hireDate.set_enable(true);
+
+    // 신규 1행 생성
+    this.ds_employee.clearData();
+    this.ds_employee.addRow();
+
+    // 직원번호는 DB 시퀀스/IDENTITY가 생성
+    this.ds_employee.setColumn(0, "employeeId", "");
+
+    // 고용일 기본값 = 오늘
+    this.ds_employee.setColumn(0, "hireDate", this.fn_getToday());
+    
+    this.ds_employee.setColumn(0, "jobTitle", "");
+	this.ds_employee.setColumn(0, "managerId", "");
+	this.ds_employee.setColumn(0, "emailDomain", "");
+	
+	// 등록은 PRESIDENT 선택 가능
+    this.fv_canSelectPresident = true;
+};
+
+//수정 모드 UI 세팅
+this.fn_initUpdateMode = function()
+{
+	// 제목
+    this.sta_title.set_text("▣ 직원 수정");
+    
+	this.btn_save.set_enable(false);
+    this.btn_save.set_visible(false);
+    
+    this.btn_update.set_enable(true);
+    this.btn_update.set_visible(true);
+    
+    this.btn_delete.set_enable(true);
+    this.btn_delete.set_visible(true);
+    
+   
+    this.Div00.cal_hireDate.set_enable(false);
+    
+    this.ds_employee.setColumn(0, "employeeId", "");
+    this.ds_employee.setColumn(0, "hireDate", "");
+}
+//----------------------------------------------------------------------------------------------------
+//수정을 위해 선택한 직원의 상세정보를 id를 통해 불러옴
+this.fn_detail = function()
+{
+    this.transaction(
+        "getEmployeeDetail",
+        "http://localhost:8080/employees/detail",
+        "",
+        "ds_employee=ds_employee",
+        "employeeId=" + this.fv_employeeId,
+        "fn_detailCallback"
+    );
+};
+//직원 상세 정보 콜백
+this.fn_detailCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    // 서버/통신 에러
+    if (nErrorCode < 0)
+    {
+        alert("처리 실패 : " + sErrorMsg);
+        return;
+    }
+    this.fn_afterDetail();
+}
+
+this.fn_afterDetail = function()
+
+{
+	// 원래 PRESIDENT인 직원이면 PRESIDENT 선택 가능
+    if (this.ds_employee.getColumn(0, "jobTitle") == "PRESIDENT")
+    {
+        this.fv_canSelectPresident = true;
+    }
+    else
+    {
+        this.fv_canSelectPresident = false;
+    }
+    this.fn_applyJobFilter();
+	this.fn_applyManagerRule();
+    
+    // 원본 저장 (변경여부 비교용)
+    this.ds_origin.copyData(this.ds_employee);
+    
+};
+// 직책 콤보에서 PRESIDENT 표시 여부 제어
+this.fn_applyJobFilter = function()
+{
+    this.ds_job.filter("");
+
+    if (!this.fv_canSelectPresident)
+    {
+        this.ds_job.filter("code != 'PRESIDENT'");
+    }
+};
+// PRESIDENT 룰
+this.fn_applyManagerRule = function()
+{
+    var sJobTitle = this.ds_employee.getColumn(0, "jobTitle");
+
+    // 직책이 PRESIDENT 이면 관리자 선택 불가
+    if (sJobTitle == "PRESIDENT")
+    {
+        this.Div00.cbo_manager.set_enable(false);
+        this.ds_employee.setColumn(0, "managerId", "");
+        this.Div00.cbo_manager.set_value("");
+        this.Div00.cbo_manager.set_index(0);
+    }
+    else
+    {
+        this.Div00.cbo_manager.set_enable(true);
+    }
+};
+//----------------------------------------------------------------------------------------------------
+/*
+ * - ds_job
+ */
+ this.Div00_cbo_jobTitle_onitemchanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	this.fn_applyManagerRule();
+}
+this.fn_loadJobList = function()
+{
+    this.transaction(
+        "getCommonCode",                        
+        "http://localhost:8080/employees/common", 
+        "",                                     
+        "ds_job=ds_job",      
+        "",                                     
+        "fn_jobCallback"                        
+    );
+};
+//직책 콤보 콜백
+this.fn_jobCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    // 서버/통신 에러
+    if (nErrorCode < 0)
+    {
+        alert("처리 실패 : " + sErrorMsg);
+        return;
+    }
+
+    // 첫 번째 행을 "-선택-"으로 설정
+    var nRow = this.ds_job.insertRow(0);
+    this.ds_job.setColumn(nRow, "code", "");
+    this.ds_job.setColumn(nRow, "name", "-선택-");
+
+    // 등록 모드는 처음부터 PRESIDENT 가능
+    if (this.fv_mode == "I")
+    {
+        this.fv_canSelectPresident = true;
+        this.fn_applyJobFilter();
+    }
+};
+//----------------------------------------------------------------------------------------------------
+/*
+ * 서버에서 관리자 목록 조회
+ */
+this.fn_loadManagerList = function()
+{
+    this.transaction(
+        "getManagerList",                        
+        "http://localhost:8080/managerList",    
+        "",                                     
+        "ds_manager=ds_manager",                
+        "",                                     
+        "fn_managerCallback"                           
+    );
+};
+//서버 응답 공통 처리
+this.fn_managerCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    // 서버/통신 에러
+    if (nErrorCode < 0)
+    {
+        alert("처리 실패 : " + sErrorMsg);
+        return;
+    }
+    
+	//이전 화면에서 첫번째 행을 "-전체-"로 설정해 놓았기 때문에 검증 후 교체
+	if (this.ds_manager.getRowCount() > 0 && this.fn_isNull(this.ds_manager.getColumn(0, "managerId")))
+	{
+		this.ds_manager.setColumn(0, "managerName", "-선택-");
+	}
+	else
+	{
+		var nRow = this.ds_manager.insertRow(0);
+		this.ds_manager.setColumn(nRow, "managerId", "");
+		this.ds_manager.setColumn(nRow, "managerName", "-선택-");
+	}
+}       
+//----------------------------------------------------------------------------------------------------
+//공통 util 함수
+
+this.fn_isNull = function(v)
+{
+    return v == null || v == undefined || String(v).trim() == "";
+};
+
+
+// 오늘 날짜를 YYYYMMDD 형식으로 반환
+// 서버 SQL에서 TO_char(#{hireDate}, 'YYYYMMDD')로 받기 때문
+this.fn_getToday = function()
+{
+    var d = new Date();
+
+    var yyyy = d.getFullYear();
+    var mm = d.getMonth() + 1;
+    var dd = d.getDate();
+
+    mm = (mm < 10 ? "0" : "") + mm;
+    dd = (dd < 10 ? "0" : "") + dd;
+
+    return "" + yyyy + mm + dd;
+};
+
+
+// 화면 입력용 emailId + emailDomain → 실제 저장용 email 생성
+this.fn_makeEmail = function()
+{
+    var sEmailId = this.ds_employee.getColumn(0, "emailId");
+    var sEmailDomain = this.ds_employee.getColumn(0, "emailDomain");
+
+    if (!this.fn_isNull(sEmailId) && !this.fn_isNull(sEmailDomain))
+    {
+        this.ds_employee.setColumn(0, "email", sEmailId + "@" + sEmailDomain);
+    }
+};
+
+//저장 전 필수값 검증
+this.fn_validate = function()
+{
+    var sJobTitle = this.ds_employee.getColumn(0, "jobTitle");
+
+    // PRESIDENT가 아니면 관리자 필수
+    if (sJobTitle != "PRESIDENT" && this.fn_isNull(this.ds_employee.getColumn(0, "managerId")))
+    {
+        alert("관리자는 필수입니다.");
+        this.Div00.cbo_manager.setFocus();
+        return false;
+    }
+
+    if (this.fn_isNull(this.ds_employee.getColumn(0, "firstName")))
+    {
+        alert("First Name은 필수입니다.");
+        this.Div00.edt_firstName.setFocus();
+        return false;
+    }
+
+    if (this.fn_isNull(this.ds_employee.getColumn(0, "lastName")))
+    {
+        alert("Last Name은 필수입니다.");
+        this.Div00.edt_lastName.setFocus();
+        return false;
+    }
+
+    if (this.fn_isNull(this.ds_employee.getColumn(0, "jobTitle")))
+    {
+        alert("직책은 필수입니다.");
+        this.Div00.cbo_jobTitle.setFocus();
+        return false;
+    }
+
+    if (this.fn_isNull(this.ds_employee.getColumn(0, "emailId")))
+    {
+        alert("EMAIL ID는 필수입니다.");
+        this.Div00.edt_emailId.setFocus();
+        return false;
+    }
+    if(this.fn_isNull(this.ds_employee.getColumn(0, "emailDomain")))
+    {
+		alert("EMAIL DOMAIN은 필수입니다.");
+        this.Div00.cbo_emailDomain.setFocus();
+        return false;
+    }
+
+    if (this.fn_isNull(this.ds_employee.getColumn(0, "hireDate")))
+    {
+        alert("고용일은 필수입니다.");
+        this.Div00.cal_hireDate.setFocus();
+        return false;
+    }
+
+	var sPhone = this.ds_employee.getColumn(0, "phone");
+
+    if (this.fn_isNull(sPhone))
+    {
+        alert("PHONE은 필수입니다.");
+        this.Div00.edt_phone.setFocus();
+        return false;
+    }
+	
+	if (sPhone.indexOf("_") > -1)
+	{
+		alert("전화번호를 모두 입력하세요.");
+		this.Div00.edt_phone.setFocus();
+		return false;
+	}
+	if(!this.fn_phone())
+	{
+		alert("전화번호를 정확히(010-0000-0000) 입력하세요.");
+		return false;
+	};
+	
+
+    return true;
+};
+//변경 여부 확인 ("변경된 값이 없습니다.")
+this.fn_isChanged = function()
+{
+    var nColCnt = this.ds_employee.getColCount();
+
+    for (var i = 0; i < nColCnt; i++)
+    {	
+		//ID를 구하려는 열의 인덱스
+        var sColId = this.ds_employee.getColID(i);
+
+        if (this.ds_employee.getColumn(0, sColId) != this.ds_origin.getColumn(0, sColId))
+        {
+            return true;
+        }
+    }
+
+    return false;
+};
+//----------------------------------------------------------------------------------------------------
+//수정 버튼 클릭 이벤트
+this.btn_update_onclick = function(obj, e)
+{
+    if (!this.fn_isChanged())
+    {
+        alert("변경된 값이 없습니다.");
+        return;
+    }
+
+    if (!this.fn_validate()) return;
+
+    this.fn_makeEmail();
+    
+
+    if (!confirm("수정하시겠습니까?")) return;
+
+    this.fn_update();
+};
+
+this.fn_update = function()
+{
+    this.transaction(
+        "updateEmployee",
+        "http://localhost:8080/employees/update",
+        "ds_employee=ds_employee:u",
+        "",
+        "",
+        "fn_updateCallback"
+    );
+   
+};
+//직원 정보 수정 콜백
+this.fn_updateCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    // 서버/통신 에러
+    if (nErrorCode < 0)
+    {
+        alert("처리 실패 : " + sErrorMsg);
+        return;
+    }
+
+	alert("수정되었습니다.");
+	
+	// 팝업 닫지 않음
+	// 원본 다시 저장
+	this.ds_origin.copyData(this.ds_employee);
+
+	// 관리자 이름 수정시 관리자 목록 최신화
+	this.fn_loadManagerList();
+	
+	// 수정 된 사원을 팝업을 닫으면 포커스 하기 위해 지정
+	this.fv_needRefresh = true;
+};
+//----------------------------------------------------------------------------------------------------
+//저장 버튼 클릭 이벤트
+this.btn_save_onclick = function(obj, e)
+{
+    // 필수값 체크
+    if (!this.fn_validate()) return;
+
+    // email 조합
+    this.fn_makeEmail();
+
+    // 최종 확인
+    if (!confirm("저장하시겠습니까?")) return;
+
+    // 서버 저장 호출
+    this.fn_save();
+};
+
+
+//서버 저장 요청
+this.fn_save = function()
+{
+    this.transaction(
+        "saveEmployee",                           
+        "http://localhost:8080/employees/create", 
+        "ds_employee=ds_employee:i",            
+        "ds_employee=ds_employee", //데이터셋에 employee id 를 받아와서 저장 후 id직원 포커스                                     
+        "",                                      
+        "fn_saveCallback"                           
+    );
+};
+
+//직원 저장 콜백
+this.fn_saveCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    // 서버/통신 에러
+    if (nErrorCode < 0)
+    {
+        alert("처리 실패 : " + sErrorMsg);
+        return;
+    }
+	alert("저장되었습니다.");
+	var sEmployeeId = this.ds_employee.getColumn(0, "employeeId");
+	trace("eid = " + sEmployeeId);
+	this.close(sEmployeeId); // ID를 넘겨 포커스 
+}
+//----------------------------------------------------------------------------------------------------
+//삭제 버튼 클릭 이벤트
+this.btn_delete_onclick = function(obj, e)
+{
+	// 최종 확인
+	if (!confirm("삭제하시겠습니까?")) return;
+	
+	if(!this.fn_deletManager())
+	{
+		alert("관리자는 삭제할 수 없습니다!");
+		return;
+	}
+	this.fn_delete();
+}
+this.fn_deletManager = function()
+{
+	var sEmp = this.Div00.edt_employeeId.value;
+	for(var i = 0; i < this.ds_manager.getRowCount(); i++)
+	{
+		var sManager = this.ds_manager.getColumn(i, "managerId");
+		if(sEmp == sManager) return false;
+	}
+	return true;
+}
+this.fn_delete = function(){
+	if (this.ds_employee.getRowCount() == 0)
+    {
+        alert("삭제할 데이터가 없습니다.");
+        return;
+    }
+	var dEmployee_chk = this.ds_employee.deleteRow(0);//행 delete 설정
+	
+	this.transaction(
+        "deleteEmployee",                           
+        "http://localhost:8080/employees/delete",            
+        "",                                      
+        "ds_employee=ds_employee",
+        "employeeId=" + this.fv_employeeId, //인자값을 주어서 id로 삭제
+        "fn_deleteCallback"                           
+    );
+    if(dEmployee_chk){
+		trace("삭제 성공");
+	}
+}
+//직원 삭제 콜백
+this.fn_deleteCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    // 서버/통신 에러
+    if (nErrorCode < 0)
+    {
+        alert("처리 실패 : " + sErrorMsg);
+        return;
+    }
+
+	alert("삭제되었습니다.");
+	this.close("refresh");
+}
+
+//----------------------------------------------------------------------------------------------------
+//팝업 창을 닫으면 수정한 사원 id를 보낸다.
+this.EmployeePopupForm_close = function(obj, e)
+{
+    if (this.fv_needRefresh)
+    {
+        this.close(this.fv_employeeId);
+    }
+};
+
+
+
+
+this.fn_phone = function()
+{
+	var sPhone = this.ds_employee.getColumn(0, "phone");
+	var sOnlyNum = sPhone.replace(/[^0-9]/g, "");
+
+	
+	// 숫자만 입력되었는지 + 11자리 + 010 시작
+	var regPhone = /^010\d{8}$/;
+
+	if (!regPhone.test(sPhone))
+	{
+		this.Div00.edt_phone.setFocus();
+		return false;
+	}
+	return true;
+}
+
+this.Div00_edt_phone_onchanged = function(obj:MaskEdit, e:nexacro.ChangeEventInfo)
+{
+	if(!this.fn_phone())
+	{
+		alert("전화번호를 정확히(010-0000-0000) 입력하세요.");
+		return;
+	};
+}
+]]></Script>
+  </Form>
+</FDL>

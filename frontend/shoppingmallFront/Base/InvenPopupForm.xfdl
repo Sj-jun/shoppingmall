@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="InvenPopupForm" left="0" top="0" width="640" height="325" titletext="New Form" onload="InvenPopupForm_onload" onclose="InvenPopupForm__close">
+    <Layouts>
+      <Layout>
+        <Div id="div_warehouse" taborder="10" left="119" top="87" width="500" height="32" style="border:1 solid black ;">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Div id="div_product" taborder="19" left="119" top="118" width="500" height="32" style="border:1 solid black ;">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Div id="div_category" taborder="20" left="119" top="56" width="500" height="32" style="border:1 solid black ;">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Div id="div_price" taborder="17" left="119" top="149" width="500" height="32" style="border:1 solid black ;"/>
+        <Div id="div_description" taborder="18" left="119" top="180" width="500" height="125" style="border:1 solid black ;"/>
+        <Static id="sta_category" taborder="11" text="카테고리" left="20" top="56" width="100" height="32" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
+        <Static id="sta_productId" taborder="12" text="상품관리번호" onclick="div_product_Static01_onclick" left="20" top="118" width="100" height="32" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
+        <Static id="sta_description" taborder="13" text="비고" left="20" top="180" width="100" height="125" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
+        <Static id="sta_price" taborder="14" text="가격" left="279" top="149" width="100" height="32" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
+        <Static id="Static00" taborder="15" text="Static01" visible="false" left="9.53%" top="48" width="522" height="8" style="background:coral;opacity:30;"/>
+        <Static id="sta_productName" taborder="16" text="상품명" onclick="div_product_Static01_onclick" left="279" top="118" width="100" height="32" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
+        <Static id="sta_quantity" taborder="21" text="수량" onclick="div_product_Static01_onclick" left="20" top="149" width="100" height="32" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
+        <Combo id="cbo_category" taborder="0" text="Combo00" left="123" top="59" width="153" height="26" enable="true" readonly="true" style="padding:0 0 0 0;align:center middle;"/>
+        <Combo id="cbo_warehouse" taborder="1" text="Combo00" left="123" top="90" width="153" height="26" innerdataset="@ds_warehouse" codecolumn="warehouseId" datacolumn="warehouseName" onitemchanged="cbo_warehouse_onitemchanged" style="padding:0 0 0 0;align:center middle;"/>
+        <Static id="sta_warehouse" taborder="22" text="창고" left="20" top="87" width="100" height="32" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
+        <Edit id="edt_region" taborder="2" left="279" top="90" width="110" height="26" enable="true" readonly="true" style="padding:5 5 5 5; :readonly {border:1 solid #808080ff ;}"/>
+        <Edit id="edt_country" taborder="3" left="392" top="90" width="110" height="26" enable="true" readonly="true" style="padding:5 5 5 5; :readonly {border:1 solid #808080ff ;}"/>
+        <Edit id="edt_location" taborder="4" left="505" top="90" width="110" height="26" enable="true" readonly="true" style="border:1 solid #808080ff ;padding:5 5 5 5;"/>
+        <Edit id="edt_productId" taborder="5" left="123" top="121" width="153" height="26" enable="true" style="padding:5 5 5 5;align:center middle; :disabled {align:right middle;} :readonly {border:1 solid #808080ff ;}" readonly="true"/>
+        <Edit id="edt_productName" taborder="6" left="382" top="121" width="233" height="26" enable="true" style="padding:5 5 5 5; :disabled {align:right middle;} :readonly {border:1 solid #808080ff ;}" readonly="true"/>
+        <Edit id="edt_description" taborder="9" left="123" top="183" width="492" height="119" enable="true" style="padding:5 5 5 5; :disabled {padding:5 5 5 5;align:left top;} :readonly {border:1 solid #808080ff ;padding:5 5 5 5;align:left top;}" readonly="true"/>
+        <Static id="Static01" taborder="23" text="Static01" visible="false" left="86" top="0" width="522" height="20" style="background:coral;opacity:30;"/>
+        <Button id="btn_update" taborder="24" text="수정" left="477" top="19" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;" onclick="btn_update_onclick"/>
+        <Button id="btn_index" taborder="25" text="목록" left="549" top="19" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;" onclick="btn_index_onclick"/>
+        <Static id="Static10" taborder="26" text="Static01" visible="false" left="546" top="9" width="4" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static02" taborder="27" text="Static01" visible="false" left="0" top="102" width="20" height="50" style="background:coral;opacity:30;"/>
+        <Static id="sta_inven" taborder="28" text="▣ 재고 수정" left="20" top="14" width="145" height="38" style="font:12 Dotum;"/>
+        <Static id="Static03" taborder="29" text="Static01" visible="false" left="619" top="122" width="20" height="50" style="background:coral;opacity:30;"/>
+        <Static id="Static04" taborder="30" text="Static01" visible="false" left="94" top="305" width="522" height="20" style="background:coral;opacity:30;"/>
+        <MaskEdit id="edt_price" taborder="8" left="382" top="152" width="153" height="26" mask="#,###,###.##" style="background:#fbf8f1ff;border:1 solid #808080ff ;padding:5 5 5 5;" readonly="true"/>
+        <MaskEdit id="edt_quantity" taborder="7" left="123" top="152" width="153" height="26" style="background:#ffffffff;border:1 solid #808080ff ;padding:5 5 5 5;" mask="##,###,###" onchar="edt_quantity_onchar" autoskip="false" clipmode="includespace"/>
+        <Static id="Static05" taborder="31" text="Static01" visible="false" left="615" top="217" width="3" height="50" style="background:coral;opacity:30;"/>
+        <Static id="Static06" taborder="32" text="Static01" visible="false" left="120" top="69" width="3" height="150" style="background:coral;opacity:30;"/>
+        <Static id="Static07" taborder="33" text="Static01" visible="false" left="276" top="83" width="3" height="100" style="background:coral;opacity:30;"/>
+        <Static id="Static08" taborder="34" text="Static01" visible="false" left="379" top="122" width="3" height="50" style="background:coral;opacity:30;"/>
+        <Static id="Static09" taborder="35" text="Static01" visible="false" left="615" top="90" width="3" height="50" style="background:coral;opacity:30;"/>
+        <Static id="Static11" taborder="36" text="Static01" visible="false" left="502" top="70" width="3" height="50" style="background:coral;opacity:30;"/>
+        <Static id="Static12" taborder="37" text="Static01" visible="false" left="389" top="68" width="3" height="50" style="background:coral;opacity:30;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_warehouse">
+        <ColumnInfo>
+          <Column id="warehouseId" type="STRING" size="256"/>
+          <Column id="warehouseName" type="STRING" size="256"/>
+          <Column id="regionId" type="STRING" size="256"/>
+          <Column id="regionName" type="STRING" size="256"/>
+          <Column id="countryId" type="STRING" size="256"/>
+          <Column id="countryName" type="STRING" size="256"/>
+          <Column id="locationId" type="STRING" size="256"/>
+          <Column id="locationName" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_cond">
+        <ColumnInfo>
+          <Column id="productId" type="STRING" size="256"/>
+          <Column id="warehouseId" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_inven">
+        <ColumnInfo>
+          <Column id="warehouseId" type="STRING" size="256"/>
+          <Column id="categoryId" type="STRING" size="256"/>
+          <Column id="categoryName" type="STRING" size="256"/>
+          <Column id="regionId" type="STRING" size="256"/>
+          <Column id="regionName" type="STRING" size="256"/>
+          <Column id="countryId" type="STRING" size="256"/>
+          <Column id="countryName" type="STRING" size="256"/>
+          <Column id="locationId" type="STRING" size="256"/>
+          <Column id="locationName" type="STRING" size="256"/>
+          <Column id="description" type="STRING" size="256"/>
+          <Column id="price" type="STRING" size="256"/>
+          <Column id="productName" type="STRING" size="256"/>
+          <Column id="productId" type="STRING" size="256"/>
+          <Column id="warehouseName" type="STRING" size="256"/>
+          <Column id="quantity" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_origin">
+        <ColumnInfo>
+          <Column id="ogQuantity" type="STRING" size="256"/>
+          <Column id="ogWarehouseId" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="cbo_category" propid="value" datasetid="ds_inven" columnid="categoryName"/>
+      <BindItem id="item1" compid="edt_region" propid="value" datasetid="ds_inven" columnid="regionName"/>
+      <BindItem id="item2" compid="edt_country" propid="value" datasetid="ds_inven" columnid="countryName"/>
+      <BindItem id="item3" compid="edt_location" propid="value" datasetid="ds_inven" columnid="locationName"/>
+      <BindItem id="item4" compid="edt_productId" propid="value" datasetid="ds_inven" columnid="productId"/>
+      <BindItem id="item5" compid="edt_productName" propid="value" datasetid="ds_inven" columnid="productName"/>
+      <BindItem id="item7" compid="edt_description" propid="value" datasetid="ds_inven" columnid="description"/>
+      <BindItem id="item9" compid="cbo_warehouse" propid="value" datasetid="ds_inven" columnid="warehouseId"/>
+      <BindItem id="item10" compid="edt_price" propid="value" datasetid="ds_inven" columnid="price"/>
+      <BindItem id="item6" compid="edt_quantity" propid="value" datasetid="ds_inven" columnid="quantity"/>
+    </Bind>
+    <Style url="MyCss::newcss.css"/>
+    <Script type="xscript5.0"><![CDATA[/*
+화면명 : 재고 수정
+작성자 : 정상준
+작성일자 : 2026-04-09
+*/
+
+// 수정 시 사용할 상품, 창고번호
+this.fv_productId = "";
+this.fv_warehouseId = "";
+
+this.InvenPopupForm_onload = function(obj, e)
+{
+    this.fv_warehouseId = this.parent.warehouseId || "";
+    this.fv_productId = this.parent.productId || "";
+	
+	var nRow = this.ds_cond.insertRow(0);
+	this.ds_cond.setColumn(nRow, "productId", this.fv_productId);
+	this.ds_cond.setColumn(nRow, "warehouseId", this.fv_warehouseId);
+	trace("상품번호: " + this.ds_cond.getColumn(0, "productId"));
+	
+	this.transaction(
+        "getInventory",
+        "http://localhost:8080/inventory",
+        "ds_cond=ds_cond",
+        "ds_inven=ds_inven",
+        "",
+        "fn_categoryCallback"                       
+    );
+};
+this.fn_categoryCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    if (nErrorCode < 0)
+    {
+        alert(sErrorMsg);
+        return;
+    };
+    if (this.ds_origin.getRowCount() == 0)
+	{
+		this.ds_origin.addRow();
+	};
+    this.ds_origin.setColumn(0, "ogQuantity", this.ds_inven.getColumn(0, "quantity"));
+    this.ds_origin.setColumn(0, "ogWarehouseId", this.ds_inven.getColumn(0, "warehouseId"));
+    this.fn_warehouse();
+}
+this.fn_warehouse = function()
+{
+	this.transaction(
+        "getInventory",
+        "http://localhost:8080/warehouses",
+        "",
+        "ds_warehouse=ds_warehouse",
+        "",
+        "fn_warehouseCallback"                       
+    );
+};
+this.fn_warehouseCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    if (nErrorCode < 0)
+    {
+        alert(sErrorMsg);
+        return;
+    }
+    var nRow = this.ds_warehouse.insertRow(0);
+	this.ds_warehouse.setColumn(nRow, "warehouseId", "");
+	this.ds_warehouse.setColumn(nRow, "warehouseName", "-선택-");
+}
+this.cbo_warehouse_onitemchanged = function(obj, e)
+{
+    var sWarehouse = obj.value;
+    trace("sWarehouse = " + sWarehouse);
+
+    var nWarehouseRow = this.ds_warehouse.findRow("warehouseId", sWarehouse);
+
+    if (nWarehouseRow < 0)
+    {
+        return;
+    }
+
+    if (this.ds_inven.getRowCount() == 0)
+    {
+        this.ds_inven.addRow();
+    }
+
+    this.ds_inven.setColumn(0, "warehouseId", sWarehouse);
+    this.ds_inven.setColumn(0, "warehouseName", this.ds_warehouse.getColumn(nWarehouseRow, "warehouseName"));
+    this.ds_inven.setColumn(0, "regionId", this.ds_warehouse.getColumn(nWarehouseRow, "regionId"));
+    this.ds_inven.setColumn(0, "countryId", this.ds_warehouse.getColumn(nWarehouseRow, "countryId"));
+    this.ds_inven.setColumn(0, "locationId", this.ds_warehouse.getColumn(nWarehouseRow, "locationId"));
+    this.ds_inven.setColumn(0, "regionName", this.ds_warehouse.getColumn(nWarehouseRow, "regionName"));
+    this.ds_inven.setColumn(0, "countryName", this.ds_warehouse.getColumn(nWarehouseRow, "countryName"));
+    this.ds_inven.setColumn(0, "locationName", this.ds_warehouse.getColumn(nWarehouseRow, "locationName"));
+
+    trace("warehouseName = " + this.ds_inven.getColumn(0, "warehouseName"));
+    trace("regionId = " + this.ds_inven.getColumn(0, "regionId"));
+    trace("countryId = " + this.ds_inven.getColumn(0, "countryId"));
+    trace("locationId = " + this.ds_inven.getColumn(0, "locationId"));
+};
+// =====================================================================
+//util null 공백 처리
+// =====================================================================
+this.fn_isNull = function(v)
+{
+    return v == null || v == undefined || String(v).trim() == "";
+};
+this.fn_validation = function()
+{
+	
+	if (this.fn_isNull(this.cbo_warehouse.value))
+    {
+        alert("창고를 선택해주세요.");
+        this.cbo_warehouse.setFocus();
+        return false;
+    }
+    if (this.fn_isNull(this.edt_quantity.value))
+    {
+        alert("수량을 입력해주세요.");
+        this.edt_quantity.setFocus();
+        return false;
+    }
+    
+    var nQuantity = parseInt(this.edt_quantity.value, 10);
+	if(nQuantity < 0 || nQuantity > 99999999)
+	{	
+		trace(nQuantity);
+		alert("0과 99999999 사이의 값을 입력해주세요.");
+		this.edt_quantity.setFocus();
+		return false;
+	};
+	
+    return true;
+	
+};
+
+//변경 여부 확인 ("변경된 값이 없습니다.")
+this.fn_isChanged = function()
+{
+    	
+
+	if (this.ds_inven.getColumn(0, "warehouseId") != this.ds_origin.getColumn(0, "ogWarehouseId")
+		|| this.ds_inven.getColumn(0, "quantity")!= this.ds_origin.getColumn(0, "ogQuantity"))
+	{
+		return true;
+	}
+    
+
+    return false;
+};
+this.fn_update = function(sForceUpdate)
+{
+    var sArgs = "";
+    if (!this.fn_isChanged())
+    {
+        alert("변경된 값이 없습니다.");
+        return;
+    }
+	if(!confirm("수정하시겠습니까?"))
+	{
+		return;
+	}
+    if (sForceUpdate == "Y")
+    {
+        sArgs = "forceUpdate=Y";
+    }
+
+    this.transaction(
+        "updateWarehouseQuantity",
+        "http://localhost:8080/inventory/quantity",
+        "ds_inven=ds_inven ds_origin=ds_origin",
+        "",
+        sArgs,
+        "fn_inventoryQuantityCallback"
+    );
+};
+
+this.btn_update_onclick = function(obj, e)
+{
+    if (!this.fn_validation()) return;
+    this.fn_update("");
+};
+this.fv_needRefresh = false;
+this.fn_inventoryQuantityCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    if (nErrorCode == -200)
+    {
+        if (confirm(sErrorMsg))
+        {
+            this.fn_update("Y");
+        }
+        return;
+    }
+
+    if (nErrorCode < 0)
+    {
+        alert(sErrorMsg);
+        return;
+    }
+
+    alert("저장되었습니다.");
+    this.fv_needRefresh = true;
+};
+
+this.InvenPopupForm__close = function(obj, e)
+{
+	
+    if (this.fv_needRefresh)
+    {
+		trace("보내는 id" + this.ds_inven.getColumn(0, "warehouseId"));
+        this.close(String(this.ds_inven.getColumn(0, "warehouseId")));
+    }
+};
+
+//목록 버튼 클릭
+this.btn_index_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if(!confirm("변경사항이 저장되지 않습니다.\n목록으로 이동하시겠습니까?"))
+		return;
+	this.close();
+};
+
+this.edt_quantity_onchar = function(obj:MaskEdit, e:nexacro.CharEventInfo)
+{
+	var v = String(e.posttext || "");
+    v = nexacro.replaceAll(v, ",", "");
+	// 숫자만 허용
+    if (!/^[0-9]*$/.test(v))
+    {
+        return false;
+    }
+    // 빈 값 허용
+    if (v == "")
+    {
+        return true;
+    }
+	 // 배열 분리 (소수점 대비)
+    var arr = v.split(".");
+    var intPart = arr[0] || "";
+
+    // 정수부 8자리 제한
+    if (intPart.length > 8)
+    {
+        return false;
+    }
+
+    return true;
+}
+]]></Script>
+  </Form>
+</FDL>

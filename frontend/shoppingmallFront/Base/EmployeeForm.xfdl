@@ -1,0 +1,610 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="EmployeeForm" left="0" top="0" width="1061" height="651" titletext="New Form" style="border:1 solid #000000ff ;bordertype:normal 1 1 ;" onload="EmployeeForm_onload" onkeyup="onkeydown">
+    <Layouts>
+      <Layout>
+        <Grid id="grdEmployees" taborder="4" top="182" height="410" binddataset="ds_employees" autosizingtype="none" autofittype="col" width="982" left="40" style="align:center middle;font:10 Dotum;" cellsizebandtype="nohead" oncelldblclick="grdEmployees_oncelldblclic" nodatatext="No Data">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="67"/>
+                <Column size="237"/>
+                <Column size="164"/>
+                <Column size="257"/>
+                <Column size="101"/>
+                <Column size="156"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell style="background:#c8ebffff;" text="관리번호"/>
+                <Cell col="1" style="background:#c8ebffff;" text="직책"/>
+                <Cell col="2" style="background:#c8ebffff;" text="이름" expandsize="13"/>
+                <Cell col="3" style="background:#c8ebffff;" text="EMAIL"/>
+                <Cell col="4" style="background:#c8ebffff;" text="고용일"/>
+                <Cell col="5" style="background:#c8ebffff;" text="관리자명" expandsize="13"/>
+              </Band>
+              <Band id="body">
+                <Cell style="padding:5 5 5 5;" text="bind:employeeId" editlengthunit="utf8"/>
+                <Cell col="1" style="align:left;padding:5 5 5 5;" text="bind:jobTitle" editlengthunit="utf8"/>
+                <Cell col="2" style="align:left;padding:5 5 5 5;color:blue;color2:blue;cursor:hand;" text="bind:employeeName" editlengthunit="utf8"/>
+                <Cell col="3" style="align:left;padding:5 5 5 5;" text="bind:email" editlengthunit="utf8" tooltiptext="bind:email"/>
+                <Cell col="4" text="bind:hireDate" editlengthunit="utf8"/>
+                <Cell col="5" style="align:left;padding:5 5 5 5;" text="bind:managerName" editlengthunit="utf8"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btnSearch" taborder="5" text="조회" top="90" height="30" onclick="btnSearch_onclick" style="background:midnightblue;border:1 none #999999ff ;color:ivory;font:10 Dotum;" width="70" left="808"/>
+        <Button id="btnAdd" taborder="6" text="등록" top="90" height="30" onclick="btnAdd_onclick" style="background:midnightblue;border:1 none #999999ff ;color:ivory;font:10 Dotum;" width="70" left="880"/>
+        <Static id="sub" taborder="8" text="▣ 직원 목록" left="39" top="91" height="30" onclick="Static00_onclick" style="font:bold 12 Dotum;" width="140"/>
+        <Static id="title" taborder="13" text="∘ 직원 목록 및 관리" left="38" top="50" style="font:bold 16 Dotum;" width="382" height="40" onclick="Static02_onclick"/>
+        <Div id="div_cond" taborder="3" left="40" top="128" height="45" style="background:gainsboro;color:darkgray;" width="982">
+          <Layouts>
+            <Layout>
+              <Combo id="cboManager" taborder="15" left="680" top="8" width="186" height="28" innerdataset="@ds_manager" codecolumn="managerId" datacolumn="managerName" displaynulltext="-전체-" style="align:center middle;"/>
+              <Calendar id="calFrom" taborder="13" left="325" top="8" width="120" height="28" style="padding:5 5 5 10;" dateformat="yyyy-MM-dd " value="null" onchanged="div_cond_cal_onchanged"/>
+              <Calendar id="calTo" taborder="14" left="465" top="8" width="123" height="28" style="padding:5 5 5 10;" dateformat="yyyy-MM-dd " value="null" onchanged="div_cond_cal_onchanged"/>
+              <Edit id="edtName" taborder="12" oneditclick="edtName_oneditclick" left="79" top="8" width="156" height="28" maxlength="85" onkeydown="onkeydown" lengthunit="utf8" style="padding:5 5 5 5;"/>
+              <Static id="ename" taborder="400" text="이름" onclick="ename_onclick" left="45" top="8" width="28" height="28" style="font:10 Dotum;"/>
+              <Static id="h_date" taborder="500" text="고용일" onclick="h_date_onclick" left="279" top="8" width="41" height="28" style="font:10 Dotum;"/>
+              <Static id="mgr" taborder="600" text="관리자" onclick="mgr_onclick" left="633" top="8" width="55" height="28" style="font:10 Dotum;"/>
+              <Static id="Static01" taborder="700" text="~" onclick="Static01_onclick" left="449" top="8" width="12" height="28" style="border:1 none #808080ff ;font:10 Dotum;"/>
+              <Static id="Static00" taborder="800" text="Static01" visible="false" left="6.29%" top="130" right="91.97%" height="48" style="background:coral;opacity:30;"/>
+              <Static id="Static05" taborder="900" text="Static01" visible="false" style="background:coral;opacity:30;" bottom="-3" width="6" height="48" left="460"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static01" taborder="15" text="Static01" left="10.27%" top="127" height="48" style="background:coral;opacity:30;" visible="false" width="10"/>
+        <Static id="Static03" taborder="16" text="Static01" visible="false" left="33.46%" top="126" height="48" style="background:coral;opacity:30;" width="10" onclick="Static03_onclick"/>
+        <Static id="Static04" taborder="17" text="Static01" visible="false" left="710" height="48" style="background:coral;opacity:30;" width="10" top="128"/>
+        <Static id="Static05" taborder="18" text="Static01" visible="false" left="483" top="128" height="48" style="background:coral;opacity:30;" width="6"/>
+        <Static id="Static06" taborder="19" text="Static01" visible="false" left="25.92%" top="127" height="48" style="background:coral;opacity:30;" width="45"/>
+        <Button id="btnReset" taborder="20" left="771" top="90" height="30" width="35" style="image:URL('C:\Users\e1\Pictures\reset3.png');background:midnightblue;border:1 none #999999ff ;color:ivory;align:center middle;font:18 Dotum;" wordwrap="english" onclick="btnReset_onclick"/>
+        <Static id="Static08" taborder="22" text="Static01" visible="false" left="93.03%" top="126" right="2.64%" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static00" taborder="23" text="Static01" visible="false" left="59.1%" top="128" height="48" style="background:coral;opacity:30;" width="45"/>
+        <Static id="Static02" taborder="24" text="Static01" visible="false" left="40" top="128" height="48" style="background:coral;opacity:30;" width="45"/>
+        <Static id="Static07" taborder="25" text="Static01" visible="false" left="50.99%" top="174" width="522" height="8" style="background:coral;opacity:30;"/>
+        <Static id="Static09" taborder="26" text="Static01" visible="false" left="50.99%" top="128" width="522" height="8" style="background:coral;opacity:30;"/>
+        <Static id="Static10" taborder="27" text="Static01" visible="false" left="877" top="86" width="4" height="48" style="background:coral;opacity:30;" onclick="Static10_onclick"/>
+        <Static id="Static11" taborder="28" text="Static01" visible="false" left="949" top="86" width="4" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static12" taborder="29" text="Static01" visible="false" left="1022" top="87" width="4" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static13" taborder="30" text="Static01" visible="false" left="44" top="79" height="20" style="background:coral;opacity:30;" width="94"/>
+        <Static id="Static14" taborder="31" text="Static01" visible="false" left="48.07%" top="120" width="522" height="8" style="background:coral;opacity:30;"/>
+        <Static id="Static15" taborder="32" text="Static01" visible="false" left="85.2%" top="128" height="48" style="background:coral;opacity:30;" right="10.46%"/>
+        <Button id="btn_back" taborder="33" left="18" top="15" height="25" onclick="btn_back_onclick" style="image:URL('C:\Users\e1\Desktop\CssImage\free-icon-left-6657529.png');background:@gradation;border:0 none #999999ff ;color:ivory;bordertype:normal 10 10 ;font:18 arial;gradation:none 0,0 white 100,100 black;" width="25"/>
+        <Static id="Static16" taborder="34" text="Static01" visible="false" left="176" top="0" width="40" height="60" style="background:coral;opacity:30;"/>
+        <Static id="Static17" taborder="35" text="Static01" visible="false" left="0" top="168" width="40" height="60" style="background:coral;opacity:30;"/>
+        <Static id="Static18" taborder="36" text="Static01" visible="false" left="1021" top="242" width="40" height="60" style="background:coral;opacity:30;"/>
+        <Static id="Static19" taborder="37" text="Static01" visible="false" left="536" top="591" width="40" height="60" style="background:coral;opacity:30;"/>
+        <Button id="btn_excel" taborder="38" text="엑셀" left="952" top="90" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;font:10 Dotum;" onclick="btn_excel_onclick"/>
+        <PopupDiv id="PopupDiv00" text="PopupDiv00" left="112.72%" top="148" right="-37.23%" height="156"/>
+        <Static id="Static20" taborder="39" text="Static01" visible="false" left="805" top="82" width="4" height="48" style="background:coral;opacity:30;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_employees">
+        <ColumnInfo>
+          <Column id="employeeId" type="STRING" size="256"/>
+          <Column id="firstName" type="STRING" size="256"/>
+          <Column id="lastName" type="STRING" size="256"/>
+          <Column id="employeeName" type="STRING" size="256"/>
+          <Column id="email" type="STRING" size="256"/>
+          <Column id="phone" type="STRING" size="256"/>
+          <Column id="hireDate" type="STRING" size="256"/>
+          <Column id="managerId" type="STRING" size="256"/>
+          <Column id="managerName" type="STRING" size="256"/>
+          <Column id="jobTitle" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_cond">
+        <ColumnInfo>
+          <Column id="employeeName" type="STRING" size="256"/>
+          <Column id="hireDateFrom" type="STRING" size="256"/>
+          <Column id="hireDateTo" type="STRING" size="256"/>
+          <Column id="managerId" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_manager">
+        <ColumnInfo>
+          <Column id="managerId" type="STRING" size="256"/>
+          <Column id="managerName" type="STRING" size="256"/>
+          <Column id="chk" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_result">
+        <ColumnInfo>
+          <Column id="FILE_PATH" type="STRING" size="256"/>
+          <Column id="FILE_NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_header">
+        <ColumnInfo>
+          <Column id="colId" type="STRING" size="256"/>
+          <Column id="colName" type="STRING" size="256"/>
+          <Column id="cellIndex" type="STRING" size="256"/>
+          <Column id="row" type="STRING" size="256"/>
+          <Column id="colspan" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item3" compid="div_cond.cboManager" propid="value" datasetid="ds_cond" columnid="managerId"/>
+      <BindItem id="item1" compid="div_cond.calFrom" propid="value" datasetid="ds_cond" columnid="hireDateFrom"/>
+      <BindItem id="item2" compid="div_cond.calTo" propid="value" datasetid="ds_cond" columnid="hireDateTo"/>
+      <BindItem id="item0" compid="div_cond.edtName" propid="value" datasetid="ds_cond" columnid="employeeName"/>
+    </Bind>
+    <Style url="MyCss::newcss.css"/>
+    <Script type="xscript5.0"><![CDATA[/*
+화면명 : 직원 목록 및 관리
+작성자 : 정상준
+작성일자 : 2026-03-23
+*/
+
+//팝업창 수정 시 포커스 위함
+this.fv_focusEmployeeId = "";
+this.enter = 0;
+
+this.btn_back_onclick = function(obj, e)
+{
+    this.getOwnerFrame().set_formurl("Base::MainForm.xfdl");
+};
+this.EmployeeForm_onload = function(obj, e)
+{
+	this.div_cond.calFrom.set_value("20160101");
+	this.div_cond.calTo.set_value(this.fn_getToday());
+	this.grdEmployees.setCellProperty("body", 2, "font", "underline");
+	trace("_cookie_variables = " + nexacro._getLocalStorage("_cookie_variables", []));
+	trace("_secure_cookie_variables = " + nexacro._getLocalStorage("_secure_cookie_variables", []));
+
+    this.fn_loadManager();//관리자 콤보 박스 호출
+    this.fn_search();
+};
+
+
+//조회버튼 클릭이벤트
+this.btnSearch_onclick = function(obj, e)
+{
+    this.fn_search();
+};
+this.onkeydown = function(obj, e){
+	if(e.keycode == 13){
+	trace("엔터");
+		this.fn_search();
+	}
+}
+//등록버튼 클릭이벤트
+this.btnAdd_onclick = function(obj, e)
+{
+    this.fn_openEmployeePopup("I", "");
+};
+
+
+//초기화버튼 클릭이벤트
+this.btnReset_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.fn_reset();
+};
+
+this.fn_loadManager = function() //서버에 관리자 정보 호출 
+{
+    this.transaction(
+        "getManagerList",
+        "http://localhost:8080/managerList",
+        "",
+        "ds_manager=ds_manager",
+        "",
+        "fn_managerCallback"
+    );
+};
+this.fn_managerCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+	trace("svcID = " + svcID);
+    trace("nErrorCode = " + nErrorCode);
+    trace("sErrorMsg = " + sErrorMsg);
+
+	//콤보 박스의 매니저를 선택 
+    if (svcID == "getManagerList")
+    {
+        trace("manager rowcount = " + this.ds_manager.getRowCount())
+        return;
+
+        if (nErrorCode < 0)
+        {
+            alert("관리자 목록 조회 실패 : " + sErrorMsg);
+            return;
+        }
+
+        if (this.div_cond.cboManager)
+        {
+            this.div_cond.cboManager.set_index(0);
+        }
+
+        this.fn_search();
+        return;
+    }
+}
+this.div_cond_cal_onchanged = function(obj, e)
+{
+    var sFrom = this.div_cond.calFrom.value;
+    var sTo   = this.div_cond.calTo.value;
+
+    // 날짜 조건 1900-01-01
+    if (sFrom && sFrom < "19000101")
+    {
+        alert("고용일은 1900-01-01 이전으로 입력할 수 없습니다.");
+        this.div_cond.calFrom.setFocus();
+        this.enter = 1;
+        return;
+    }
+
+    if (sTo && sTo < "19000101")
+    {
+        alert("고용일은 1900-01-01 이전으로 입력할 수 없습니다.");
+        this.div_cond.calTo.setFocus();
+        this.enter = 2;
+        return;
+    }
+
+    // 시작일 > 종료일
+    if (sFrom && sTo && sFrom > sTo)
+    {
+        alert("시작일은 종료일보다 이후일 수 없습니다.");
+		this.enter = 3;
+        //변경한 쪽 기준으로 처리
+        if (obj == this.div_cond.calFrom)
+        {
+            this.div_cond.calFrom.setFocus();
+        }
+        else
+        {
+            this.div_cond.calTo.setFocus();
+        }
+        return;
+    }
+    this.enter = 0;
+};
+
+//직원 정보 조회
+this.fn_search = function()
+{
+	trace("search엔터");
+	if(this.enter == 1 || this.enter == 2){ 
+		alert("고용일은 1900-01-01 이전으로 입력할 수 없습니다.");
+		return;
+	}else if(this.enter == 3){
+		alert("시작일은 종료일보다 이후일 수 없습니다.");
+		return;
+	}else this.enter = 0;
+	
+	//서버에 보내는 조회 조건 변수명에 담기
+    var sName = this.div_cond.edtName.value;
+    var sFrom = this.div_cond.calFrom.value;
+	var sTo = this.div_cond.calTo.value;
+    if (this.div_cond.cboManager)
+        sManagerId = this.div_cond.cboManager.value;
+	
+    this.ds_cond.clearData();
+
+    var nRow = this.ds_cond.addRow();
+    // 검색 조건이 없다면 빈칸(전체)으로 지정
+    this.ds_cond.setColumn(nRow, "employeeName", sName ? sName : "");
+    this.ds_cond.setColumn(nRow, "hireDateFrom", sFrom ? sFrom : "");
+    this.ds_cond.setColumn(nRow, "hireDateTo", sTo ? sTo : "");
+    this.ds_cond.setColumn(nRow, "managerId", sManagerId ? sManagerId : "");
+	
+	//직원 검색 정보를 데이터셋에 담아서 서버에 전달
+    this.transaction(
+        "getEmployeeList",
+        "http://localhost:8080/employees",
+        "ds_cond=ds_cond",
+        "ds_employees=ds_employees",
+        "",
+        "fn_searchCallback"
+    );
+};
+//조회 콜백 함수
+this.fn_searchCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    // 팝업에서 등록/수정한 직원을 포커스하기 위한 함
+    if (this.fv_focusEmployeeId)
+	{
+		var nRow = this.ds_employees.findRow("employeeId", this.fv_focusEmployeeId);
+
+		if (nRow >= 0)
+		{
+			this.ds_employees.set_rowposition(nRow);
+			this.grdEmployees.setFocus();
+		}
+
+		this.fv_focusEmployeeId = "";
+	}
+	return;   
+};
+
+//날짜 형식 포멧
+this.fn_formatDate = function(sDate)
+{
+    if (!sDate) return "";
+    sDate = String(sDate);
+    return sDate.substr(0, 4) + "-" + sDate.substr(4, 2) + "-" + sDate.substr(6, 2);
+};
+
+// 화면 검색조건 초기화
+this.fn_reset = function()
+{
+    var sToday = this.fn_getToday();
+    
+    this.div_cond.edtName.set_value("");
+    this.div_cond.calFrom.set_value("20160101");
+    this.div_cond.calTo.set_value(sToday);
+    this.div_cond.cboManager.set_value("");
+    // 2. 검색조건 dataset 초기화
+    this.ds_cond.clearData();
+ 
+    var nRow = this.ds_cond.addRow();
+    this.ds_cond.setColumn(nRow, "employeeName", "");
+    this.ds_cond.setColumn(nRow, "hireDateFrom", "2016-01-01");
+    this.ds_cond.setColumn(nRow, "hireDateTo", sToday);
+    this.ds_cond.setColumn(nRow, "managerId", "");
+
+    // 3. 결과 grid 비우기
+	//this.fn_search();
+
+    trace("=== 초기화 후 ds_cond ===");
+    trace("ds_employees rowcount = " + this.ds_employees.getRowCount());
+};
+
+// 오늘 날짜 YYYYMMDD 반환
+this.fn_getToday = function()
+{
+    var d = new Date();
+
+    var yyyy = d.getFullYear();
+    var mm = d.getMonth() + 1;
+    var dd = d.getDate();
+
+    mm = (mm < 10 ? "0" : "") + mm;
+    dd = (dd < 10 ? "0" : "") + dd;
+
+    return "" + yyyy + mm + dd;
+};
+
+
+this.grdEmployees_oncelldblclic = function(obj, e)
+{
+    if (e.cell == 2)
+    {
+        var nRow = e.row;
+        var sEmployeeId = this.ds_employees.getColumn(nRow, "employeeId");
+        trace("선택한 직원번호 = " + sEmployeeId);
+        this.fn_openEmployeePopup("U", sEmployeeId);
+    }
+    
+};
+
+//모드 저장 통해 등록/수정 구별
+
+//팝업을 여는 함수
+this.fn_openEmployeePopup = function(sMode, sEmployeeId)
+{
+    var objChildFrame = new ChildFrame();
+	this.fv_popupMode = sMode
+	objChildFrame.init(
+		"EmployeePopupForm",
+		100,
+		100,
+		700,
+		300,
+		null,
+		null
+	);
+	objChildFrame.set_formurl("Base::EmployeePopupForm.xfdl");
+	objChildFrame.set_showtitlebar(true);
+	objChildFrame.set_resizable(true);
+	objChildFrame.set_openalign("center middle");
+
+	objChildFrame.showModal(
+		"EmployeePopupForm",          // ⭐ 여기 들어가는 ID
+		this.getOwnerFrame(),
+		{
+			mode: sMode,
+			employeeId: sEmployeeId
+		},
+		this,
+		"fn_popupCallback"
+	);
+};
+
+//팝업 콜백 함수
+this.fn_popupCallback = function(sPopupId, sReturn)
+{
+    trace("popup closed" + sReturn);
+
+    if (!sReturn) return;
+	this.fv_focusEmployeeId = sReturn;
+    
+    // 등록 후 화면 refresh -> 등록 직원 포커스
+	if(this.fv_popupMode == "I") this.fn_reset();
+    this.fn_search();
+};
+
+//==================================
+//엑셀 버튼
+//==================================
+this.fn_lpad = function(v, len)
+{
+    v = String(v);
+    while (v.length < len)
+    {
+        v = "0" + v;
+    }
+    return v;
+};
+
+// 공통 엑셀 서버로 보낼 헤더 데이터셋 생성
+this.fn_makeExcelHeader = function()
+{
+    this.ds_header.clearData();
+
+    var bodyCellCount = this.grdEmployees.getCellCount("body");
+    var excelCol = 0;
+
+    for (var i = 0; i < bodyCellCount; i++)
+    {
+        // Grid body cell의 text에서 실제 bind 컬럼명을 가져온다.
+        var bodyText = this.grdEmployees.getCellProperty("body", i, "text");
+
+        if (!bodyText || bodyText.indexOf("bind:") != 0)
+        {
+            continue;
+        }
+
+        var colId = bodyText.substr(5);
+
+        // Grid head cell의 text를 엑셀 헤더명으로 사용한다.
+        var headText = this.grdEmployees.getCellProperty("head", i, "text");
+
+        if (!headText)
+        {
+            headText = colId;
+        }
+
+        var row = this.ds_header.addRow();
+        this.ds_header.setColumn(row, "row", "1");
+        this.ds_header.setColumn(row, "cellIndex", String(excelCol));
+        this.ds_header.setColumn(row, "colspan", "1");
+        this.ds_header.setColumn(row, "colId", colId);
+        this.ds_header.setColumn(row, "colName", headText);
+
+        excelCol++;
+    }
+};
+
+this.btn_excel_onclick = function(obj, e)
+{
+    if (this.ds_employees.getRowCount() <= 0)
+    {
+        alert("엑셀로 저장할 데이터가 없습니다.");
+        return;
+    }
+	var d = new Date();
+    var H = this.fn_lpad(d.getHours(), 2);
+    var M = this.fn_lpad(d.getMinutes(), 2);
+    var S = this.fn_lpad(d.getSeconds(), 2);
+    
+    // 그리드에 보이는 컬럼 기준으로 엑셀 헤더 정보를 만든다.
+    this.fn_makeExcelHeader();
+
+    var fileName = "Employees_" + this.fn_getToday() + "_" + H + M + S;
+    var sheetName = "Sheet1";
+    var excelFilePath = "";
+
+    var args = "";
+    args += "fileName=" + fileName;
+    args += " sheetName=" + sheetName;
+    args += " excelFilePath=" + excelFilePath;
+
+    this.transaction(
+        "commonExcelCreate",
+        "http://localhost:8080/common/excel/create",
+        "ds_header=ds_header ds_body=ds_employees",
+        "ds_result=ds_result",
+        args,
+        "fn_excelExportCallback"
+    );
+};
+
+this.fn_excelExportCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    if (nErrorCode < 0)
+    {
+        alert("엑셀 생성 실패: " + sErrorMsg);
+        return;
+    }
+
+    var filePath = this.ds_result.getColumn(0, "FILE_PATH");
+    var fileName = this.ds_result.getColumn(0, "FILE_NAME");
+
+    if (!filePath)
+    {
+        alert("생성된 엑셀 파일 경로가 없습니다.");
+        return;
+    }
+
+    if (!fileName)
+    {
+        fileName = "Employees_" + this.fn_getToday();
+    }
+
+    if (fileName.toLowerCase().indexOf(".xlsx") < 0)
+    {
+        fileName += ".xlsx";
+    }
+
+    if (application && application._endCommProgress)
+    {
+        application._endCommProgress();
+    }
+
+    var url = "http://localhost:8080/common/excel/download"
+        + "?excelFilePath=" + encodeURIComponent(filePath)
+        + "&fileName=" + encodeURIComponent(fileName);
+
+    this.fn_excelRuntimeDownload(url, fileName);
+};
+
+// Runtime 모드에서 저장 위치 선택창을 띄워 파일을 다운로드한다.
+this.fn_excelRuntimeDownload = function(url, fileName)
+{
+    // FileDownload 컴포넌트가 없으면 동적으로 생성
+    if (!this.FileDownloadExcel)
+    {
+        var obj = new FileDownload("FileDownloadExcel", "absolute", 0, 0, 1, 1, null, null, this);
+        this.addChild("FileDownloadExcel", obj);
+
+        obj.addEventHandler("onsuccess", this.FileDownloadExcel_onsuccess, this);
+        obj.addEventHandler("onerror", this.FileDownloadExcel_onerror, this);
+
+        obj.show();
+    }
+
+    // 저장창에 기본으로 표시할 파일명
+    this.FileDownloadExcel.set_downloadfilename(fileName);
+
+    // 저장창 파일 형식 필터
+    this.FileDownloadExcel.set_filefilter("Excel File (*.xlsx)|*.xlsx|All Files (*.*)|*.*|");
+    this.FileDownloadExcel.set_filefilterindex(0);
+
+    // Runtime 모드에서는 저장 위치 선택창을 띄운 뒤 다운로드한다.
+    var ret = this.FileDownloadExcel.download(url);
+
+    if (!ret)
+    {
+        return;
+    }
+};
+
+this.FileDownloadExcel_onsuccess = function(obj, e)
+{
+    trace("엑셀 다운로드 성공: " + e.targetfullpath);
+    alert("저장되었습니다.");
+};
+
+this.FileDownloadExcel_onerror = function(obj, e)
+{
+    alert("엑셀 다운로드 실패: " + e.errormsg);
+};
+
+]]></Script>
+  </Form>
+</FDL>

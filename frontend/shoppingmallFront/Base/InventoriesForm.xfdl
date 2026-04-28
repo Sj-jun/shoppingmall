@@ -1,0 +1,833 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="InventoriesForm" left="0" top="0" width="1060" height="718" titletext="New Form" onload="InventoriesForm_onload" onkeyup="onkeydown">
+    <Layouts>
+      <Layout>
+        <Grid id="grd_inven" taborder="0" left="39" top="248" width="982" height="410" binddataset="ds_inven" scrollbars="autovert" oncellclick="grd_inven_oncelldblclic">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="114"/>
+                <Column size="236"/>
+                <Column size="87"/>
+                <Column size="187"/>
+                <Column size="171"/>
+                <Column size="187"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell style="background:#c8ebffff;" text="카테고리"/>
+                <Cell col="1" style="background:#c8ebffff;" text="상품명"/>
+                <Cell col="2" style="background:#c8ebffff;" text="지역"/>
+                <Cell col="3" style="background:#c8ebffff;" text="국가"/>
+                <Cell col="4" style="background:#c8ebffff;" text="창고위치"/>
+                <Cell col="5" style="background:#c8ebffff;" text="창고명"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:left;padding:5 5 5 5;" text="bind:categoryName"/>
+                <Cell col="1" style="align:left;padding:5 5 5 5;color:blue;color2:blue;font:underline 9 Dotum;cursor:hand;" text="bind:productName" tooltiptext="bind:description"/>
+                <Cell col="2" style="align:left;padding:5 5 5 5;" text="bind:regionName"/>
+                <Cell col="3" style="align:left;padding:5 5 5 5;" text="bind:countryName" tooltiptext="bind:countryName"/>
+                <Cell col="4" style="align:left;padding:5 5 5 5;" text="bind:locationName" tooltiptext="bind:locationName"/>
+                <Cell col="5" style="align:left;padding:5 5 5 5;color:blue;color2:blue;font:underline 9 Dotum;cursor:hand;" text="bind:warehouseName" tooltiptext="bind:warehouseName"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Div id="div_inven" taborder="1" left="40" top="122" width="981" height="87" style="background:gainsboro;">
+          <Layouts>
+            <Layout>
+              <Static id="sta_cat" taborder="6" text="카테고리" left="46" top="10" width="48" height="28" onclick="div_inven_Static00_onclick"/>
+              <Static id="sta_country" taborder="7" text="국가" onclick="div_inven_Static00_onclick" left="297" top="49" width="27" height="28"/>
+              <Static id="sta_prod" taborder="8" text="상품명" onclick="div_inven_Static00_onclick" left="287" top="10" width="39" height="28"/>
+              <Static id="sta_loc" taborder="9" text="창고위치" onclick="div_inven_Static00_onclick" left="516" top="49" width="50" height="28"/>
+              <Static id="sta_wh" taborder="10" text="창고명" onclick="div_inven_Static00_onclick" left="528" top="10" width="40" height="28"/>
+              <Static id="sta_reg" taborder="11" text="지역" onclick="div_inven_Static00_onclick" left="70" top="47" width="27" height="28"/>
+              <Combo id="cbo_category" taborder="0" left="102" top="10" width="140" height="28" innerdataset="@ds_category" codecolumn="categoryId" datacolumn="categoryName" displaynulltext="-전체-" style="align:center middle;"/>
+              <Combo id="cbo_country" taborder="4" left="331" top="49" width="140" height="28" innerdataset="@ds_country" codecolumn="countryId" datacolumn="countryName" onitemchanged="div_inven.cbo_country_onitemchanged" displaynulltext="-전체-" style="align:center middle;"/>
+              <Combo id="cbo_location" taborder="5" left="572" top="49" width="140" height="28" innerdataset="@ds_location" codecolumn="locationId" datacolumn="locationName" onitemchanged="div_inven_cbo_location_onitemchanged" displaynulltext="-전체-" style="align:center middle;"/>
+              <Combo id="cbo_region" taborder="3" left="102" top="49" width="140" height="28" innerdataset="@ds_region" codecolumn="regionId" datacolumn="regionName" onitemchanged="div_inven.cbo_region_onitemchanged" displaynulltext="-전체-" style="align:center middle;"/>
+              <Edit id="edt_prodName" taborder="1" left="331" top="10" width="140" height="28" maxlength="85" lengthunit="utf8" style="border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;padding:5 5 5 5;"/>
+              <Edit id="edt_whName" taborder="2" left="572" top="10" width="140" height="28" maxlength="85" lengthunit="utf8" style="border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;padding:5 5 5 5;"/>
+              <Static id="Static04" taborder="12" text="Static01" onclick="Static04_onclick" visible="false" left="32.72%" top="39" width="10" height="48" style="background:coral;opacity:30;"/>
+              <Static id="Static00" taborder="13" text="Static01" visible="false" left="47.71%" top="147" width="522" height="8" style="background:coral;opacity:30;"/>
+              <Static id="Static08" taborder="14" text="Static01" visible="false" left="2.14%" top="155" width="522" height="8" style="background:coral;opacity:30;"/>
+              <Static id="Static10" taborder="15" text="Static01" onclick="Static04_onclick" visible="false" left="36.09%" top="155" width="10" height="48" style="background:coral;opacity:30;"/>
+              <Static id="Static17" taborder="16" text="Static01" onclick="Static04_onclick" visible="false" left="56.57%" top="160" width="10" height="48" style="background:coral;opacity:30;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btn_insert" taborder="2" text="등록" left="879" top="85" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;" onclick="btn_insert_onclick"/>
+        <Button id="btn_search" taborder="3" text="조회" onclick="btn_search_onclick" left="807" top="85" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;"/>
+        <Button id="btn_reset" taborder="4" onclick="fn_reset" left="770" top="85" width="35" height="30" style="image:URL('C:\Users\e1\Pictures\reset3.png');background:midnightblue;border:1 none #999999ff ;color:ivory;font:18 Dotum;"/>
+        <Static id="Static12" taborder="6" text="Static01" visible="false" left="948" top="84" width="4" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static04" taborder="7" text="Static01" visible="false" left="12.34%" top="122" width="10" height="48" style="background:coral;opacity:30;" onclick="Static04_onclick"/>
+        <Static id="Static13" taborder="8" text="Static01" visible="false" left="42" top="78" height="20" style="background:coral;opacity:30;" onclick="Static13_onclick" width="92"/>
+        <Static id="Static00" taborder="9" text="Static01" visible="false" left="48.49%" top="114" width="522" height="8" style="background:coral;opacity:30;"/>
+        <Static id="Static01" taborder="10" text="Static01" visible="false" left="876" top="81" width="4" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static02" taborder="14" text="Static01" onclick="Static00_onclick" visible="false" left="48.31%" top="243" width="522" height="5" style="background:coral;opacity:30;"/>
+        <Button id="btn_catMgr" taborder="15" text="카테고리관리" onclick="fn_openCategoryPopup" left="913" top="214" width="108" height="30" style="background:transparent;border:1 solid midnightblue ;color:black;"/>
+        <Static id="Static03" taborder="16" text="Static01" onclick="Static00_onclick" visible="false" left="49.06%" top="209" width="522" height="5" style="background:coral;opacity:30;"/>
+        <Button id="btn_changeAll" taborder="17" text="일괄변경" onclick="fn_ChangePopup" left="839" top="214" width="70" height="30" style="background:transparent;border:1 solid midnightblue ;color:black;"/>
+        <Static id="Static05" taborder="18" text="Static01" visible="false" left="909" top="206" width="4" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static07" taborder="20" text="Static01" visible="false" left="996" top="82" width="23" height="48" style="background:coral;opacity:30;"/>
+        <Static id="sta_invenList" taborder="22" text="▣ 재고 목록" left="39" top="91" width="108" height="28" style="font:bold 12 Dotum;"/>
+        <Static id="sta_title" taborder="23" text="∘ 재고 목록 및 상품 등록" left="39" top="50" width="268" height="40" style="font:bold 16 Dotum;"/>
+        <Static id="Static08" taborder="24" text="Static01" visible="false" left="3.77%" top="122" width="900" height="10" style="background:coral;opacity:30;"/>
+        <Static id="Static09" taborder="25" text="Static01" visible="false" left="3.77%" top="199" width="900" height="10" style="background:coral;opacity:30;"/>
+        <Static id="Static10" taborder="26" text="Static01" onclick="Static04_onclick" visible="false" left="33.9%" top="127" width="10" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static11" taborder="27" text="Static01" onclick="Static04_onclick" visible="false" left="56.59%" top="161" width="10" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static14" taborder="28" text="Static01" onclick="Static04_onclick" visible="false" left="26.37%" top="133" width="45" height="66" style="background:coral;opacity:30;"/>
+        <Static id="Static15" taborder="29" text="Static01" onclick="Static04_onclick" visible="false" left="48.02%" top="133" width="45" height="66" style="background:coral;opacity:30;"/>
+        <Static id="Static17" taborder="31" text="Static01" onclick="Static04_onclick" visible="false" left="56.59%" top="127" width="10" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static18" taborder="32" text="Static01" onclick="Static04_onclick" visible="false" left="12.34%" top="169" width="10" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static19" taborder="33" text="Static01" onclick="Static04_onclick" visible="false" left="3.77%" top="132" width="45" height="66" style="background:coral;opacity:30;"/>
+        <Static id="Static20" taborder="35" text="Static01" visible="false" left="176" top="0" width="40" height="60" style="background:coral;opacity:30;"/>
+        <Static id="Static21" taborder="36" text="Static01" visible="false" left="0" top="215" width="40" height="60" style="background:coral;opacity:30;"/>
+        <Static id="Static22" taborder="37" text="Static01" visible="false" left="348" top="658" width="40" height="60" style="background:coral;opacity:30;"/>
+        <Static id="Static23" taborder="38" text="Static01" visible="false" left="1020" top="251" width="40" height="60" style="background:coral;opacity:30;"/>
+        <Button id="btn_excel" taborder="39" text="엑셀" onclick="btn_excel_onclick" left="951" top="85" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;font:10 Dotum;"/>
+        <Static id="Static24" taborder="40" text="Static01" visible="false" left="804" top="82" width="4" height="48" style="background:coral;opacity:30;"/>
+        <Button id="btn_back" taborder="41" onclick="btn_back_onclick" left="17" top="15" width="25" height="25" style="image:URL('C:\Users\e1\Desktop\CssImage\free-icon-left-6657529.png');background:@gradation;border:0 none #999999ff ;color:ivory;bordertype:normal 10 10 ;font:18 arial;gradation:none 0,0 white 100,100 black;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_inven">
+        <ColumnInfo>
+          <Column id="categoryId" type="STRING" size="256"/>
+          <Column id="categoryName" type="STRING" size="256"/>
+          <Column id="productId" type="STRING" size="256"/>
+          <Column id="productName" type="STRING" size="256"/>
+          <Column id="regionId" type="STRING" size="256"/>
+          <Column id="regionName" type="STRING" size="256"/>
+          <Column id="countryId" type="STRING" size="256"/>
+          <Column id="countryName" type="STRING" size="256"/>
+          <Column id="locationId" type="STRING" size="256"/>
+          <Column id="locationName" type="STRING" size="256"/>
+          <Column id="warehouseId" type="STRING" size="256"/>
+          <Column id="warehouseName" type="STRING" size="256"/>
+          <Column id="description" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_cond">
+        <ColumnInfo>
+          <Column id="categoryId" type="STRING" size="256"/>
+          <Column id="productName" type="STRING" size="256"/>
+          <Column id="warehouseName" type="STRING" size="256"/>
+          <Column id="regionId" type="STRING" size="256"/>
+          <Column id="countryId" type="STRING" size="256"/>
+          <Column id="locationId" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_region">
+        <ColumnInfo>
+          <Column id="regionId" type="STRING" size="256"/>
+          <Column id="regionName" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_country">
+        <ColumnInfo>
+          <Column id="countryId" type="STRING" size="256"/>
+          <Column id="countryName" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_location">
+        <ColumnInfo>
+          <Column id="locationId" type="STRING" size="256"/>
+          <Column id="locationName" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_category">
+        <ColumnInfo>
+          <Column id="categoryId" type="STRING" size="256"/>
+          <Column id="categoryName" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_result">
+        <ColumnInfo>
+          <Column id="FILE_PATH" type="STRING" size="256"/>
+          <Column id="FILE_NAME" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_header">
+        <ColumnInfo>
+          <Column id="colId" type="STRING" size="256"/>
+          <Column id="colName" type="STRING" size="256"/>
+          <Column id="cellIndex" type="STRING" size="256"/>
+          <Column id="row" type="STRING" size="256"/>
+          <Column id="colspan" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="grd_inven" propid="" datasetid="ds_inven" columnid=""/>
+      <BindItem id="item1" compid="div_inven.cbo_category" propid="value" datasetid="ds_cond" columnid="categoryId"/>
+      <BindItem id="item2" compid="div_inven.cbo_region" propid="value" datasetid="ds_cond" columnid="regionId"/>
+      <BindItem id="item3" compid="div_inven.edt_prodName" propid="value" datasetid="ds_cond" columnid="productName"/>
+      <BindItem id="item4" compid="div_inven.edt_whName" propid="value" datasetid="ds_cond" columnid="warehouseName"/>
+      <BindItem id="item5" compid="div_inven.cbo_country" propid="value" datasetid="ds_cond" columnid="countryId"/>
+      <BindItem id="item6" compid="div_inven.cbo_location" propid="value" datasetid="ds_cond" columnid="locationId"/>
+    </Bind>
+    <Style url="MyCss::newcss.css"/>
+    <Script type="xscript5.0"><![CDATA[/*
+화면명 : 재고 목록 및 상품 등록
+작성자 : 정상준
+작성일자 : 2026-04-03
+*/
+this.btn_back_onclick = function(obj, e)
+{
+    this.getOwnerFrame().set_formurl("Base::MainForm.xfdl");
+};
+
+// 팝업 모드 (I: 등록, U: 수정)
+this.fv_mode = "";
+
+// 수정 시 사용할 상품ID
+this.fv_focusProductId ="";
+this.fv_warehouseId="";
+
+this.InventoriesForm_onload = function(obj, e)
+{
+	if (this.ds_cond.getRowCount() == 0)
+    {
+        this.ds_cond.addRow();
+    }
+
+    // 검색조건 초기화
+    this.ds_cond.setColumn(0, "categoryId", "");
+    this.ds_cond.setColumn(0, "productName", "");
+    this.ds_cond.setColumn(0, "warehouseName", "");
+    this.ds_cond.setColumn(0, "regionId", "");
+    this.ds_cond.setColumn(0, "countryId", "");
+    this.ds_cond.setColumn(0, "locationId", "");
+    
+    // 조회영역 국가/위치 비활성화
+    this.div_inven.cbo_country.set_enable(false);
+    this.div_inven.cbo_location.set_enable(false);
+    this.div_inven.cbo_category.set_index(0);
+    this.div_inven.cbo_region.set_index(0);
+    this.div_inven.cbo_country.set_index(0);
+    this.div_inven.cbo_location.set_index(0);
+
+    // 조회용 카테고리, 지역
+    this.fn_loadCategory();
+    
+    this.fn_loadRegion();
+    this.fn_search();
+
+}
+
+this.onkeydown = function(obj, e){
+	if(e.keycode == 13){
+		this.btn_search.setFocus();
+		this.fn_search();
+	}
+}
+// =====================================================================
+// 조회용 카테고리, 지역, 국가, 위치
+// =====================================================================
+
+this.fn_loadCategory = function()
+{
+    this.transaction(
+        "getCategoryList",
+        "http://localhost:8080/categoryList",
+        "",
+        "ds_category=ds_category",
+        "",
+        "fn_categoryCallback"
+    );
+};
+this.fn_categoryCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    if (nErrorCode < 0)
+    {
+        alert(sErrorMsg);
+        return;
+    }
+	this.div_inven.cbo_category.set_index(0);
+}
+// 지역=====================================================================           
+this.fn_loadRegion = function()
+{
+    this.transaction(
+        "getRegionList",
+        "http://localhost:8080/regionList",
+        "",
+        "ds_region=ds_region",
+        "",
+        "fn_regionCallback"
+    );
+};
+this.fn_regionCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    if (nErrorCode < 0)
+    {
+        alert(sErrorMsg);
+        return;
+    }
+	this.div_inven.cbo_region.set_index(0);			
+}
+//국가 ===================================================================== 
+this.fn_loadCountry = function()
+{
+    this.transaction(
+        "getCountryList",
+        "http://localhost:8080/countryList",
+        "ds_cond=ds_cond",
+        "ds_country=ds_country",
+        "",
+        "fn_countryCallback"
+    );
+};
+this.fn_countryCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    if (nErrorCode < 0)
+    {
+        alert(sErrorMsg);
+        return;
+    }
+
+	this.div_inven.cbo_country.set_index(0);
+	this.div_inven.cbo_country.set_enable(true);
+}
+
+//위치 =====================================================================
+this.fn_loadLocation = function()
+{
+    this.transaction(
+        "getLocationList",
+        "http://localhost:8080/locationList",
+        "ds_cond=ds_cond",
+        "ds_location=ds_location",
+        "",
+        "fn_locationCallback"
+    );
+};
+this.fn_locationCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    if (nErrorCode < 0)
+    {
+        alert(sErrorMsg);
+        return;
+    }
+	this.div_inven.cbo_location.set_index(0);
+	this.div_inven.cbo_location.set_enable(true);
+
+}          
+// =====================================================================
+// 조회영역 - 지역 변경
+// =====================================================================
+this.div_inven.cbo_region_onitemchanged = function(obj, e)
+{
+    this.ds_cond.setColumn(0, "regionId", obj.value);
+    this.ds_cond.setColumn(0, "countryId", "");
+    this.ds_cond.setColumn(0, "locationId", "");
+
+    this.div_inven.cbo_country.set_value("");
+    this.div_inven.cbo_location.set_value(null);
+    
+    this.ds_country.clearData();
+    this.ds_location.clearData();
+    
+	this.div_inven.cbo_country.set_index(0);
+    this.div_inven.cbo_location.set_index(0);
+    
+    this.div_inven.cbo_country.set_enable(false);
+    this.div_inven.cbo_location.set_enable(false);
+
+    if (obj.value == "" || obj.value == null) 
+    {
+		this.ds_cond.setColumn(0, "regionId", null);
+		this.div_inven.cbo_region.set_value(null);
+		this.div_inven.cbo_region.set_index(0);
+		return;
+    }
+
+    this.fn_loadCountry();
+};
+
+// =====================================================================
+// 조회영역 - 국가 변경
+// =====================================================================
+this.div_inven.cbo_country_onitemchanged = function(obj, e)
+{
+    this.ds_cond.setColumn(0, "countryId", obj.value);
+    this.ds_cond.setColumn(0, "locationId", "");
+
+    this.div_inven.cbo_location.set_value(null);
+    this.div_inven.cbo_location.set_index(0);
+    this.ds_location.clearData();
+
+	this.div_inven.cbo_location.set_index(0);
+    this.div_inven.cbo_location.set_enable(false);
+
+    if (obj.value == "" || obj.value == null) return;
+
+    this.fn_loadLocation();
+
+
+};
+
+// =====================================================================
+// 조회
+// =====================================================================
+this.btn_search_onclick = function(obj, e)
+{
+    this.fn_search();
+};
+
+this.fn_search = function()
+{	  
+    this.transaction(
+        "getInvenList",
+        "http://localhost:8080/InvenList",
+        "ds_cond=ds_cond",
+        "ds_inven=ds_inven",
+        "",
+        "fn_searchCallback"
+    );
+};
+this.fn_searchCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    if (nErrorCode < 0)
+    {
+        alert(sErrorMsg);
+        return;
+    }
+    if (this.fv_focusProductId)
+    {
+		var nRow = 0;
+        for (var i = 0; i < this.ds_inven.getRowCount(); i++)
+        {	
+			
+            var sId = this.ds_inven.getColumn(i, "productId");
+            if(this.fv_warehouseId){
+				var sWhId = this.ds_inven.getColumn(i, "warehouseId");
+				if (String(sId) == String(this.fv_focusProductId) 
+						&& String(sWhId) == String(this.fv_warehouseId))
+				{
+					trace("찾은 row = " + i);
+					nRow = i;
+				}
+			}else{
+			
+				if (String(sId) == String(this.fv_focusProductId))
+				{
+					trace("찾은 row = " + i);
+					nRow = i	
+				}
+			}
+		}
+		this.ds_inven.set_rowposition(nRow);
+		this.grd_inven.setCellPos(nRow); // 첫 컬럼 포커스
+        // 한번 쓰고 초기화
+        this.fv_focusProductId = "";
+        this.fv_warehouseId = "";
+	}
+    
+};
+// =====================================================================
+// 화면 검색조건 초기화
+// =====================================================================
+this.fn_reset = function()
+{
+    
+    this.div_inven.cbo_category.set_value("");
+    this.div_inven.cbo_region.set_value("");
+    this.div_inven.cbo_country.set_value("");
+    this.div_inven.cbo_location.set_value("");
+    
+    this.div_inven.cbo_country.set_enable(false);
+    this.div_inven.cbo_location.set_enable(false);
+    
+    // 2. 검색조건 dataset 초기화
+    this.ds_cond.clearData();
+	
+    var nRow = this.ds_cond.addRow();
+    this.ds_cond.setColumn(nRow, "categoryId", "");
+    this.ds_cond.setColumn(nRow, "productName", "");
+    this.ds_cond.setColumn(nRow, "warehouseName", "");
+    this.ds_cond.setColumn(nRow, "regionId", "");
+    this.ds_cond.setColumn(nRow, "countryId", "");
+    this.ds_cond.setColumn(nRow, "locationId", "");
+    
+    this.div_inven.cbo_region.set_index(0);
+	this.div_inven.cbo_country.set_index(0);
+	this.div_inven.cbo_location.set_index(0);
+
+
+};
+
+//등록버튼 클릭이벤트
+this.btn_insert_onclick = function(obj, e)
+{
+    this.fn_ProductPopup("I", "");
+};
+
+//그리드 상품명 클릭시 수정이벤트
+this.grd_inven_oncelldblclic = function(obj, e)
+{
+	//상품 수정
+    if (e.cell == 1)
+    {
+        var nRow = e.row;
+        this.fv_warehouseId = this.ds_inven.getColumn(nRow, "warehouseId");
+        var sProductId = this.ds_inven.getColumn(nRow, "productId");
+        trace("선택한 상품번호 = " + sProductId);
+        this.fn_ProductPopup("U", sProductId);
+    }
+    
+    //재고 수정
+    if (e.cell == 5)
+    {
+        var nRow = e.row;
+        
+        var sWarehouseId = this.ds_inven.getColumn(nRow, "warehouseId");
+        var sProductId = this.ds_inven.getColumn(nRow, "productId");
+        
+        this.fv_focusProductId =sProductId;
+        trace("선택한 창고번호 = " + sWarehouseId);
+        trace("선택한 상품번호 = " + sProductId);
+        this.fn_invenPopup(sWarehouseId, sProductId);
+    }
+};
+//========================================================================
+//팝업을 여는 함수
+//========================================================================
+this.fn_createChildFrame = function(sPopupId, sFormUrl)
+{
+    var objChildFrame = new ChildFrame();
+
+    objChildFrame.init(
+        sPopupId,
+        100,
+        100,
+        1000,
+        700,
+        null,
+        null
+    );
+
+    objChildFrame.set_formurl(sFormUrl);
+    objChildFrame.set_showtitlebar(true);
+    objChildFrame.set_resizable(true);
+    objChildFrame.set_openalign("center middle");
+
+    return objChildFrame;
+};
+//========================================================================
+//카테고리 팝업, 콜백
+//========================================================================
+this.fn_openCategoryPopup = function()
+{
+    var objChildFrame = this.fn_createChildFrame(
+        "CategoryPopupForm",
+        "Base::CategoryPopupForm.xfdl"
+    );
+
+    objChildFrame.showModal(
+        this.getOwnerFrame(),
+        "",
+        this,
+        "fn_categoryPopupCallback"
+    );
+};
+this.fn_categoryPopupCallback = function(sPopupId, sReturn)
+{
+    trace("popup closed, popupId=" + sPopupId + ", return=" + sReturn);
+    if (!sReturn) return;
+	//카테고리 재조회
+	this.fn_loadCategory();
+	// 필요하면 조회도 다시
+	this.fn_search();
+}   
+//========================================================================
+//상품 등록/수정 팝업, 콜백
+//========================================================================
+this.fn_ProductPopup = function(sMode, sProductId)
+{
+	this.fv_popupMode = sMode;
+	var objChildFrame = this.fn_createChildFrame(
+        "ProductPopupForm",
+        "Base::ProductPopupForm.xfdl"
+    );
+    objChildFrame.showModal(
+		"ProductPopupForm",
+        this.getOwnerFrame(),
+		{
+			mode: sMode,
+			productId: sProductId
+		},
+		this,
+        "fn_productPopupCallback"
+    );
+}
+
+this.fn_productPopupCallback = function(sPopupId, sReturn)
+{
+	trace("모드" + this.fv_popupMode+ "id: " + sReturn);
+	if (!sReturn) return;
+	this.fv_focusProductId = sReturn;
+
+	if (this.fv_popupMode == "I")
+	{
+		this.fn_reset();
+		this.fn_search();
+	}
+	else if (this.fv_popupMode == "U")
+	{
+		this.fn_search();
+	}
+};
+
+//========================================================================
+//재고 수정 팝업, 콜백
+//========================================================================
+this.fn_invenPopup = function(sWarehouseId, sProductId)
+{
+	var objChildFrame = this.fn_createChildFrame(
+        "InvenPopupForm",
+        "Base::InvenPopupForm.xfdl"
+    );
+    objChildFrame.showModal(
+		"InvenPopupForm",
+        this.getOwnerFrame(),
+		{
+			warehouseId: sWarehouseId,
+			productId: sProductId
+		},
+		this,
+        "fn_invenPopupCallback"
+    );
+}
+this.fn_invenPopupCallback = function(sPopupId, sReturn)
+{
+	
+	if (!sReturn) return;
+	
+	this.fv_warehouseId=sReturn;
+    this.fn_search();
+}
+//========================================================================
+//일괄 변경 팝업, 콜백
+//========================================================================
+this.fn_ChangePopup = function()
+{
+	var objChildFrame = this.fn_createChildFrame(
+        "ChangePopupForm",
+        "Base::ChangePopupForm.xfdl"
+    );
+    objChildFrame.showModal(
+		"ChangePopupForm",
+        this.getOwnerFrame(),
+		"",
+		this,
+        "fn_ChangePopupCallback"
+    );
+}
+this.fn_ChangePopupCallback = function(sPopupId, sReturn)
+{
+	if (!sReturn) return;
+    trace("popup closed, popupId=" + sPopupId + ", return=" + sReturn);
+	//카테고리 재조회
+	this.fn_loadCategory();
+	// 필요하면 조회도 다시
+	this.fn_search();
+}
+
+//==================================
+//엑셀 버튼
+//==================================
+// 오늘 날짜 YYYYMMDD 반환
+//==================================
+//엑셀 버튼
+//==================================
+// 오늘 날짜 YYYYMMDD_HHMMSS 반환
+this.fn_getToday = function()
+{
+    var d = new Date();
+
+    var yyyy = d.getFullYear();
+    var mm = d.getMonth() + 1;
+    var dd = d.getDate();
+    var H = this.fn_lpad(d.getHours(), 2);
+    var M = this.fn_lpad(d.getMinutes(), 2);
+    var S = this.fn_lpad(d.getSeconds(), 2);
+
+    mm = (mm < 10 ? "0" : "") + mm;
+    dd = (dd < 10 ? "0" : "") + dd;
+
+    return "" + yyyy + mm + dd + "_" + H + M + S;
+};
+
+this.fn_lpad = function(v, len)
+{
+    v = String(v);
+    while (v.length < len)
+    {
+        v = "0" + v;
+    }
+    return v;
+};
+
+// 공통 엑셀 서버로 보낼 헤더 데이터셋 생성
+this.fn_makeExcelHeader = function()
+{
+    this.ds_header.clearData();
+
+    var bodyCellCount = this.grd_inven.getCellCount("body");
+    var excelCol = 0;
+
+    for (var i = 0; i < bodyCellCount; i++)
+    {
+        // Grid body cell의 text에서 실제 bind 컬럼명을 가져온다.
+        var bodyText = this.grd_inven.getCellProperty("body", i, "text");
+
+        if (!bodyText || bodyText.indexOf("bind:") != 0)
+        {
+            continue;
+        }
+
+        var colId = bodyText.substr(5);
+
+        // Grid head cell의 text를 엑셀 헤더명으로 사용한다.
+        var headText = this.grd_inven.getCellProperty("head", i, "text");
+
+        if (!headText)
+        {
+            headText = colId;
+        }
+
+        var row = this.ds_header.addRow();
+        this.ds_header.setColumn(row, "row", "1");
+        this.ds_header.setColumn(row, "cellIndex", String(excelCol));
+        this.ds_header.setColumn(row, "colspan", "1");
+        this.ds_header.setColumn(row, "colId", colId);
+        this.ds_header.setColumn(row, "colName", headText);
+
+        excelCol++;
+    }
+};
+
+this.btn_excel_onclick = function(obj, e)
+{
+    if (this.ds_inven.getRowCount() <= 0)
+    {
+        alert("엑셀로 저장할 데이터가 없습니다.");
+        return;
+    }
+
+    // 그리드에 보이는 컬럼 기준으로 엑셀 헤더 정보를 만든다.
+    this.fn_makeExcelHeader();
+
+    var fileName = "inventories_" + this.fn_getToday();
+    var sheetName = "Sheet1";
+    var excelFilePath = "";
+
+    var args = "";
+    args += "fileName=" + fileName;
+    args += " sheetName=" + sheetName;
+    args += " excelFilePath=" + excelFilePath;
+
+    this.transaction(
+        "commonExcelCreate",
+        "http://localhost:8080/common/excel/create",
+        "ds_header=ds_header ds_body=ds_inven",
+        "ds_result=ds_result",
+        args,
+        "fn_excelExportCallback"
+    );
+};
+
+this.fn_excelExportCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    if (nErrorCode < 0)
+    {
+        alert("엑셀 생성 실패: " + sErrorMsg);
+        return;
+    }
+
+    var filePath = this.ds_result.getColumn(0, "FILE_PATH");
+    var fileName = this.ds_result.getColumn(0, "FILE_NAME");
+
+    if (!filePath)
+    {
+        alert("생성된 엑셀 파일 경로가 없습니다.");
+        return;
+    }
+
+    if (!fileName)
+    {
+        fileName = "inventories_" + this.fn_getToday();
+    }
+
+    if (fileName.toLowerCase().indexOf(".xlsx") < 0)
+    {
+        fileName += ".xlsx";
+    }
+
+    if (application && application._endCommProgress)
+    {
+        application._endCommProgress();
+    }
+
+    var url = "http://localhost:8080/common/excel/download"
+        + "?excelFilePath=" + encodeURIComponent(filePath)
+        + "&fileName=" + encodeURIComponent(fileName);
+
+    this.fn_excelRuntimeDownload(url, fileName);
+};
+
+// Runtime 모드에서 저장 위치 선택창을 띄워 파일을 다운로드한다.
+this.fn_excelRuntimeDownload = function(url, fileName)
+{
+    // FileDownload 컴포넌트가 없으면 동적으로 생성
+    if (!this.FileDownloadExcel)
+    {
+        var obj = new FileDownload("FileDownloadExcel", "absolute", 0, 0, 1, 1, null, null, this);
+        this.addChild("FileDownloadExcel", obj);
+
+        obj.addEventHandler("onsuccess", this.FileDownloadExcel_onsuccess, this);
+        obj.addEventHandler("onerror", this.FileDownloadExcel_onerror, this);
+
+        obj.show();
+    }
+
+    // 저장창에 기본으로 표시할 파일명
+    this.FileDownloadExcel.set_downloadfilename(fileName);
+
+    // 저장창 파일 형식 필터
+    this.FileDownloadExcel.set_filefilter("Excel File (*.xlsx)|*.xlsx|All Files (*.*)|*.*|");
+    this.FileDownloadExcel.set_filefilterindex(0);
+
+    // Runtime 모드에서는 저장 위치 선택창을 띄운 뒤 다운로드한다.
+    var ret = this.FileDownloadExcel.download(url);
+
+    if (!ret)
+    {
+        return;
+    }
+};
+
+this.FileDownloadExcel_onsuccess = function(obj, e)
+{
+    trace("엑셀 다운로드 성공: " + e.targetfullpath);
+    alert("저장되었습니다.");
+};
+
+this.FileDownloadExcel_onerror = function(obj, e)
+{
+    alert("엑셀 다운로드 실패: " + e.errormsg);
+};
+
+]]></Script>
+  </Form>
+</FDL>

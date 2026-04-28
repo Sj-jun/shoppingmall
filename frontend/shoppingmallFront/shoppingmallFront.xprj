@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project active_adl="shoppingmallFront" version="1.3">
+  <TypeDefinition url="default_typedef.xml"/>
+  <GlobalVariables url="globalvars.xml"/>
+  <ADL id="shoppingmallFront" url="shoppingmallFront.xadl"/>
+  <Services>
+    <Service id="Employee_fn" file_ext="" include_subdir="false"/>
+    <Service id="Images" file_ext="" include_subdir="false"/>
+  </Services>
+  <UserIcons>
+    <UserIcon orgFilePath="..\..\..\..\..\..\WINDOWS\system32\SHELL32.dll" orgIconIdx="14"/>
+  </UserIcons>
+  <ComponentInfoGroup>
+    <ComponentInfo name="WebBrowser" defaultwidth="400" defaultheight="400" image="57"/>
+  </ComponentInfoGroup>
+</Project>

@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="CategoryPopupForm" left="0" top="0" width="390" height="110" titletext="New Form" onload="CategoryPopupForm_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_category" taborder="0" left="3" top="3" width="380" height="92">
+          <Layouts>
+            <Layout width="641" height="235">
+              <Static id="Static00" taborder="10" text="▣ 카테고리 관리" left="16" top="17" width="164" height="30" style="font:12 Dotum;"/>
+              <Div id="div_categoryName" taborder="11" left="116" top="54" width="250" height="32" style="border:1 solid black ;">
+                <Layouts>
+                  <Layout>
+                    <Edit id="edt_category" taborder="0" maxlength="85" oneditclick="div_category_Div00_Edit00_oneditclick" left="3" top="2" width="242" height="26" style="background:#fbf8f1ff;border:1 solid #808080ff ;color:#444444ff;padding:5 5 5 5;bordertype:normal 1 1 ;" lengthunit="utf8"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Static id="Static01" taborder="12" text="카테고리명" left="17" top="54" width="100" height="32" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
+              <Button id="btn_save" taborder="13" text="저장" onclick="div_category.btn_save_onclick" left="296" top="17" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;"/>
+              <Static id="Static02" taborder="14" text="Static01" visible="false" left="47.35%" top="46" width="522" height="8" style="background:coral;opacity:30;"/>
+              <Static id="Static04" taborder="16" text="Static01" visible="false" left="30.53%" top="55" width="522" height="2" style="background:coral;opacity:30;"/>
+              <Static id="Static05" taborder="17" text="Static01" visible="false" left="31.32%" top="83" width="522" height="2" style="background:coral;opacity:30;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Static id="Static02" taborder="1" text="Static01" visible="false" left="120" top="49" width="3" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static00" taborder="2" text="Static01" visible="false" left="267" top="0" width="45" height="20" style="background:coral;opacity:30;"/>
+        <Static id="Static03" taborder="3" text="Static01" visible="false" left="0" top="50" width="20" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static01" taborder="4" text="Static01" visible="false" left="146" top="90" width="45" height="20" style="background:coral;opacity:30;"/>
+        <Static id="Static04" taborder="5" text="Static01" visible="false" left="365" top="51" width="3" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static05" taborder="6" text="Static01" visible="false" left="369" top="47" width="20" height="48" style="background:coral;opacity:30;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_category">
+        <ColumnInfo>
+          <Column id="categoryName" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="div_category.div_categoryName.edt_category" propid="value" datasetid="ds_category" columnid="categoryName"/>
+    </Bind>
+    <Style url="MyCss::newcss.css"/>
+    <Script type="xscript5.0"><![CDATA[/*
+화면명 : 카테고리 관리 팝업
+작성자 : 정상준
+작성일자 : 2026-04-03
+*/
+
+
+this.CategoryPopupForm_onload = function(obj, e)
+{
+    if (this.ds_category.getRowCount() == 0)
+    {
+        this.ds_category.addRow();
+    }
+};
+//----------------------------------------------------------------------------------------------------
+//공통 util 함수
+
+this.fn_isNull = function(v)
+{
+    return v == null || v == undefined || String(v).trim() == "";
+};
+
+//저장 전 필수값 검증
+this.fn_validate = function()
+{
+
+    if (this.fn_isNull(this.ds_category.getColumn(0, "categoryName")))
+    {
+        alert("카테고리를 입력하세요.");
+        this.div_category.div_categoryName.edt_category.setFocus();
+        return false;
+    }
+
+    return true;
+};
+this.div_category.btn_save_onclick = function(obj, e)
+{
+	if (!this.fn_validate()) return;
+	this.fn_save();
+}
+this.fn_save = function()
+{
+	trace("rowcount = " + this.ds_category.getRowCount());
+    trace("categoryName = " + this.ds_category.getColumn(0, "categoryName"));
+	this.transaction(
+        "saveCategory",
+        "http://localhost:8080/category/save",
+        "ds_category=ds_category",
+        "",
+        "",
+        "fn_callback"
+    );
+}
+
+this.fn_callback = function(svcID, nErrorCode, sErrorMsg)
+{
+    //카테고리 명 있으면 삭제X
+	if (svcID == "saveCategory")
+    {
+		if(nErrorCode == -100)
+        {
+			alert(sErrorMsg);
+			return;
+		}
+		if (nErrorCode < 0)
+		{
+			alert(sErrorMsg);
+			return;
+		}
+
+        alert("저장되었습니다.");
+        this.close("refresh");
+        return;
+    }
+    
+}]]></Script>
+  </Form>
+</FDL>

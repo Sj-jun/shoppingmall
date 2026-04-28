@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="ChangePopupForm" left="0" top="0" width="439" height="222" titletext="New Form" onload="ChangePopupForm_onload">
+    <Layouts>
+      <Layout>
+        <Div id="div_category01" taborder="14" left="119" top="143" width="300" height="30" style="border:1 solid black ;"/>
+        <Div id="div_category02" taborder="15" left="119" top="114" width="300" height="30" style="border:1 solid black ;"/>
+        <Div id="div_category03" taborder="16" left="119" top="172" width="300" height="30" style="border:1 solid black ;"/>
+        <Div id="div_category" taborder="12" left="119" top="56" width="300" height="30" style="border:1 solid black ;">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Div id="div_category00" taborder="13" left="119" top="85" width="300" height="30" style="border:1 solid black ;">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Static id="sta_category" taborder="7" text="카테고리" left="20" top="56" width="100" height="30" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
+        <Static id="sta_product" taborder="8" text="상품명" left="20" top="85" width="100" height="30" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
+        <Static id="sta_min" taborder="9" text="최소 수량" left="20" top="114" width="100" height="30" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
+        <Static id="sta_max" taborder="10" text="최대 수량" left="20" top="143" width="100" height="30" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
+        <Static id="sta_quantity" taborder="11" text="수량" left="20" top="172" width="100" height="30" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;" onclick="sta_category03_onclick"/>
+        <Static id="Static03" taborder="17" text="Static01" visible="false" left="0" top="50" width="20" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static00" taborder="18" text="Static01" visible="false" left="16.4%" top="48" width="300" height="8" style="background:coral;opacity:30;"/>
+        <Button id="btn_save" taborder="19" text="저장" left="349" top="19" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;" onclick="fn_save"/>
+        <Static id="Static01" taborder="20" text="Static01" visible="false" left="349" top="0" width="50" height="20" style="background:coral;opacity:30;"/>
+        <Static id="sta_change" taborder="21" text="▣ 일괄 변경" left="19" top="19" width="120" height="30" style="font:12 Dotum;"/>
+        <Combo id="cbo_category" taborder="0" text="Combo00" left="123" top="58" width="292" height="26" innerdataset="@ds_category" codecolumn="categoryId" datacolumn="categoryName" onitemchanged="cbo_category_onitemchanged" displaynulltext="-선택-" style="border:1 solid #808080ff ;align:center middle;"/>
+        <Combo id="cbo_productName" taborder="2" left="235" top="87" width="180" height="26" innerdataset="@ds_allProduct" codecolumn="productId" datacolumn="productName" onitemchanged="cbo_productName_onitemchanged" style="border:1 solid #808080ff ;align:center middle;" displaynulltext="-선택-"/>
+        <Edit id="edt_max" taborder="4" left="123" top="145" width="292" height="26" enable="true" style="border:1 solid #808080ff ;color:#444444ff;padding:5 5 5 5;bordertype:normal 1 1 ;align:right middle; :disabled {border:1 solid #808080ff ;}" readonly="true"/>
+        <Edit id="edt_productId" taborder="1" left="123" top="87" width="108" height="26" enable="true" style="color:#444444ff;padding:5 5 5 5;align:center middle; :disabled {align:right middle;} :readonly {border:1 solid #808080ff ;color:black;bordertype:normal 1 1 ;}" readonly="true"/>
+        <Edit id="edt_min" taborder="3" left="123" top="116" width="292" height="26" enable="true" style="border:1 solid #808080ff ;color:#444444ff;padding:5 5 5 5;bordertype:normal 1 1 ;align:right middle; :disabled {border:1 solid #808080ff ;}" readonly="true"/>
+        <Static id="Static02" taborder="6" text="Static01" visible="false" left="199" top="202" width="50" height="20" style="background:coral;opacity:30;"/>
+        <Static id="Static04" taborder="22" text="Static01" visible="false" left="419" top="78" width="20" height="48" style="background:coral;opacity:30;"/>
+        <MaskEdit id="edt_quantity" taborder="5" left="123" top="174" width="292" height="26" mask="##,###,###" onchar="edt_quantity_onchar" style="padding:5 5 5 5;"/>
+        <Static id="Static05" taborder="23" text="Static01" visible="false" left="415" top="58" width="3" height="150" style="background:coral;opacity:30;"/>
+        <Static id="Static06" taborder="24" text="Static01" visible="false" left="120" top="57" width="3" height="150" style="background:coral;opacity:30;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_category">
+        <ColumnInfo>
+          <Column id="categoryId" type="STRING" size="256"/>
+          <Column id="categoryName" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_allProduct">
+        <ColumnInfo>
+          <Column id="categoryId" type="STRING" size="256"/>
+          <Column id="productId" type="STRING" size="256"/>
+          <Column id="productName" type="STRING" size="256"/>
+          <Column id="minQuantity" type="STRING" size="256"/>
+          <Column id="maxQuantity" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_product">
+        <ColumnInfo>
+          <Column id="categoryId" type="STRING" size="256"/>
+          <Column id="productId" type="STRING" size="256"/>
+          <Column id="productName" type="STRING" size="256"/>
+          <Column id="quantity" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="edt_min" propid="value" datasetid="ds_allProduct" columnid="minQuantity"/>
+      <BindItem id="item1" compid="edt_max" propid="value" datasetid="ds_allProduct" columnid="maxQuantity"/>
+      <BindItem id="item2" compid="edt_productId" propid="value" datasetid="ds_allProduct" columnid="productId"/>
+      <BindItem id="item4" compid="edt_quantity" propid="value" datasetid="ds_product" columnid="quantity"/>
+    </Bind>
+    <Style url="MyCss::newcss.css"/>
+    <Script type="xscript5.0"><![CDATA[/*
+화면명 : 일괄변경 팝업
+작성자 : 정상준
+작성일자 : 2026-04-08
+*/
+this.ChangePopupForm_onload = function(obj, e)
+{
+	// 서버에서 카테고리 조회
+	this.cbo_productName.set_enable(false);
+    this.fn_categoryList();
+    this.fn_allProduct();
+}
+// =====================================================================
+//카테고리 조회
+// =====================================================================
+this.fn_categoryList = function()
+{
+    this.transaction(
+        "getCategoryList",
+        "http://localhost:8080/categoryList",
+        "",
+        "ds_category=ds_category",
+        "",
+        "fn_categoryCallback"                       
+    );
+};
+
+this.fn_categoryCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    if (nErrorCode < 0)
+    {
+        alert(sErrorMsg);
+        return;
+    }
+	// 등록 모드: 첫 행 선택
+	//이전 화면에서 첫번째 행을 "-전체-"로 설정해 놓았기 때문에 검증 후 교체
+	if (this.ds_category.getRowCount() > 0 && this.fn_isNull(this.ds_category.getColumn(0, "categoryId")))
+	{
+		this.ds_category.setColumn(0, "categoryName", "-선택-");
+	}else
+	{
+		var nRow = this.ds_category.insertRow(0);
+		this.ds_category.setColumn(nRow, "categoryId", "");
+		this.ds_category.setColumn(nRow, "categoryName", "-선택-");
+	}
+	this.cbo_category.set_index(0);
+
+}
+// =====================================================================
+//필터 처리위한 상품 전체 
+// =====================================================================
+this.fn_allProduct = function()
+{
+	this.transaction(
+        "getAllProductList",
+        "http://localhost:8080/product/list",
+        "",
+        "ds_allProduct=ds_allProduct",
+        "",
+        "fn_allProductCallback"                       
+    );
+};
+this.fn_allProductCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    if (nErrorCode < 0)
+    {
+        alert(sErrorMsg);
+        return;
+    }
+    trace("getRowCount = " + this.ds_allProduct.getRowCount());
+	//이전 화면에서 첫번째 행을 "-전체-"로 설정해 놓았기 때문에 검증 후 교체
+	if (this.ds_allProduct.getRowCount() > 0 && this.fn_isNull(this.ds_allProduct.getColumn(0, "productId")))
+	{
+		this.ds_allProduct.setColumn(0, "productName", "-선택-");
+	}else
+	{
+		var nRow = this.ds_allProduct.insertRow(0);
+        this.ds_allProduct.setColumn(nRow, "categoryId", "");
+        this.ds_allProduct.setColumn(nRow, "productId", "");
+        this.ds_allProduct.setColumn(nRow, "productName", "-선택-");
+        this.ds_allProduct.setColumn(nRow, "minQuantity", "");
+        this.ds_allProduct.setColumn(nRow, "maxQuantity", "");
+	}
+}
+// =====================================================================
+//상품 카테고리 필터
+// =====================================================================
+this.cbo_category_onitemchanged = function(obj, e)
+{
+	
+    var sCategoryId = obj.value;
+	this.cbo_productName.set_enable(false);
+	this.cbo_productName.set_value("");
+	this.edt_productId.set_value("");
+	this.edt_min.set_value("");
+	this.edt_max.set_value("");
+    this.ds_allProduct.filter("");
+
+    if (this.fn_isNull(sCategoryId))
+    {
+        this.ds_allProduct.filter("productName=='-선택-'");
+        return;
+    }
+	this.cbo_productName.set_enable(true);
+    this.ds_allProduct.filter(
+        "categoryId=='" + sCategoryId + "' || productName=='-선택-'"
+    );
+    
+}
+// =====================================================================
+//상품 선택 시 
+// =====================================================================
+this.cbo_productName_onitemchanged = function(obj, e)
+{
+	var nRow = this.ds_allProduct.findRow("productId", e.postvalue);
+	trace(nRow);
+    if (nRow < 0)
+    {
+        this.edt_productId.set_value("");
+        this.edt_min.set_value("");
+        this.edt_max.set_value("");
+        return;
+    }
+    this.ds_allProduct.set_rowposition(nRow);
+    obj.set_index(nRow);
+    this.edt_productId.set_value(this.ds_allProduct.getColumn(nRow, "productId"));
+    this.edt_min.set_value(this.ds_allProduct.getColumn(nRow, "minQuantity"));
+    this.edt_max.set_value(this.ds_allProduct.getColumn(nRow, "maxQuantity"));
+    
+    trace("obj.value=" + obj.value);
+trace("find string=" + this.ds_allProduct.findRow("productId", obj.value));
+trace("find number=" + this.ds_allProduct.findRow("productId", nexacro.toNumber(obj.value)));
+    
+};
+
+// =====================================================================
+//상품 재고 변경 전 검증
+// =====================================================================
+this.fn_validation = function()
+{
+	
+	if (this.fn_isNull(this.cbo_category.value))
+    {
+        alert("카테고리를 선택해주세요.");
+        this.cbo_category.setFocus();
+        return false;
+    }
+    if (this.fn_isNull(this.cbo_productName.value))
+    {
+        alert("상품을 선택해주세요.");
+        this.cbo_productName.setFocus();
+        return false;
+    }
+    
+    var nProductRow = this.ds_allProduct.findRow("productId", this.cbo_productName.value);
+    if (nProductRow < 0)
+    {
+        alert("선택한 상품 정보를 찾을 수 없습니다.");
+        this.cbo_productName.setFocus();
+        return false;
+    }
+	var sQuantity = this.edt_quantity.value;
+	var sMin = this.ds_allProduct.getColumn(nProductRow, "minQuantity");
+    var sMax = this.ds_allProduct.getColumn(nProductRow, "maxQuantity");
+	if (this.fn_isNull(sQuantity))
+	{
+		alert("수량을 입력해주세요.");
+		this.edt_quantity.setFocus();
+		return false;
+	}
+
+    var nQuantity = parseInt(sQuantity, 10);
+	if(nQuantity < 0 || nQuantity > 99999999)
+	{	
+		trace(nQuantity);
+		alert("최소 수량과 최대 수량 사이의 값을 입력해주세요.");
+		this.edt_quantity.setFocus();
+		return false;
+	};
+	
+    return true;
+	
+}
+// =====================================================================
+//재고 변경 저장
+// =====================================================================
+this.fn_save = function()
+{
+	
+	trace(this.edt_quantity.value);
+	if (!this.fn_validation()) return;
+	
+	var nRow = this.ds_product.rowcount > 0 ? 0 : this.ds_product.addRow();
+	
+    this.ds_product.setColumn(nRow, "categoryId", this.cbo_category.value);
+    this.ds_product.setColumn(nRow, "productId", this.cbo_productName.value);
+    this.ds_product.setColumn(nRow, "productName", this.cbo_productName.text);
+    this.ds_product.setColumn(nRow, "quantity", this.edt_quantity.value);
+
+	this.transaction(
+        "updateProductQuantity",
+        "http://localhost:8080/product/quantity",
+        "ds_product=ds_product",
+        "",
+        "",
+        "fn_productQuantityCallback"                       
+    );
+
+}
+this.fn_productQuantityCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    if (nErrorCode < 0)
+    {
+        alert(sErrorMsg);
+        return;
+    }
+    alert("저장되었습니다.");
+    this.close("refresh");
+}
+// =====================================================================
+//util null 공백 처리
+// =====================================================================
+this.fn_isNull = function(v)
+{
+    return v == null || v == undefined || String(v).trim() == "";
+};
+
+this.edt_quantity_onchar = function(obj:MaskEdit, e:nexacro.CharEventInfo)
+{
+	var v = String(e.posttext || "");
+    v = nexacro.replaceAll(v, ",", "");
+	// 숫자만 허용
+    if (!/^[0-9]*$/.test(v))
+    {
+        return false;
+    }
+    // 빈 값 허용
+    if (v == "")
+    {
+        return true;
+    }
+	 // 배열 분리 (소수점 대비)
+    var arr = v.split(".");
+    var intPart = arr[0] || "";
+
+    // 정수부 8자리 제한
+    if (intPart.length > 8)
+    {
+        return false;
+    }
+
+    return true;
+};
+]]></Script>
+  </Form>
+</FDL>

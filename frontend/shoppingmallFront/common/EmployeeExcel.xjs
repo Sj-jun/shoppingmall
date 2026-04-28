@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Script type="xscript5.0"><![CDATA[//엑셀 버튼 클릭시 동작
+
+this.fn_exportExcel = function()
+{
+    if (this.ds_employees.getRowCount() == 0)
+    {
+        alert("엑셀로 저장할 데이터가 없습니다.");
+        return;
+    }
+
+    var sToday = this.fn_excelGetToday();
+    var sFileName = "employee_list_" + sToday;
+    var sSheetName = "사원목록";
+
+    if (this.Export00)
+    {
+        this.removeChild("Export00");
+        this.Export00.destroy();
+        this.Export00 = null;
+    }
+
+    var objExport = new ExcelExportObject();
+    this.addChild("Export00", objExport);
+
+    objExport.set_exporturl("svcUrl::XExportImport.do");
+    objExport.set_exporttype(nexacro.ExportTypes.EXCEL2007);
+    objExport.set_exportfilename(sFileName);
+    objExport.set_exporteventtype("itemrecord");
+    objExport.set_exportuitype("none");
+    objExport.set_exportmessageprocess("");
+
+    objExport.addExportItem(
+        nexacro.ExportItemTypes.GRID,
+        this.grdEmployees,
+        sSheetName + "!A1",
+        "allband",
+        "allrecord"
+    );
+
+    objExport.addEventHandler("onsuccess", this.fn_exportExcel_onsuccess, this);
+    objExport.addEventHandler("onerror", this.fn_exportExcel_onerror, this);
+
+    objExport.exportData();
+};
+
+this.fn_excelGetToday = function()
+{
+    var d = new Date();
+
+    var yyyy = d.getFullYear();
+    var mm = d.getMonth() + 1;
+    var dd = d.getDate();
+
+    mm = (mm < 10 ? "0" : "") + mm;
+    dd = (dd < 10 ? "0" : "") + dd;
+
+    return "" + yyyy + mm + dd;
+};
+
+this.fn_exportExcel_onsuccess = function(obj, e)
+{
+    alert("엑셀 다운로드가 완료되었습니다.");
+};
+
+this.fn_exportExcel_onerror = function(obj, e)
+{
+    trace("Excel Export Error = " + e.errormsg);
+    alert("엑셀 다운로드 중 오류가 발생했습니다.");
+};]]></Script>

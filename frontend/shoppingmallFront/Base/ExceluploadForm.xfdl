@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="ExeluploadForm" left="0" top="0" width="1010" height="475" titletext="New Form" onload="ExceluploadForm_onload" onclose="ExeluploadForm_onclose">
+    <Layouts>
+      <Layout>
+        <Grid id="grd_warehouse" taborder="0" left="20" top="56" width="970" height="400" binddataset="ds_warehouse" scrollbars="autovert">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="240"/>
+                <Column size="240"/>
+                <Column size="240"/>
+                <Column size="241"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell style="background:#c8ebffff;" text="지역"/>
+                <Cell col="1" style="background:#c8ebffff;" text="국가"/>
+                <Cell col="2" style="background:#c8ebffff;" text="창고위치"/>
+                <Cell col="3" style="background:#c8ebffff;" text="창고명"/>
+              </Band>
+              <Band id="body">
+                <Cell style="padding:5 5 5 5;" text="bind:regionName" editlimit="85" editscrollbar="autovert" editlengthunit="utf8"/>
+                <Cell col="1" style="padding:5 5 5 5;" text="bind:countryName" editlimit="85" editscrollbar="autovert" editlengthunit="utf8"/>
+                <Cell col="2" style="padding:5 5 5 5;" text="bind:locationName" editlimit="85" editscrollbar="autovert" editlengthunit="utf8"/>
+                <Cell col="3" style="padding:5 5 5 5;" text="bind:warehouseName" editlimit="85" editscrollbar="autovert" editlengthunit="utf8"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btn_save" taborder="1" text="저장" left="921" top="18" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;" onclick="btn_save_onclick"/>
+        <Button id="btn_dawn" taborder="2" text="양식 다운로드" left="757" top="18" width="90" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;" onclick="btn_dawn_onclick"/>
+        <Static id="Static00" taborder="3" text="Static01" visible="false" left="45.54%" top="48" width="522" height="8" style="background:coral;opacity:30;"/>
+        <Static id="Static04" taborder="4" text="Static01" visible="false" left="846" top="9" width="4" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static12" taborder="5" text="Static01" visible="false" left="918" top="13" width="4" height="48" style="background:coral;opacity:30;"/>
+        <Button id="btn_upload" taborder="6" text="추가" onclick="btn_upload_onclick" left="849" top="18" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;"/>
+        <Static id="Static01" taborder="7" text="Static01" enable="false" visible="false" enableevent="false" left="0" top="86" width="20" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static02" taborder="8" text="Static01" enable="false" visible="false" enableevent="false" left="990" top="94" width="20" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static03" taborder="9" text="Static01" enable="false" visible="false" enableevent="false" left="488" top="455" width="108" height="20" style="background:coral;opacity:30;"/>
+        <Static id="Static05" taborder="10" text="Static01" enable="false" visible="false" enableevent="false" left="736" top="0" width="108" height="20" style="background:coral;opacity:30;"/>
+        <Static id="sta_title" taborder="11" text="▣ 엑셀 업로드" left="19" top="11" width="360" height="40" style="font:bold 16 Dotum;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_warehouse" oncolumnchanged="ds_warehouse_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="regionName" type="STRING" size="256"/>
+          <Column id="countryName" type="STRING" size="256"/>
+          <Column id="locationName" type="STRING" size="256"/>
+          <Column id="regionId" type="STRING" size="256"/>
+          <Column id="countryId" type="STRING" size="256"/>
+          <Column id="locationId" type="STRING" size="256"/>
+          <Column id="warehouseName" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_excel">
+        <ColumnInfo>
+          <Column id="지역" type="STRING" size="256"/>
+          <Column id="국가" type="STRING" size="256"/>
+          <Column id="창고위치" type="STRING" size="256"/>
+          <Column id="창고명" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="grd_warehouse" propid="" datasetid="ds_warehouse" columnid=""/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/*
+화면명 : 엑셀 양식다운/임포트 화면 
+작성자 : 정상준
+작성일자 : 2026-04-23
+*/
+//===========================================================================
+//엑셀에 그리드 양식 익스포트 
+//===========================================================================
+this.btn_dawn_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.exportObj = new ExcelExportObject("Export00", this);
+	var fileName = "WarehousesExcel_" + this.fn_getToday();
+	this.exportObj.set_exporturl("svcurl::XExportImport.do");
+	this.exportObj.set_exportfilename(fileName);
+	this.exportObj.set_exporttype(nexacro.ExportTypes.EXCEL2007);
+	this.exportObj.clearExportItems(nexacro.ExportItemTypes.GRID);
+
+	this.exportObj.addExportItem(nexacro.ExportItemTypes.GRID, this.grd_warehouse, "Sheet1!A1" );
+	// 이벤트 연결
+    this.exportObj.addEventHandler("onsuccess", this.Export00_onsuccess, this);
+    this.exportObj.addEventHandler("onerror", this.Export00_onerror, this);
+    
+	var nCount = this.exportObj.exportData();
+	trace("Export00: " + nCount);
+	
+}
+this.Export00_onsuccess = function(obj:ExcelImportObject, e:nexacro.ExcelImportEventInfo)
+{
+	this.fn_removeCookie();
+};
+
+//=======================================================================
+// localStorage와 application의 쿠키 삭제 (안하면 Get 요청에서 오류)
+//=======================================================================
+this.fn_removeCookie = function(){
+	nexacro._removeCookie("JSESSIONID");
+    nexacro._setCookie("JSESSIONID", "", -1);
+
+    application.JSESSIONID = "";
+    application._cookie_variables = [];
+    application._secure_cookie_variables = [];
+
+    nexacro._setLocalStorage("_cookie_variables", [], "array");
+    nexacro._setLocalStorage("_secure_cookie_variables", [], "array");
+}
+this.Export00_onerror = function(obj:ExcelImportObject, e:nexacro.ExcelImportErrorEventInfo)
+{
+	this.fn_removeCookie();
+	trace("Import00_onerror");	
+};
+// 오늘 날짜 YYYYMMDD_HHMMSS 반환
+this.fn_getToday = function()
+{
+    var d = new Date();
+
+    var yyyy = d.getFullYear();
+    var mm = d.getMonth() + 1;
+    var dd = d.getDate();
+    var H = this.fn_lpad(d.getHours(), 2);
+    var M = this.fn_lpad(d.getMinutes(), 2);
+    var S = this.fn_lpad(d.getSeconds(), 2);
+
+    mm = (mm < 10 ? "0" : "") + mm;
+    dd = (dd < 10 ? "0" : "") + dd;
+
+    return "" + yyyy + mm + dd + "_" + H + M + S;
+};
+this.fn_lpad = function(v, len)
+{
+    v = String(v);
+    while (v.length < len)
+    {
+        v = "0" + v;
+    }
+    return v;
+};
+
+//=====================================================================
+//엑셀 임포트
+//=====================================================================
+this.btn_upload_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.importObj = new ExcelImportObject("Import00", this);
+	
+	this.importObj.set_importtype(nexacro.ImportTypes.EXCEL);
+	this.importObj.set_importurl("svcurl::XExportImport.do");
+	
+	this.importObj.addEventHandler("onsuccess", this.Import00_onsuccess, this);
+	this.importObj.addEventHandler("onerror", this.Import00_onerror, this);
+	
+	this.importObj.importData(
+        "",
+        "[Command=getsheetdata;Output=output1;Head=Sheet1!A1:D1;Body=Sheet1!A2:D100]",
+        "ds_excel=output1"
+    );
+	
+}
+
+
+this.Import00_onsuccess = function(obj:ExcelImportObject, e:nexacro.ExcelImportEventInfo)
+{
+	trace("_cookie_variables = " + nexacro._getLocalStorage("_cookie_variables", []));
+	trace("Import00_onsuccess");
+	nexacro._setLocalStorage("_cookie_variables", "");
+	
+	this.ds_warehouse.clearData();
+	
+    for (var i = 0; i < this.ds_excel.getRowCount(); i++)
+    {
+        var regionName = this.fn_excelTrim(this.ds_excel.getColumn(i, "지역"));
+        var countryName = this.fn_excelTrim(this.ds_excel.getColumn(i, "국가"));
+        var locationName = this.fn_excelTrim(this.ds_excel.getColumn(i, "창고위치"));
+        var warehouseName = this.fn_excelTrim(this.ds_excel.getColumn(i, "창고명"));
+		//=====================================================================
+		//엑셀 내용이 없는 행은 표현 안함 
+		//=====================================================================
+        if (regionName == "" && countryName == "" && locationName == "" && warehouseName == "")
+        {
+            continue;
+        }
+		//=====================================================================
+		//ds_warehouse에 받아온 엑셀 데이터 복사
+		//=====================================================================
+        var nRow = this.ds_warehouse.addRow();
+
+        this.ds_warehouse.setColumn(nRow, "regionName", regionName);
+        this.ds_warehouse.setColumn(nRow, "countryName", countryName);
+        this.ds_warehouse.setColumn(nRow, "locationName", locationName);
+        this.ds_warehouse.setColumn(nRow, "warehouseName", warehouseName);
+    }
+}
+this.fn_excelTrim = function(v)
+{
+    if (v == null)
+    {
+        return "";
+    }
+
+    return nexacro.trim(String(v));
+};
+this.Import00_onerror = function(obj:ExcelImportObject, e:nexacro.ExcelImportErrorEventInfo)
+{
+	nexacro._setLocalStorage("_cookie_variables", "");
+	trace("Import00_onerror");	
+}
+this.btn_save_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	if(this.ds_warehouse.getRowCount() < 1){
+		alert("저장할 내용이 없습니다.")
+		return;
+	}
+	for (var i = 0; i < this.ds_warehouse.getRowCount(); i++)
+	{
+		var sWarehouseName = this.ds_warehouse.getColumn(i, "warehouseName");
+		var nLen = sWarehouseName.length;
+
+		if(nLen > 85){
+			alert((i + 1) + "행 창고명이 85자 초과입니다.");
+			this.ds_warehouse.set_rowposition(i);
+			this.grd_warehouse.setCellPos(this.grd_warehouse.getBindCellIndex("body", "warehouseName"));
+			this.grd_warehouse.showEditor(true);
+			return;
+		}
+	}
+	if(confirm("그리드에 내용을 적용하시겠습니까? \n(조건에 맞지 않는 데이터는 빈칸 처리됩니다.)")){
+	
+		this.close(this.ds_warehouse.saveXML());
+	
+	}
+}
+
+
+]]></Script>
+  </Form>
+</FDL>

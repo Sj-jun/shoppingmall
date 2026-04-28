@@ -1,0 +1,37 @@
+﻿Button#tbc
+{
+	accessibility	: ;
+	align	: ;
+	background	: ;
+	border	: ;
+	bordertype	: ;
+	color	: ;
+	cursor	: ;
+	font	: ;
+	gradation	: ;
+	image	: ;
+	imagealign	: ;
+	letterspace	: ;
+	opacity	: ;
+	padding	: ;
+	shadow	: ;
+}
+
+Button#tbc:mouseover
+{
+	accessibility	: ;
+	align	: ;
+	background	: white;
+	border	: ;
+	bordertype	: ;
+	color	: ;
+	cursor	: ;
+	font	: ;
+	gradation	: ;
+	image	: ;
+	imagealign	: ;
+	letterspace	: ;
+	opacity	: ;
+	padding	: ;
+	shadow	: ;
+}

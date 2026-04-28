@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Script type="xscript5.0"><![CDATA[//관리자 콤보박스 동작
+this.fn_loadManager = function()
+{
+    this.transaction(
+        "getManagerList",
+        "http://localhost:8080/managerList",
+        "",
+        "ds_manager=ds_manager",
+        "",
+        "fn_callback"
+    );
+};
+
+this.fn_applyManagerCombo = function()
+{
+    if (!this.div_cond.cboManager)
+    {
+        return;
+    }
+
+    this.div_cond.cboManager.set_innerdataset("ds_manager");
+    this.div_cond.cboManager.set_codecolumn("managerId");
+    this.div_cond.cboManager.set_datacolumn("managerName");
+};]]></Script>

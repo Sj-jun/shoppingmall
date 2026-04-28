@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Script type="xscript5.0"><![CDATA[//조회 버튼 클릭시 동작
+this.fn_search = function()
+{
+    var sName = this.div_cond.edtName ? this.div_cond.edtName.value : "";
+    var sFrom = this.div_cond.calFrom ? this.div_cond.calFrom.value : "";
+    var sTo = this.div_cond.calTo ? this.div_cond.calTo.value : "";
+    var sManagerId = "";
+    if (this.div_cond.cboManager)
+    {
+        sManagerId = this.div_cond.cboManager.value;
+    }
+
+    trace("=== 검색 직전 ===");
+    trace("cboManager.value = " + sManagerId);
+    trace("cboManager.text = " + (this.div_cond.cboManager ? this.div_cond.cboManager.text : ""));
+
+    if (sFrom && sFrom < "19000101")
+    {
+        alert("고용일은 1900-01-01 이전으로 입력할 수 없습니다.");
+        this.div_cond.calFrom.setFocus();
+        return;
+    }
+
+    if (sTo && sTo < "19000101")
+    {
+        alert("고용일은 1900-01-01 이전으로 입력할 수 없습니다.");
+        this.div_cond.calTo.setFocus();
+        return;
+    }
+
+    var nRow = this.ds_cond.addRow();
+    
+    this.ds_cond.setColumn(nRow, "employeeName", sName ? sName : "");
+    this.ds_cond.setColumn(nRow, "hireDateFrom", sFrom ? this.fn_searchFormatDate(sFrom) : "");
+    this.ds_cond.setColumn(nRow, "hireDateTo", sTo ? this.fn_searchFormatDate(sTo) : "");
+
+    this.ds_cond.setColumn(nRow, "managerId", sManagerId == null ? "" : String(sManagerId));
+    
+    this.transaction(
+        "getEmployeeList",
+        "http://localhost:8080/employees",
+        "ds_cond=ds_cond",
+        "ds_employees=ds_employees",
+        "",
+        "fn_callback"
+    );
+};
+
+//날짜 형식 포멧
+this.fn_searchFormatDate = function(sDate)
+{
+    if (!sDate) return "";
+    sDate = String(sDate);
+    return sDate.substr(0, 4) + "-" + sDate.substr(4, 2) + "-" + sDate.substr(6, 2);
+};
+
+
+
+this.fn_callback = function(svcID, nErrorCode, sErrorMsg)
+{
+    trace("svcID = " + svcID);
+    trace("nErrorCode = " + nErrorCode);
+    trace("sErrorMsg = " + sErrorMsg);
+
+    if (nErrorCode < 0)
+    {
+        alert("처리 실패 : " + sErrorMsg);
+        return;
+    }
+
+    if (svcID == "getManagerList")
+    {
+        trace("manager rowcount = " + this.ds_manager.getRowCount());
+        this.fn_applyManagerCombo();
+        return;
+    }
+
+    if (svcID == "getEmployeeList")
+    {
+        trace("employee rowcount = " + this.ds_employees.getRowCount());
+        return;
+    }
+};]]></Script>

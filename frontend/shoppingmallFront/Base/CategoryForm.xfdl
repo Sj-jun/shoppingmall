@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="CategoryForm" left="0" top="0" width="1060" height="592" titletext="New Form" onload="CategoryForm_onload">
+    <Layouts>
+      <Layout>
+        <Grid id="grd_category" taborder="4" left="40" top="122" width="320" height="410" binddataset="ds_category" oncellclick="grd_category_oncelldblclick">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="238"/>
+                <Column size="82"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell style="background:#c8ebffff;" text="카테고리명"/>
+                <Cell col="1" style="background:#c8ebffff;" text="상품수"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:left;padding:5 5 5 5;" text="bind:categoryName"/>
+                <Cell col="1" style="align:right;padding:5 5 5 5;" text="bind:productCount"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="grd_order" taborder="5" left="376" top="122" width="645" height="410" binddataset="ds_order" scrollbars="autovert" nodatatext="No Data">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="300"/>
+                <Column size="90"/>
+                <Column size="105"/>
+                <Column size="139"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell style="background:#c8ebffff;" text="상품명"/>
+                <Cell col="1" style="background:#c8ebffff;" text="주문 횟수"/>
+                <Cell col="2" style="background:#c8ebffff;" text="누적 주문 수량"/>
+                <Cell col="3" style="background:#c8ebffff;" text="누적 주문 가격"/>
+              </Band>
+              <Band id="body">
+                <Cell style="align:left;padding:5 5 5 5;" text="bind:productName" tooltiptext="bind:productName"/>
+                <Cell col="1" style="align:right;padding:5 5 5 5;" text="bind:orderCount"/>
+                <Cell col="2" style="align:right;padding:5 5 5 5;" text="bind:totalOrderQuantity"/>
+                <Cell col="3" style="align:right;padding:5 5 5 5;" text="bind:totalOrderPrice"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static00" taborder="6" text="Static01" visible="false" left="3.86%" top="114" width="981" height="8" style="background:coral;opacity:30;"/>
+        <Button id="btn_wReset" taborder="7" onclick="fn_reset" left="986" top="87" width="35" height="28" style="image:URL('C:\Users\e1\Pictures\reset3.png');background:midnightblue;border:1 none #999999ff ;color:ivory;font:18 Dotum;"/>
+        <Static id="sta_category" taborder="8" text="▣ 카테고리 별 주문목록 현황" onclick="Static00_onclick" left="39" top="92" width="252" height="28" style="font:bold 12 Dotum;"/>
+        <Static id="title_category" taborder="9" text="∘ 카테고리별 현황" onclick="Static02_onclick" left="39" top="50" width="382" height="40" style="font:bold 16 Dotum;"/>
+        <Static id="Static13" taborder="10" text="Static01" visible="false" left="43" top="78" height="20" style="background:coral;opacity:30;" width="93"/>
+        <Static id="Static23" taborder="12" text="Static01" visible="false" left="152" top="0" width="40" height="60" style="background:coral;opacity:30;"/>
+        <Static id="Static01" taborder="13" text="Static01" visible="false" left="0" top="157" width="40" height="60" style="background:coral;opacity:30;"/>
+        <Static id="Static02" taborder="14" text="Static01" visible="false" left="396" top="532" width="40" height="60" style="background:coral;opacity:30;"/>
+        <Static id="Static03" taborder="15" text="Static01" visible="false" left="1020" top="281" width="40" height="60" style="background:coral;opacity:30;"/>
+        <Button id="btn_back" taborder="16" onclick="btn_back_onclick" left="18" top="15" width="25" height="25" style="image:URL('C:\Users\e1\Desktop\CssImage\free-icon-left-6657529.png');background:@gradation;border:0 none #999999ff ;color:ivory;bordertype:normal 10 10 ;font:18 arial;gradation:none 0,0 white 100,100 black;"/>
+        <Static id="Static04" taborder="17" text="Static01" visible="false" left="360" top="90" width="16" height="421" style="background:coral;opacity:30;"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_category">
+        <ColumnInfo>
+          <Column id="categoryId" type="STRING" size="256"/>
+          <Column id="categoryName" type="STRING" size="256"/>
+          <Column id="productCount" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_order">
+        <ColumnInfo>
+          <Column id="categoryId" type="STRING" size="256"/>
+          <Column id="categoryName" type="STRING" size="256"/>
+          <Column id="productId" type="STRING" size="256"/>
+          <Column id="productName" type="STRING" size="256"/>
+          <Column id="orderCount" type="STRING" size="256"/>
+          <Column id="totalOrderQuantity" type="STRING" size="256"/>
+          <Column id="totalOrderPrice" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="grd_category" propid="" datasetid="ds_category" columnid=""/>
+      <BindItem id="item1" compid="grd_order" propid="" datasetid="ds_order" columnid=""/>
+    </Bind>
+    <Style url="MyCss::newcss.css"/>
+    <Script type="xscript5.0"><![CDATA[/*
+화면명 : 카테고리별 현황
+작성자 : 정상준
+작성일자 : 2026-04-09
+*/
+this.on = true;
+this.btn_back_onclick = function(obj, e)
+{
+    this.getOwnerFrame().set_formurl("Base::MainForm.xfdl");
+};
+
+
+this.CategoryForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.fn_count();
+}
+//==============================================================
+//카테고리별 상품수를 불러온다.
+//==============================================================
+this.fn_count = function()
+{
+	this.transaction(
+        "countProductByCategory",
+        "http://localhost:8080/category/products",
+        "",
+        "ds_category=ds_category",
+        "",
+        "fn_countCallback"
+    );
+}
+this.fn_countCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+	trace("svcID = " + svcID);
+    trace("nErrorCode = " + nErrorCode);
+    trace("sErrorMsg = " + sErrorMsg);
+    if (nErrorCode < 0)
+    {
+        alert(sErrorMsg);
+        return;
+    }
+    if(this.on){
+		this.fn_reset();
+		this.on = false;
+    }
+}
+//==============================================================
+//카테고리 그리드 상품수 클릭시
+//==============================================================
+this.grd_category_oncelldblclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+//상품 수정
+    if (e.cell == 1)
+    {
+        var nRow = e.row;
+        var sCategoryId = this.ds_category.getColumn(nRow, "categoryId");
+        trace("선택한 카테고리ID = " + sCategoryId);
+        
+        //카테고리 아이디만 서버에 보낸다.
+        this.transaction(
+			"getCategoryOrders",
+			"http://localhost:8080/category/orders",
+			"",
+			"ds_order=ds_order",
+			"categoryId=" + this.ds_category.getColumn(nRow, "categoryId"),
+			"fn_orderCallback"
+		);
+    }
+}
+
+this.fn_orderCallback = function(svcID, nErrorCode, sErrorMsg){
+	trace("svcID = " + svcID);
+    trace("nErrorCode = " + nErrorCode);
+    trace("sErrorMsg = " + sErrorMsg);
+    if (nErrorCode < 0)
+    {
+        alert(sErrorMsg);
+        return;
+    }
+}
+//==============================================================
+//검색 조건 초기화
+//==============================================================
+this.fn_reset = function()
+{    
+
+    // 2. 검색조건 dataset 초기화
+    this.ds_order.clearData();
+    this.fn_count();
+    this.transaction(
+			"getCategoryOrders",
+			"http://localhost:8080/category/orders",
+			"",
+			"ds_order=ds_order",
+			"categoryId=" + this.ds_category.getColumn(0, "categoryId"),
+			"fn_orderCallback"
+		);
+
+};
+]]></Script>
+  </Form>
+</FDL>

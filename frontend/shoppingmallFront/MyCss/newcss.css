@@ -1,0 +1,40 @@
+﻿Button
+{
+	background	: transparent ;
+	color : black ;
+	
+	
+	
+	border : 1px solid #e6e6e6ff ;
+	
+	/* 기본 상태 그림자 */
+	
+	shadow : 0px 0px 0px rgba(0,0,0,0.0);
+}
+
+
+
+Button:mouseover
+{
+	color : black ;
+	
+	/* 위로 살짝 이동 */
+	margin-top : -2px;
+	
+	
+	shadow : outer 0,0 4px gray ;
+	
+		
+}
+
+Button:pushed
+{
+	color : black ;
+		
+	shadow : outer 0,0 2px gray ;
+	
+
+	opacity : 65  ;
+		
+}
+

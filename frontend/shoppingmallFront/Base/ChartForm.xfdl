@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\default_typedef.xml"/>
+  <Form id="ChartForm" left="0" top="0" width="840" height="552" titletext="New Form" onload="ChartForm_onload">
+    <Layouts>
+      <Layout>
+        <WebBrowser id="web_chart" left="21" top="133" width="800" height="400" taborder="0" url="http://localhost:8080/chart/chart.html?v=4" onloadcompleted="web_chart_onloadcompleted"/>
+        <Static id="title_chart" taborder="1" text="∘ 월별 주문량 현황 차트" onclick="Static02_onclick" left="20" top="9" width="382" height="40" style="font:bold 16 Dotum;"/>
+        <Div id="div_year" taborder="2" left="21" top="84" width="799" height="41" style="border:1 solid lightskyblue ;">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Static id="Static04" taborder="4" text="Static01" visible="false" left="7.86%" top="82" width="10" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static03" taborder="8" text="Static01" visible="false" left="2.62%" top="80" width="20" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static06" taborder="10" text="Static01" visible="false" left="8" top="74" height="10" style="background:coral;opacity:30;" width="74"/>
+        <Static id="sta_order" taborder="11" text="▣ 주문 현황" left="20" top="43" width="118" height="46" style="font:bold 12 Dotum;"/>
+        <Static id="Static00" taborder="12" text="Static01" visible="false" left="9" top="38" height="20" style="background:coral;opacity:30;" width="74"/>
+        <Static id="Static01" taborder="16" text="Static01" visible="false" left="0" top="117" width="20" height="60" style="background:coral;opacity:30;"/>
+        <Static id="Static05" taborder="17" text="Static01" visible="false" left="820" top="112" width="20" height="60" style="background:coral;opacity:30;" onclick="Static05_onclick"/>
+        <Static id="Static07" taborder="18" text="Static01" visible="false" left="0.83%" top="125" width="981" height="8" style="background:coral;opacity:30;"/>
+        <Static id="sta_year" taborder="20" text="연도" left="42" top="81" width="28" height="46" style="font:10 Dotum;" onclick="sta_year_onclick"/>
+        <Static id="Static08" taborder="21" text="Static01" onclick="Static05_onclick" visible="false" left="408" top="532" width="40" height="20" style="background:coral;opacity:30;"/>
+        <Static id="Static09" taborder="22" text="Static01" visible="false" left="251" top="0" width="45" height="20" style="background:coral;opacity:30;"/>
+        <Spin id="sp_year" taborder="23" value="0" left="76" top="91" width="152" height="26" max="3000" increment="1" min="1800" onchanged="sp_year_onchanged"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_chart">
+        <ColumnInfo>
+          <Column id="year" type="STRING" size="256"/>
+          <Column id="month" type="STRING" size="256"/>
+          <Column id="quantity" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_cond">
+        <ColumnInfo>
+          <Column id="customerName" type="STRING" size="256"/>
+          <Column id="year" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="item0" compid="sp_year" propid="value" datasetid="ds_cond" columnid="year"/>
+      <BindItem id="item1" compid="web_chart" propid="" datasetid="ds_chart" columnid="quantity"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/*
+화면명 : 주문목록 차트 화면
+작성자 : 정상준
+작성일자 : 2026-04-21
+*/
+
+this.fv_customerName = "";
+
+//주문 수량을 배열에 담는다.
+this.mQuantity = [];
+this.fv_chartLoaded = false;
+this.fv_chartDataReady = false;
+//================================================
+//폼 온로드
+//================================================
+this.ChartForm_onload = function(obj, e)
+{
+
+    //고객 정보 
+    this.fv_customerName = this.parent.customerName || "";
+    this.ds_cond.setColumn(0,"year", this.fn_getToday());
+    this.ds_cond.setColumn(0, "customerName", this.fv_customerName);
+    
+    this.fn_monthOrder();
+};
+this.fn_getToday = function()
+{
+    var d = new Date();
+
+    var yyyy = d.getFullYear();
+
+    return yyyy;
+};
+//================================================
+//연도와 고객명으로 주문수량을 불러온다.
+//================================================
+this.fn_monthOrder = function()
+{
+	this.transaction(
+        "mothOrder",
+        "http://localhost:8080/orders/monthly",
+        "ds_cond=ds_cond",
+        "ds_chart=ds_chart",
+        "",
+        "fn_monthOrderCallback"
+    );
+}
+this.fn_monthOrderCallback = function(svcID, nErrorCode, sErrorMsg)
+{
+    // 서버/통신 에러
+    if (nErrorCode < 0)
+    {
+        alert("처리 실패 : " + sErrorMsg);
+        return;
+    }
+    trace("web onloadcompleted 실행");
+    trace("rowcount = " + this.ds_chart.getRowCount());
+	for(var i=0; i<this.ds_chart.getRowCount(); i++){
+		this.mQuantity.push(this.ds_chart.getColumn(i, "quantity"));
+	}
+	this.fv_chartDataReady = true;
+	this.fn_drawChart();
+}
+//================================================
+//차트를 그리는 함수
+//================================================
+this.fn_drawChart = function()
+{
+    var chartData = {
+        labels: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+        datasets: [
+            {
+                label: "월별 주문 수량",
+                fillColor: "rgba(151,187,205,0.5)",
+                strokeColor: "rgba(151,187,205,1)",
+                highlightFill: "rgba(151,187,205,0.75)",
+                highlightStroke: "rgba(151,187,205,1)",
+                data: this.mQuantity
+            }
+        ]
+      
+    };
+
+
+    var chartOptions = {
+        responsive: true,
+        barValueSpacing: 20,
+        barDatasetSpacing: 1,
+     
+		maintainAspectRatio: false,
+        
+    };
+
+    this.web_chart.callMethod("drawChart", "bar", chartData, chartOptions);
+};
+this.web_chart_onloadcompleted = function(obj, e)
+{
+	this.fv_chartLoaded = true;
+	trace("차트 로드");
+	this.fn_tryDrawChart();
+};
+
+this.fn_tryDrawChart = function()
+{
+    if (!this.fv_chartLoaded) return;
+    if (!this.fv_chartDataReady) return;
+
+    this.fn_drawChart();
+};
+this.sp_year_onchanged = function(obj:Spin, e:nexacro.ChangeEventInfo)
+{
+	this.mQuantity = [];
+	this.fv_chartDataReady = false;
+	this.ds_cond.setColumn(0,"year", this.sp_year.value);
+	this.fn_monthOrder();
+}
+]]></Script>
+  </Form>
+</FDL>

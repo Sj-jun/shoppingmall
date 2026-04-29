@@ -101,6 +101,9 @@
   <script type="text/javascript">
     function oninitframework()
     {
+      // Clear stale Nexacro image aliases before the app bootstraps.
+      nexacro._setLocalStorage("images", {}, "json");
+      nexacro._setLocalStorage("Images", {}, "json");
       nexacro._initHTMLSysEvent(window, document);
       nexacro._prepareManagerFrame();
       application.load("shoppingmallFront", "shoppingmallFront.xadl.js");

@@ -49,6 +49,7 @@
 
             // Drop stale image aliases persisted by Nexacro from local designer paths.
             nexacro._setLocalStorage("images", {}, "json");
+            nexacro._setLocalStorage("Images", {}, "json");
 
             // global image
 

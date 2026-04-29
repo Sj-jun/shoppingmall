@@ -36,7 +36,7 @@
     <Service prefixid="Base" type="form" url="./Base/" version="0" communicationversion="0"/>
     <Service prefixid="svcurl" type="form" url="http://localhost:8080/" communicationversion="0"/>
     <Service prefixid="MyCss" type="css" url="./MyCss/" communicationversion="0"/>
-    <Service prefixid="Images" type="file" url="./Images/" communicationversion="0"/>
+    <Service prefixid="Images" type="file" url="./Base/Images/" communicationversion="0"/>
   </Services>
   <Update/>
 </TypeDefinition>

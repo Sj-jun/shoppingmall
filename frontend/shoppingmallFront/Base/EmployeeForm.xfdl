@@ -131,6 +131,7 @@
         <ColumnInfo>
           <Column id="colId" type="STRING" size="256"/>
           <Column id="colName" type="STRING" size="256"/>
+          <Column id="align" type="STRING" size="256"/>
           <Column id="cellIndex" type="STRING" size="256"/>
           <Column id="row" type="STRING" size="256"/>
           <Column id="colspan" type="STRING" size="256"/>
@@ -473,6 +474,7 @@ this.fn_makeExcelHeader = function()
 
         // Grid head cell의 text를 엑셀 헤더명으로 사용한다.
         var headText = this.grdEmployees.getCellProperty("head", i, "text");
+        var bodyAlign = this.fn_getExcelBodyAlign(i);
 
         if (!headText)
         {
@@ -485,9 +487,24 @@ this.fn_makeExcelHeader = function()
         this.ds_header.setColumn(row, "colspan", "1");
         this.ds_header.setColumn(row, "colId", colId);
         this.ds_header.setColumn(row, "colName", headText);
+        this.ds_header.setColumn(row, "align", bodyAlign);
 
         excelCol++;
     }
+};
+
+this.fn_getExcelBodyAlign = function(nBodyCell)
+{
+    var sStyle = this.grdEmployees.getCellProperty("body", nBodyCell, "style");
+    if (sStyle)
+    {
+        sStyle = String(sStyle).toLowerCase();
+        if (sStyle.indexOf("align:right") >= 0) return "right";
+        if (sStyle.indexOf("align:center") >= 0) return "center";
+        if (sStyle.indexOf("align:left") >= 0) return "left";
+    }
+
+    return "center";
 };
 
 this.btn_excel_onclick = function(obj, e)

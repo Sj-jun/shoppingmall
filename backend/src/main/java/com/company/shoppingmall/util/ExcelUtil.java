@@ -1,7 +1,9 @@
 package com.company.shoppingmall.util;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -49,6 +51,7 @@ public class ExcelUtil {
         bodyStyle.setVerticalAlignment(VerticalAlignment.CENTER);
 
         List<String> bodyColumns = new ArrayList<>();
+        List<String> bodyAlignments = new ArrayList<>();
         int headerRowCount = 1;
         int colCount = 0;
 
@@ -66,6 +69,7 @@ public class ExcelUtil {
 
                 String bind = dsHeader.containsColumn("colId") ? dsHeader.getString(i, "colId") : "";
                 String head = dsHeader.getString(i, "colName");
+                String align = dsHeader.containsColumn("align") ? dsHeader.getString(i, "align") : "";
 
                 Cell headerCell = headerRow.createCell(colIndex, CellType.STRING);
                 headerCell.setCellValue(head == null ? "" : head.trim());
@@ -83,8 +87,10 @@ public class ExcelUtil {
                 if (bind != null && !bind.trim().isEmpty() && dsBody.containsColumn(bind)) {
                     while (bodyColumns.size() <= colIndex) {
                         bodyColumns.add("");
+                        bodyAlignments.add("");
                     }
                     bodyColumns.set(colIndex, bind.trim());
+                    bodyAlignments.set(colIndex, normalizeAlignment(align));
                 }
 
                 headerRowCount = Math.max(headerRowCount, rowIndex + 1);
@@ -104,16 +110,21 @@ public class ExcelUtil {
                 headCell.setCellStyle(headStyle);
 
                 bodyColumns.add(bind);
+                bodyAlignments.add("center");
             }
             colCount = bodyColumns.size();
         }
+
+        Map<String, CellStyle> bodyStyles = createBodyStyles(workbook, bodyStyle);
 
         for (int c = 0; c < bodyColumns.size(); c++) {
             String bind = bodyColumns.get(c);
             if (bind == null || bind.isEmpty()) {
                 continue;
             }
-            writeBodyColumn(sheet, dsBody, bind, c, headerRowCount, bodyStyle);
+            String align = c < bodyAlignments.size() ? bodyAlignments.get(c) : "center";
+            CellStyle columnStyle = bodyStyles.getOrDefault(align, bodyStyle);
+            writeBodyColumn(sheet, dsBody, bind, c, headerRowCount, columnStyle);
         }
 
         // 내용 길이에 맞게 컬럼 폭을 자동 조정한다.
@@ -146,5 +157,35 @@ public class ExcelUtil {
             bodyCell.setCellValue(value == null ? "" : String.valueOf(value));
             bodyCell.setCellStyle(bodyStyle);
         }
+    }
+
+    private static Map<String, CellStyle> createBodyStyles(Workbook workbook, CellStyle baseStyle) {
+        Map<String, CellStyle> styles = new HashMap<>();
+        styles.put("left", createAlignedBodyStyle(workbook, baseStyle, HorizontalAlignment.LEFT));
+        styles.put("center", createAlignedBodyStyle(workbook, baseStyle, HorizontalAlignment.CENTER));
+        styles.put("right", createAlignedBodyStyle(workbook, baseStyle, HorizontalAlignment.RIGHT));
+        return styles;
+    }
+
+    private static CellStyle createAlignedBodyStyle(
+            Workbook workbook,
+            CellStyle baseStyle,
+            HorizontalAlignment alignment) {
+        CellStyle style = workbook.createCellStyle();
+        style.cloneStyleFrom(baseStyle);
+        style.setAlignment(alignment);
+        return style;
+    }
+
+    private static String normalizeAlignment(String align) {
+        if (align == null) {
+            return "center";
+        }
+
+        String normalized = align.trim().toLowerCase();
+        if ("left".equals(normalized) || "right".equals(normalized) || "center".equals(normalized)) {
+            return normalized;
+        }
+        return "center";
     }
 }

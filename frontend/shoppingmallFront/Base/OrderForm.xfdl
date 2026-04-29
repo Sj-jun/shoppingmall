@@ -94,7 +94,7 @@
                   <Static id="Static15" taborder="8" text="Static01" visible="false" left="887" top="163" width="4" height="48" style="background:coral;opacity:30;"/>
                   <Static id="Static11" taborder="10" text="Static01" visible="false" left="792" top="158" width="40" height="60" style="background:coral;opacity:30;"/>
                   <Static id="Static13" taborder="11" text="Static01" visible="false" left="1" top="0" width="91" height="20" style="background:coral;opacity:30;"/>
-                  <Button id="btn_reset" taborder="13" onclick="fn_reset" left="824" top="6" width="35" height="30" style="image:URL('C:\Users\e1\Pictures\reset3.png');background:midnightblue;border:1 none #999999ff ;color:ivory;font:18 Dotum;"/>
+                  <Button id="btn_reset" taborder="13" onclick="fn_reset" left="824" top="6" width="35" height="30" style="image:URL('Images::reset3.png');background:midnightblue;border:1 none #999999ff ;color:ivory;font:18 Dotum;"/>
                   <Static id="Static00" taborder="14" text="Static01" visible="false" left="389" top="335" width="91" height="30" style="background:coral;opacity:30;"/>
                   <Button id="btn_chart" taborder="15" text="월단위 주문량 차트" left="861" top="6" width="130" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;" onclick="tab_tabpage1_btn_chart_onclick"/>
                   <Static id="Static02" taborder="16" text="Static01" visible="false" left="858" top="-13" width="4" height="48" style="background:coral;opacity:30;"/>
@@ -148,7 +148,7 @@
         <Static id="Static09" taborder="31" text="Static01" visible="false" left="532" top="564" width="40" height="60" style="background:coral;opacity:30;"/>
         <Static id="Static01" taborder="32" text="Static01" visible="false" left="3.61%" top="215" width="10" height="48" style="background:coral;opacity:30;"/>
         <Static id="Static05" taborder="33" text="Static01" visible="false" left="95.1%" top="260" width="10" height="48" style="background:coral;opacity:30;"/>
-        <Button id="btn_back" taborder="34" onclick="btn_back_onclick" left="18" top="15" width="25" height="25" style="image:URL('C:\Users\e1\Desktop\CssImage\free-icon-left-6657529.png');background:@gradation;border:0 none #999999ff ;color:ivory;bordertype:normal 10 10 ;font:18 arial;gradation:none 0,0 white 100,100 black;"/>
+        <Button id="btn_back" taborder="34" onclick="btn_back_onclick" left="18" top="15" width="25" height="25" style="image:URL('Images::free-icon-left-6657529.png');background:@gradation;border:0 none #999999ff ;color:ivory;bordertype:normal 10 10 ;font:18 arial;gradation:none 0,0 white 100,100 black;"/>
         <Static id="Static10" taborder="35" text="Static01" visible="false" left="246" top="115" width="4" height="48" style="background:coral;opacity:30;"/>
         <Static id="Static11" taborder="36" text="Static01" visible="false" left="39" top="201" width="91" height="20" style="background:coral;opacity:30;"/>
       </Layout>

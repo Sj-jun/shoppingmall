@@ -67,7 +67,7 @@
         <Static id="Static05" taborder="18" text="Static01" visible="false" left="805" top="86" width="4" height="48" style="background:coral;opacity:30;"/>
         <Static id="Static07" taborder="19" text="Static01" visible="false" left="733" top="84" width="4" height="48" style="background:coral;opacity:30;"/>
         <Static id="Static08" taborder="20" text="Static01" visible="false" left="661" top="83" width="4" height="48" style="background:coral;opacity:30;"/>
-        <Button id="btn_wReset" taborder="21" left="483" top="90" width="35" height="30" style="image:URL('C:\Users\e1\Pictures\reset3.png');background:midnightblue;border:1 none #999999ff ;color:ivory;font:18 Dotum;" onclick="fn_reset"/>
+        <Button id="btn_wReset" taborder="21" left="483" top="90" width="35" height="30" style="image:URL('Images::reset3.png');background:midnightblue;border:1 none #999999ff ;color:ivory;font:18 Dotum;" onclick="fn_reset"/>
         <Static id="Static10" taborder="22" text="Static01" visible="false" left="517" top="87" width="4" height="48" style="background:coral;opacity:30;"/>
         <Static id="sta_wsub" taborder="23" text="▣ 창고 목록" onclick="Static00_onclick" left="40" top="92" width="140" height="28" style="font:bold 12 Dotum;"/>
         <Static id="warehouse_title" taborder="25" text="∘ 창고 목록 및 관리" onclick="Static02_onclick" left="39" top="49" width="382" height="40" style="font:bold 16 Dotum;"/>
@@ -79,7 +79,7 @@
         <Static id="Static11" taborder="33" text="Static01" visible="false" left="542" top="589" width="40" height="60" style="background:coral;opacity:30;"/>
         <Static id="Static14" taborder="34" text="Static01" visible="false" left="176" top="0" width="40" height="60" style="background:coral;opacity:30;"/>
         <Static id="Static15" taborder="35" text="Static01" visible="false" left="589" top="85" width="4" height="48" style="background:coral;opacity:30;"/>
-        <Button id="btn_back" taborder="36" onclick="btn_back_onclick" left="18" top="15" width="25" height="25" style="image:URL('C:\Users\e1\Desktop\CssImage\free-icon-left-6657529.png');background:@gradation;border:0 none #999999ff ;color:ivory;bordertype:normal 10 10 ;font:18 arial;gradation:none 0,0 white 100,100 black;"/>
+        <Button id="btn_back" taborder="36" onclick="btn_back_onclick" left="18" top="15" width="25" height="25" style="image:URL('Images::free-icon-left-6657529.png');background:@gradation;border:0 none #999999ff ;color:ivory;bordertype:normal 10 10 ;font:18 arial;gradation:none 0,0 white 100,100 black;"/>
         <Button id="btn_upload" taborder="37" text="엑셀업로드" left="952" top="90" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;" onclick="btn_upload_onclick"/>
       </Layout>
     </Layouts>

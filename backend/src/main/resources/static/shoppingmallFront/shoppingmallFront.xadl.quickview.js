@@ -11,7 +11,7 @@
             this._addService("default_typedef.xml", "Base", "form", "./Base/", "", null, "", "0", "0");
             this._addService("default_typedef.xml", "svcurl", "form", "http://localhost:8080/", "", null, "", "", "0");
             this._addService("default_typedef.xml", "MyCss", "css", "./MyCss/", "", null, "", "", "0");
-            this._addService("default_typedef.xml", "Images", "file", "./Images/", "", null, "", "", "0");
+            this._addService("default_typedef.xml", "Images", "file", "./Base/Images/", "", null, "", "", "0");
 
             this._component_uri = (this._arg_compurl ? this._arg_compurl : "./nexacro14lib/component/");
             // load components
@@ -46,6 +46,9 @@
         this.on_loadGlobalVariables = function()
         {
             // global variable
+
+            // Drop stale image aliases persisted by Nexacro from local designer paths.
+            nexacro._setLocalStorage("images", {}, "json");
 
             // global image
 

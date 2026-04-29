@@ -280,7 +280,7 @@
 
             obj = new Button("btn_back", "absolute", "18", "15", "25", "25", null, null, this);
             obj.set_taborder("31");
-            obj.style.set_image("URL('C:/Users/e1/Desktop/CssImage/free-icon-left-6657529.png')");
+            obj.style.set_image("URL('Images::free-icon-left-6657529.png')");
             obj.style.set_background("@gradation");
             obj.style.set_border("0 none #999999ff");
             obj.style.set_color("ivory");

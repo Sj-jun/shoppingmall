@@ -91,7 +91,7 @@
 
             obj = new Button("btn_reset", "absolute", "989", "120", "35", "28", null, null, this);
             obj.set_taborder("6");
-            obj.style.set_image("URL('C:/Users/e1/Pictures/reset3.png')");
+            obj.style.set_image("URL('Images::reset3.png')");
             obj.style.set_background("midnightblue");
             obj.style.set_color("ivory");
             obj.style.set_font("18 Dotum");

@@ -55,7 +55,7 @@
           </Formats>
         </Grid>
         <Static id="Static00" taborder="6" text="Static01" visible="false" left="3.86%" top="114" width="981" height="8" style="background:coral;opacity:30;"/>
-        <Button id="btn_wReset" taborder="7" onclick="fn_reset" left="986" top="87" width="35" height="28" style="image:URL('C:\Users\e1\Pictures\reset3.png');background:midnightblue;border:1 none #999999ff ;color:ivory;font:18 Dotum;"/>
+        <Button id="btn_wReset" taborder="7" onclick="fn_reset" left="986" top="87" width="35" height="28" style="image:URL('Images::reset3.png');background:midnightblue;border:1 none #999999ff ;color:ivory;font:18 Dotum;"/>
         <Static id="sta_category" taborder="8" text="▣ 카테고리 별 주문목록 현황" onclick="Static00_onclick" left="39" top="92" width="252" height="28" style="font:bold 12 Dotum;"/>
         <Static id="title_category" taborder="9" text="∘ 카테고리별 현황" onclick="Static02_onclick" left="39" top="50" width="382" height="40" style="font:bold 16 Dotum;"/>
         <Static id="Static13" taborder="10" text="Static01" visible="false" left="43" top="78" height="20" style="background:coral;opacity:30;" width="93"/>
@@ -63,7 +63,7 @@
         <Static id="Static01" taborder="13" text="Static01" visible="false" left="0" top="157" width="40" height="60" style="background:coral;opacity:30;"/>
         <Static id="Static02" taborder="14" text="Static01" visible="false" left="396" top="532" width="40" height="60" style="background:coral;opacity:30;"/>
         <Static id="Static03" taborder="15" text="Static01" visible="false" left="1020" top="281" width="40" height="60" style="background:coral;opacity:30;"/>
-        <Button id="btn_back" taborder="16" onclick="btn_back_onclick" left="18" top="15" width="25" height="25" style="image:URL('C:\Users\e1\Desktop\CssImage\free-icon-left-6657529.png');background:@gradation;border:0 none #999999ff ;color:ivory;bordertype:normal 10 10 ;font:18 arial;gradation:none 0,0 white 100,100 black;"/>
+        <Button id="btn_back" taborder="16" onclick="btn_back_onclick" left="18" top="15" width="25" height="25" style="image:URL('Images::free-icon-left-6657529.png');background:@gradation;border:0 none #999999ff ;color:ivory;bordertype:normal 10 10 ;font:18 arial;gradation:none 0,0 white 100,100 black;"/>
         <Static id="Static04" taborder="17" text="Static01" visible="false" left="360" top="90" width="16" height="421" style="background:coral;opacity:30;"/>
       </Layout>
     </Layouts>

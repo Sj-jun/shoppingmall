@@ -5205,7 +5205,7 @@ if (!nexacro._bInitPlatform) {
 	};
 
 	_pWindow._on_default_sys_message = function (id) {
-		if (id) {
+		if (typeof id === "string" && id) {
 			var arr = id.split("--boundary--");
 			if (arr.length > 1) {
 				var comp = nexacro._findComponentForID(arr[0]);

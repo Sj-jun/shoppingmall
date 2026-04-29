@@ -263,7 +263,7 @@
 
             obj = new Button("btn_wReset", "absolute", "543", "92", "35", "30", null, null, this);
             obj.set_taborder("21");
-            obj.style.set_image("URL('C:/Users/e1/Pictures/reset3.png')");
+            obj.style.set_image("URL('Images::reset3.png')");
             obj.style.set_background("midnightblue");
             obj.style.set_border("1 none #999999ff");
             obj.style.set_color("ivory");
@@ -356,7 +356,7 @@
 
             obj = new Button("btn_back", "absolute", "17", "15", "25", "25", null, null, this);
             obj.set_taborder("36");
-            obj.style.set_image("URL('C:/Users/e1/Desktop/CssImage/free-icon-left-6657529.png')");
+            obj.style.set_image("URL('Images::free-icon-left-6657529.png')");
             obj.style.set_background("@gradation");
             obj.style.set_border("0 none #999999ff");
             obj.style.set_color("ivory");

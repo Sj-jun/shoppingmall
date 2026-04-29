@@ -72,7 +72,7 @@
             </Format>
           </Formats>
         </Grid>
-        <Button id="btn_reset" taborder="6" onclick="fn_reset" left="989" top="120" width="35" height="28" style="image:URL('C:\Users\e1\Pictures\reset3.png');background:midnightblue;color:ivory;font:18 Dotum;" visible="true"/>
+        <Button id="btn_reset" taborder="6" onclick="fn_reset" left="989" top="120" width="35" height="28" style="image:URL('Images::reset3.png');background:midnightblue;color:ivory;font:18 Dotum;" visible="true"/>
         <Static id="sta_prodList" taborder="7" text="▶상품목록" left="41" top="235" width="174" height="30" visible="true"/>
         <Static id="sta_orderList" taborder="8" text="▶주문목록" left="41" top="408" width="174" height="26" visible="true"/>
         <Button id="btn_back" taborder="10" text="⬅" onclick="btn_back_onclick" left="39" top="19" width="35" height="30" style="background:midnightblue;border:1 solid #999999ff ;color:ivory;bordertype:round 3 3 ;font:18 arial;gradation:none 0,0 white 100,100 black;"/>

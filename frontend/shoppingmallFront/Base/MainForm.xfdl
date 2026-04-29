@@ -23,7 +23,9 @@
           <Tabpages>
             <Tabpage id="tabpage1" text="tabpage1">
               <Layouts>
-                <Layout width="418" height="245"/>
+                <Layout width="418" height="245">
+                  <Div id="Div00" taborder="0" text="Div00" left="17.94%" top="51" right="34.45%" height="182"/>
+                </Layout>
               </Layouts>
             </Tabpage>
             <Tabpage id="tabpage2" text="tabpage2"/>
@@ -43,7 +45,7 @@ this.btn_emp_onclick = function(obj, e)
 };
 this.btn_emp2_onclick = function(obj, e)
 {
-    this.Tab00.tabpage1.set_url("Base::BK20260421_EmployeeForm.xfdl");
+    this.Tab00.tabpage1.Div00.set_url("Base::BK20260421_EmployeeForm.xfdl");
 };
 
 this.btn_wh_onclick = function(obj, e)

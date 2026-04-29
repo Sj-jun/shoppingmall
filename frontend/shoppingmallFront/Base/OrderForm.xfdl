@@ -5,7 +5,7 @@
     <Layouts>
       <Layout>
         <Static id="title_category" taborder="23" text="∘ 고객주문" onclick="Static02_onclick" left="39" top="49" width="382" height="40" style="font:bold 16 Dotum;"/>
-        <Div id="div_name" taborder="9" left="41" top="122" width="295" height="41" style="border:1 solid lightskyblue ;"/>
+        <Div id="div_name" taborder="9" left="41" top="122" width="295" height="41" style="background:gainsboro;color:gainsboro;"/>
         <Static id="sta_name" taborder="2" text="이름" left="61" top="120" width="28" height="46" style="font:10 Dotum;"/>
         <Static id="Static04" taborder="3" text="Static01" visible="false" left="7.77%" top="120" width="10" height="48" style="background:coral;opacity:30;"/>
         <Edit id="edt_name" taborder="0" left="94" top="130" width="152" height="26" style="border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;color:#46463dff;padding:5 5 5 5;" lengthunit="utf8" maxlength="85"/>
@@ -18,7 +18,7 @@
         <Static id="Static00" taborder="24" text="Static01" visible="false" left="44" top="78" height="20" style="background:coral;opacity:30;" width="95"/>
         <Static id="Static23" taborder="25" text="Static01" visible="false" left="112" top="0" width="40" height="60" style="background:coral;opacity:30;"/>
         <Static id="Static07" taborder="26" text="Static01" visible="false" left="0" top="167" width="40" height="60" style="background:coral;opacity:30;"/>
-        <Tab id="tab" taborder="29" left="39" top="178" width="1001" height="387" tabindex="0" scrollbars="autoboth" visible="false" canchange="tab_canchange" style="buttongradation:liner 0,0 transparent 100,100 transparent;buttonborder:1 solid #a8a8a2ff ;background:transparent;color:#777777ff;" selectchangetype="up" enable="true">
+        <Tab id="tab" taborder="29" left="39" top="178" width="1001" height="387" tabindex="0" scrollbars="autoboth" visible="false" canchange="tab_canchange" selectchangetype="up" enable="true">
           <Tabpages>
             <Tabpage id="tabpage1" text="주문목록">
               <Layouts>
@@ -46,9 +46,9 @@
                         </Band>
                         <Band id="body">
                           <Cell style="align:left;padding:5 5 5 5;" text="bind:productName"/>
-                          <Cell col="1" style="align:right;padding:5 5 5 5;" text="bind:price"/>
-                          <Cell col="2" displaytype="normal" edittype="none" style="align:right;padding:5 5 5 5;" text="bind:quantity"/>
-                          <Cell col="3" style="align:right;padding:5 5 5 5;" text="bind:afterQuantity"/>
+                          <Cell col="1" displaytype="number" style="align:right;padding:5 5 5 5;" text="bind:price" mask="#,###,###.#0"/>
+                          <Cell col="2" displaytype="number" edittype="none" style="align:right;padding:5 5 5 5;" text="bind:quantity" mask="##,###,##0"/>
+                          <Cell col="3" displaytype="number" style="align:right;padding:5 5 5 5;" text="bind:afterQuantity" mask="##,###,##0"/>
                           <Cell col="4" displaytype="button" edittype="button" style="color:ivory;color2:ivory;controlbackground:midnightblue;controlcolor:ivory;" cssclass=".btn_red {     background-color: red;     color: white; }" text="추가"/>
                         </Band>
                       </Format>
@@ -79,8 +79,8 @@
                           <Cell displaytype="checkbox" edittype="checkbox" text="bind:chk"/>
                           <Cell col="1" text="bind:orderId"/>
                           <Cell col="2" style="align:left;padding:5 5 5 5;" text="bind:productName"/>
-                          <Cell col="3" displaytype="text" edittype="text" editfilter="digit" style="align:right;padding:0 5 0 5;" text="bind:quantity" editlimit="8" editlengthunit="utf8"/>
-                          <Cell col="4" style="align:right;padding:5 5 5 5;" text="bind:totalPrice"/>
+                          <Cell col="3" displaytype="number" edittype="text" editfilter="digit" style="align:right;padding:0 5 0 5;" text="bind:quantity" mask="##,###,###" editlimit="8" editlengthunit="utf8"/>
+                          <Cell col="4" displaytype="number" style="align:right;padding:5 5 5 5;" text="bind:totalPrice" mask="#,###,###.##"/>
                         </Band>
                       </Format>
                     </Formats>
@@ -148,7 +148,6 @@
         <Static id="Static09" taborder="31" text="Static01" visible="false" left="532" top="564" width="40" height="60" style="background:coral;opacity:30;"/>
         <Static id="Static01" taborder="32" text="Static01" visible="false" left="3.61%" top="215" width="10" height="48" style="background:coral;opacity:30;"/>
         <Static id="Static05" taborder="33" text="Static01" visible="false" left="95.1%" top="260" width="10" height="48" style="background:coral;opacity:30;"/>
-        <Button id="btn_back" taborder="34" onclick="btn_back_onclick" left="18" top="15" width="25" height="25" style="image:URL('Images::free-icon-left-6657529.png');background:@gradation;border:0 none #999999ff ;color:ivory;bordertype:normal 10 10 ;font:18 arial;gradation:none 0,0 white 100,100 black;"/>
         <Static id="Static10" taborder="35" text="Static01" visible="false" left="246" top="115" width="4" height="48" style="background:coral;opacity:30;"/>
         <Static id="Static11" taborder="36" text="Static01" visible="false" left="39" top="201" width="91" height="20" style="background:coral;opacity:30;"/>
       </Layout>

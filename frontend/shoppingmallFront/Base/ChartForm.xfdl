@@ -6,7 +6,7 @@
       <Layout>
         <WebBrowser id="web_chart" left="21" top="133" width="800" height="400" taborder="0" url="http://localhost:8080/chart/chart.html?v=4" onloadcompleted="web_chart_onloadcompleted"/>
         <Static id="title_chart" taborder="1" text="∘ 월별 주문량 현황 차트" onclick="Static02_onclick" left="20" top="9" width="382" height="40" style="font:bold 16 Dotum;"/>
-        <Div id="div_year" taborder="2" left="21" top="84" width="799" height="41" style="border:1 solid lightskyblue ;">
+        <Div id="div_year" taborder="2" left="21" top="84" width="799" height="41" style="background:gainsboro;">
           <Layouts>
             <Layout/>
           </Layouts>
@@ -22,7 +22,7 @@
         <Static id="sta_year" taborder="20" text="연도" left="42" top="81" width="28" height="46" style="font:10 Dotum;" onclick="sta_year_onclick"/>
         <Static id="Static08" taborder="21" text="Static01" onclick="Static05_onclick" visible="false" left="408" top="532" width="40" height="20" style="background:coral;opacity:30;"/>
         <Static id="Static09" taborder="22" text="Static01" visible="false" left="251" top="0" width="45" height="20" style="background:coral;opacity:30;"/>
-        <Spin id="sp_year" taborder="23" value="0" left="76" top="91" width="152" height="26" max="3000" increment="1" min="1800" onchanged="sp_year_onchanged"/>
+        <Spin id="sp_year" taborder="23" value="0" left="76" top="91" width="152" height="26" max="3000" increment="1" min="1800" onchanged="sp_year_onchanged" onspin="sp_year_onspin"/>
       </Layout>
     </Layouts>
     <Objects>
@@ -156,7 +156,16 @@ this.fn_tryDrawChart = function()
 
     this.fn_drawChart();
 };
+/*
 this.sp_year_onchanged = function(obj:Spin, e:nexacro.ChangeEventInfo)
+{
+	this.mQuantity = [];
+	this.fv_chartDataReady = false;
+	this.ds_cond.setColumn(0,"year", this.sp_year.value);
+	this.fn_monthOrder();
+}
+*/
+this.sp_year_onspin = function(obj:Spin, e:nexacro.SpinEventInfo)
 {
 	this.mQuantity = [];
 	this.fv_chartDataReady = false;

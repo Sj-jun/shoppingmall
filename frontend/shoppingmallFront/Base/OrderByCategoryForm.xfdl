@@ -38,7 +38,6 @@
         <Static id="Static12" taborder="28" text="Static01" visible="false" left="456" top="589" width="40" height="60" style="background:coral;opacity:30;" onclick="Static12_onclick"/>
         <Button id="btn_excel" taborder="29" text="엑셀" onclick="btn_excel_onclick" left="952" top="91" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;font:10 Dotum;"/>
         <Static id="Static15" taborder="30" text="Static01" visible="false" left="949" top="83" width="4" height="48" style="background:coral;opacity:30;"/>
-        <Button id="btn_back" taborder="31" onclick="btn_back_onclick" left="18" top="15" width="25" height="25" style="image:URL('Images::free-icon-left-6657529.png');background:@gradation;border:0 none #999999ff ;color:ivory;bordertype:normal 0 0 ;font:18 arial;gradation:none 0,0 white 100,100 black;"/>
         <Static id="Static16" taborder="32" text="Static01" visible="false" left="40" top="127" width="45" height="48" style="background:coral;opacity:30;"/>
       </Layout>
     </Layouts>
@@ -90,6 +89,7 @@
           <Column id="cellIndex" type="STRING" size="256"/>
           <Column id="row" type="STRING" size="256"/>
           <Column id="colspan" type="STRING" size="256"/>
+          <Column id="align" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
       <Dataset id="ds_result">

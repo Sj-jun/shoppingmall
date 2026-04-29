@@ -71,7 +71,6 @@
         <Static id="Static11" taborder="28" text="Static01" visible="false" left="949" top="81" width="4" height="48" style="background:coral;opacity:30;"/>
         <Static id="Static13" taborder="30" text="Static01" visible="false" left="44" top="78" height="20" style="background:coral;opacity:30;" width="94"/>
         <Static id="Static14" taborder="31" text="Static01" visible="false" left="48.07%" top="115" width="522" height="8" style="background:coral;opacity:30;"/>
-        <Button id="btn_back" taborder="33" left="18" top="15" height="25" onclick="btn_back_onclick" style="image:URL('Images::free-icon-left-6657529.png');background:@gradation;border:0 none #999999ff ;color:ivory;bordertype:normal 10 10 ;font:18 arial;gradation:none 0,0 white 100,100 black;" width="25"/>
         <Static id="Static16" taborder="34" text="Static01" visible="false" left="176" top="0" width="40" height="60" style="background:coral;opacity:30;"/>
         <Static id="Static17" taborder="35" text="Static01" visible="false" left="0" top="163" width="40" height="60" style="background:coral;opacity:30;"/>
         <Static id="Static18" taborder="36" text="Static01" visible="false" left="1021" top="242" width="40" height="60" style="background:coral;opacity:30;"/>

@@ -1,36 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="MainForm" left="0" top="0" width="784" height="650" titletext="New Form" onload="MainForm_onload">
+  <Form id="MainForm" left="0" top="0" width="1194" height="1020" titletext="New Form" onload="MainForm_onload">
     <Layouts>
       <Layout>
-        <Button id="btn_wh" taborder="2" text=" 창고관리" onclick="btn_wh_onclick" left="137" top="75" width="105" height="40" style="image:URL('Images::warehouse.png');imagealign:lefttext;bordertype:normal 0 0 ;font:10 맑은 고딕;gradation:linear 10,10 lightsteelblue 0,100 #ecece5ff;"/>
-        <Button id="btn_inven" taborder="3" text=" 재고/상품 관리" left="241" top="75" width="142" height="40" onclick="btn_inven_onclick" style="image:URL('Images::box.png');imagealign:lefttext;bordertype:normal 0 0 ;font:10 맑은 고딕;gradation:linear 10,10 lightsteelblue 0,100 #ecece5ff;"/>
-        <Button id="btn_category" taborder="4" text=" 카테고리" left="382" top="75" width="105" height="40" onclick="btn_category_onclick" style="image:URL('Images::catagory.png');imagealign:lefttext;bordertype:normal 0 0 ;font:10 맑은 고딕;gradation:linear 10,10 lightsteelblue 0,100 #ecece5ff;"/>
-        <Button id="btn_order" taborder="5" text=" 고객주문" onclick="btn_order_onclick" left="486" top="75" width="105" height="40" style="image:URL('Images::order.png');imagealign:lefttext;bordertype:normal 0 0 ;font:10 맑은 고딕;gradation:linear 10,10 lightsteelblue 0,100 #ecece5ff;"/>
-        <Button id="btn_orderByCat" taborder="6" text=" 카테고리별 주문" left="590" top="75" width="148" height="40" onclick="btn_orderByCat_onclick" style="image:URL('Images::list.png');imagealign:lefttext;bordertype:normal 0 0 ;font:10 맑은 고딕;gradation:linear 10,10 lightsteelblue 0,100 #ecece5ff;" cssclass="btn"/>
-        <Static id="Static00" taborder="8" text="Static01" visible="false" left="0" top="68" width="40" height="60" style="background:coral;opacity:30;"/>
-        <Static id="Static01" taborder="9" text="Static01" visible="false" left="532" top="588" width="40" height="60" style="background:coral;opacity:30;"/>
-        <Static id="Static02" taborder="10" text="Static01" visible="false" left="744" top="114" width="40" height="60" style="background:coral;opacity:30;"/>
-        <Static id="Static03" taborder="11" text="Static01" visible="false" left="34" top="75" width="13" height="40" style="background:coral;font:9 Dotum;opacity:30;"/>
-        <Static id="Static04" taborder="12" text="Static01" visible="false" left="123" top="76" width="13" height="40" style="background:coral;border:0 none transparent ;font:9 Dotum;opacity:30;"/>
-        <Static id="Static05" taborder="13" text="Static01" visible="false" left="242" top="76" width="13" height="40" style="background:coral;font:9 Dotum;opacity:30;"/>
-        <Static id="Static06" taborder="14" text="Static01" visible="false" left="592" top="76" width="13" height="40" style="background:coral;font:9 Dotum;opacity:30;"/>
-        <ImageViewer id="ImageViewer00" taborder="15" left="34" top="4" width="210" height="57" style="border:1 none #e5e5e5ff ;" image="URL('Images::e1.png')"/>
-        <Button id="btn_emp2" taborder="16" text=" 직원관리" onclick="btn_emp2_onclick" left="33" top="75" width="105" height="40" style="image:URL('Images::employee-card_12576283.png');imagealign:lefttext;bordertype:normal 0 0 ;align:center middle;font:10 맑은 고딕;gradation:none 0,0 white 100,100 black;"/>
-        <Static id="Static07" taborder="17" text="Static01" visible="false" left="132" top="0" width="40" height="20" style="background:coral;opacity:30;"/>
-        <Tab id="Tab00" taborder="18" left="10.84%" top="159" right="35.59%" height="269" tabindex="0" scrollbars="autoboth">
+        <Tab id="Tab00" taborder="18" left="15" top="97" height="589" tabindex="0" scrollbars="autoboth" canchange="Tab00_canchange" width="1020" style="buttonbackground:white;buttongradation:linear 0,0 white 0,100 white [60% white][70% white];buttonborder:1 solid white ;buttonbordertype:round 3 3  lefttop righttop;background:white;border:1 solid white ;color:white;bordertype:normal 0 0 ;" position="absolute">
           <Tabpages>
-            <Tabpage id="tabpage1" text="tabpage1">
+            <Tabpage id="tabpage1" text="직원관리" scrollbars="none">
               <Layouts>
                 <Layout width="418" height="245">
-                  <Div id="Div00" taborder="0" text="Div00" left="17.94%" top="51" right="34.45%" height="182" url="Base::BK20260421_EmployeeForm.xfdl"/>
+                  <Div id="Div00" taborder="0" text="Div00" left="-23" top="-39" height="626" url="Base::BK20260421_EmployeeForm.xfdl" width="1060" style="border:1 none #000000ff ;" scrollbars="none"/>
+                  <Static id="Static08" taborder="1" text="Static01" visible="false" left="178" top="1" width="40" height="20" style="background:coral;opacity:30;"/>
+                  <Static id="Static00" taborder="2" text="Static01" visible="false" left="511" top="644" width="40" height="20" style="background:coral;opacity:30;"/>
                 </Layout>
               </Layouts>
             </Tabpage>
-            <Tabpage id="tabpage2" text="tabpage2"/>
+            <Tabpage id="tabpage2" text="창고관리" scrollbars="none">
+              <Layouts>
+                <Layout>
+                  <Div id="Div00" taborder="0" url="Base::WarehouseForm.xfdl" text="Div00" left="-23" top="-39" width="1032" height="604"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage3" text="재고/상품 관리" scrollbars="none">
+              <Layouts>
+                <Layout>
+                  <Div id="Div00" taborder="0" url="Base::InventoriesForm.xfdl" text="Div00" left="-23" top="-40" width="1032" height="604" scrollbars="none"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage4" text="카테고리" scrollbars="none">
+              <Layouts>
+                <Layout>
+                  <Div id="Div00" taborder="0" url="Base::CategoryForm.xfdl" text="Div00" left="-23" top="-40" width="1060" height="626" style="border:1 none #000000ff ;"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage5" text="tabpage5" scrollbars="none">
+              <Layouts>
+                <Layout>
+                  <Div id="Div00" taborder="0" url="Base::OrderForm.xfdl" text="Div00" left="-23" top="-39" width="1060" height="626" style="border:1 none #000000ff ;"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
+            <Tabpage id="tabpage6" text="tabpage6" scrollbars="none">
+              <Layouts>
+                <Layout>
+                  <Div id="Div00" taborder="0" url="Base::OrderByCategoryForm.xfdl" text="Div00" left="-23" top="-40" width="1060" height="626" style="border:1 none #000000ff ;"/>
+                </Layout>
+              </Layouts>
+            </Tabpage>
           </Tabpages>
         </Tab>
+        <Button id="btn_wh" taborder="2" text=" 창고관리" onclick="btn_wh_onclick" left="137" top="83" width="105" height="40" style="image:URL('Images::warehouse.png');imagealign:lefttext;bordertype:normal 0 0 ;font:10 맑은 고딕;gradation:linear 10,10 lightsteelblue 0,100 #ecece5ff;"/>
+        <Button id="btn_inven" taborder="3" text=" 재고/상품 관리" left="241" top="83" width="142" height="40" onclick="btn_inven_onclick" style="image:URL('Images::box.png');imagealign:lefttext;bordertype:normal 0 0 ;font:10 맑은 고딕;gradation:linear 10,10 lightsteelblue 0,100 #ecece5ff;"/>
+        <Button id="btn_category" taborder="4" text=" 카테고리" left="382" top="83" width="105" height="40" onclick="btn_category_onclick" style="image:URL('Images::catagory.png');imagealign:lefttext;bordertype:normal 0 0 ;font:10 맑은 고딕;gradation:linear 10,10 lightsteelblue 0,100 #ecece5ff;"/>
+        <Button id="btn_order" taborder="5" text=" 고객주문" onclick="btn_order_onclick" left="486" top="83" width="105" height="40" style="image:URL('Images::order.png');imagealign:lefttext;bordertype:normal 0 0 ;font:10 맑은 고딕;gradation:linear 10,10 lightsteelblue 0,100 #ecece5ff;"/>
+        <Button id="btn_orderByCat" taborder="6" text=" 카테고리별 주문" left="590" top="83" width="148" height="40" onclick="btn_orderByCat_onclick" style="image:URL('Images::list.png');imagealign:lefttext;bordertype:normal 0 0 ;font:10 맑은 고딕;gradation:linear 10,10 lightsteelblue 0,100 #ecece5ff;" cssclass="btn"/>
+        <Static id="Static00" taborder="8" text="Static01" visible="false" left="0" top="74" width="40" height="60" style="background:coral;opacity:30;"/>
+        <Static id="Static01" taborder="9" text="Static01" visible="false" left="532" top="596" width="40" height="60" style="background:coral;opacity:30;"/>
+        <Static id="Static02" taborder="10" text="Static01" visible="false" left="120" top="123" width="40" height="20" style="background:coral;opacity:30;"/>
+        <Static id="Static03" taborder="11" text="Static01" visible="false" left="34" top="83" width="13" height="40" style="background:coral;font:9 Dotum;opacity:30;"/>
+        <Static id="Static04" taborder="12" text="Static01" visible="false" left="123" top="84" width="13" height="40" style="background:coral;border:0 none transparent ;font:9 Dotum;opacity:30;"/>
+        <Static id="Static05" taborder="13" text="Static01" visible="false" left="242" top="84" width="13" height="40" style="background:coral;font:9 Dotum;opacity:30;"/>
+        <Static id="Static06" taborder="14" text="Static01" visible="false" left="592" top="84" width="13" height="40" style="background:coral;font:9 Dotum;opacity:30;"/>
+        <ImageViewer id="ImageViewer00" taborder="15" left="34" top="13" width="210" height="57" style="border:1 none #e5e5e5ff ;" image="URL('Images::e1.png')"/>
+        <Button id="btn_emp2" taborder="16" text=" 직원관리" onclick="btn_emp2_onclick" left="33" top="83" width="105" height="40" style="image:URL('Images::employee-card_12576283.png');imagealign:lefttext;bordertype:normal 0 0 ;align:center middle;font:10 맑은 고딕;gradation:none 0,0 white 100,100 black;"/>
+        <Static id="Static08" taborder="19" text="Static01" visible="false" left="32" top="352" width="20" height="60" style="background:coral;opacity:30;"/>
+        <Static id="Static09" taborder="20" text="Static01" visible="false" left="1032" top="356" width="20" height="60" style="background:coral;opacity:30;"/>
+        <Static id="Static10" taborder="21" text="Static01" visible="false" left="188" top="54" width="40" height="30" style="background:coral;opacity:30;"/>
+        <Static id="Static07" taborder="22" text="Static01" visible="false" left="184" top="0" width="40" height="30" style="background:coral;opacity:30;"/>
       </Layout>
     </Layouts>
     <Style url="MyCss::newcss.css"/>
@@ -45,33 +84,45 @@ this.btn_emp_onclick = function(obj, e)
 };
 this.btn_emp2_onclick = function(obj, e)
 {
-    this.Tab00.tabpage1.Div00.set_url("Base::BK20260421_EmployeeForm.xfdl");
+    this.Tab00.set_tabindex(0);
 };
+
 
 this.btn_wh_onclick = function(obj, e)
 {
-    this.getOwnerFrame().set_formurl("Base::WarehouseForm.xfdl");
+    this.Tab00.set_tabindex(1);
 };
 
 ;
 this.btn_inven_onclick = function(obj, e)
 {
-    this.getOwnerFrame().set_formurl("Base::InventoriesForm.xfdl");
+    this.Tab00.set_tabindex(2);
 };
 
 this.btn_category_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
 {
-	 this.getOwnerFrame().set_formurl("Base::CategoryForm.xfdl");
+	 this.Tab00.set_tabindex(3);
 };
 this.btn_order_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
 {
-	 this.getOwnerFrame().set_formurl("Base::OrderForm.xfdl");
+	 this.Tab00.set_tabindex(4);
 };
 
 this.btn_orderByCat_onclick = function(obj:Button, e:nexacro.ClickEventInfo)
 {
-	this.getOwnerFrame().set_formurl("Base::OrderByCategoryForm.xfdl");
+	this.Tab00.set_tabindex(5);
 }
+
+this.Tab00_canchange = function(obj:Tab, e:nexacro.TabIndexChangeEventInfo)
+{
+	trace("현재 탭 index = " + e.postindex);
+
+    if (e.postindex == 0) // tabpage2
+    {
+        this.Tab00.tabpage1.Div00.set_url("Base::BK20260421_EmployeeForm.xfdl");
+    }
+}
+
 ]]></Script>
   </Form>
 </FDL>

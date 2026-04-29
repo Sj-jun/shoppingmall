@@ -13,4 +13,9 @@
   <ComponentInfoGroup>
     <ComponentInfo name="WebBrowser" defaultwidth="400" defaultheight="400" image="57"/>
   </ComponentInfoGroup>
+  <Themes>
+    <RecentlyUsed>
+      <Theme url="test.xtheme" extern="false"/>
+    </RecentlyUsed>
+  </Themes>
 </Project>

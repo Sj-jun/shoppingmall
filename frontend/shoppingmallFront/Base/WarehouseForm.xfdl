@@ -79,7 +79,6 @@
         <Static id="Static11" taborder="33" text="Static01" visible="false" left="542" top="589" width="40" height="60" style="background:coral;opacity:30;"/>
         <Static id="Static14" taborder="34" text="Static01" visible="false" left="176" top="0" width="40" height="60" style="background:coral;opacity:30;"/>
         <Static id="Static15" taborder="35" text="Static01" visible="false" left="589" top="85" width="4" height="48" style="background:coral;opacity:30;"/>
-        <Button id="btn_back" taborder="36" onclick="btn_back_onclick" left="18" top="15" width="25" height="25" style="image:URL('Images::free-icon-left-6657529.png');background:@gradation;border:0 none #999999ff ;color:ivory;bordertype:normal 10 10 ;font:18 arial;gradation:none 0,0 white 100,100 black;"/>
         <Button id="btn_upload" taborder="37" text="엑셀업로드" left="952" top="90" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;" onclick="btn_upload_onclick"/>
       </Layout>
     </Layouts>

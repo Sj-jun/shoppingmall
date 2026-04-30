@@ -964,8 +964,14 @@ this.fn_delete = function()
 		//체크박스 1이면 삭제
         if (this.ds_warehouse.getColumn(i, "chk") == "1")
         {
-            var nRow = this.ds_delete.addRow();
-            this.ds_delete.setColumn(nRow, "warehouseId", this.ds_warehouse.getColumn(i, "warehouseId"));
+            var sWarehouseId = this.ds_warehouse.getColumn(i, "warehouseId");
+
+            // DB에 있는 기존행만 서버 삭제 대상으로 보낸다.
+            if (!this.fn_isNull(sWarehouseId))
+            {
+                var nRow = this.ds_delete.addRow();
+                this.ds_delete.setColumn(nRow, "warehouseId", sWarehouseId);
+            }
         }
     }
     // 기존행 삭제 대상이 없으면 서버 호출 안 함

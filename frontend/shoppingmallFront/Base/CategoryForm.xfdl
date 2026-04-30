@@ -4,12 +4,12 @@
   <Form id="CategoryForm" left="0" top="0" width="1060" height="592" titletext="New Form" onload="CategoryForm_onload">
     <Layouts>
       <Layout>
-        <Grid id="grd_category" taborder="4" left="40" top="122" width="320" height="410" binddataset="ds_category" oncellclick="grd_category_oncelldblclick">
+        <Grid id="grd_category" taborder="4" left="40" top="122" width="320" height="410" binddataset="ds_category" oncellclick="grd_category_oncelldblclick" scrollbars="autovert">
           <Formats>
             <Format id="default">
               <Columns>
-                <Column size="238"/>
-                <Column size="82"/>
+                <Column size="205"/>
+                <Column size="102"/>
               </Columns>
               <Rows>
                 <Row size="24" band="head"/>

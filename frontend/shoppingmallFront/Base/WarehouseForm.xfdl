@@ -1093,11 +1093,12 @@ this.fn_reset = function()
     this.div_Wselect.cbo_region.set_index(0);
 	this.div_Wselect.cbo_country.set_index(0);
 	this.div_Wselect.cbo_location.set_index(0);
-	if (this.fv_savedWarehouseIds && this.fv_savedWarehouseIds.length > 0)
+	
+	this.fn_search();
+	/*if (this.fv_savedWarehouseIds && this.fv_savedWarehouseIds.length > 0)
 	{	
-		alert("저장되었습니다.");
-		this.fn_search();
-	}
+		
+	}*/
     
 };
 

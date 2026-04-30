@@ -462,8 +462,8 @@ this.fn_reset = function()
     this.div_inven.cbo_region.set_index(0);
 	this.div_inven.cbo_country.set_index(0);
 	this.div_inven.cbo_location.set_index(0);
-
-
+	
+	this.fn_search();
 };
 
 //등록버튼 클릭이벤트
@@ -643,10 +643,7 @@ this.fn_ChangePopupCallback = function(sPopupId, sReturn)
 	this.fn_search();
 }
 
-//==================================
-//엑셀 버튼
-//==================================
-// 오늘 날짜 YYYYMMDD 반환
+
 //==================================
 //엑셀 버튼
 //==================================

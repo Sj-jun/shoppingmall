@@ -459,7 +459,7 @@ this.fn_reset = function()
     this.ds_cond.setColumn(nRow, "managerId", "");
 
     // 3. 결과 grid 비우기
-	//this.fn_search();
+	this.fn_search();
 
     trace("=== 초기화 후 ds_cond ===");
     trace("ds_employees rowcount = " + this.ds_employees.getRowCount());

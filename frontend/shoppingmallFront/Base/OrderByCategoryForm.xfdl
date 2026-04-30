@@ -695,6 +695,8 @@ this.fn_reset = function(obj:Button, e:nexacro.ClickEventInfo)
     this.ds_cond.setColumn(nRow, "productName", "");
 	this.ds_cond.setColumn(nRow, "fromDate", "");
 	this.ds_cond.setColumn(nRow, "toDate", "");
+	
+	this.fn_search();
 
 }
 

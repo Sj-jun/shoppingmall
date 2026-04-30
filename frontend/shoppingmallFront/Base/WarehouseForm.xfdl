@@ -13,8 +13,8 @@
                 <Column size="127"/>
                 <Column size="158"/>
                 <Column size="188"/>
-                <Column size="282"/>
-                <Column size="186"/>
+                <Column size="246"/>
+                <Column size="213"/>
               </Columns>
               <Rows>
                 <Row size="24" band="head"/>
@@ -42,15 +42,15 @@
         <Div id="div_Wselect" taborder="0" left="40" top="123" width="982" height="45" style="background:gainsboro;">
           <Layouts>
             <Layout width="981" height="45">
-              <Combo id="cbo_location" taborder="2" text="Combo00" left="628" top="8" width="186" height="28" innerdataset="@ds_location" codecolumn="locationId" datacolumn="locationName" displaynulltext="-전체-" style="align:center middle;"/>
-              <Combo id="cbo_country" taborder="1" text="Combo00" left="341" top="8" width="186" height="28" innerdataset="@ds_country" codecolumn="countryId" datacolumn="countryName" onitemchanged="div_Wselect.cbo_country_onitemchanged" displaynulltext="-전체-" style="align:center middle;"/>
-              <Combo id="cbo_region" taborder="0" text="Combo00" left="77" top="8" width="186" height="28" innerdataset="@ds_region" codecolumn="regionId" datacolumn="regionName" displaynulltext="-전체-" style="align:center middle;" onitemchanged="div_Wselect.cbo_region_onitemchanged" type="dropdown"/>
-              <Static id="sta_location" taborder="4" text="창고위치" onclick="h_date_onclick" left="570" top="8" width="69" height="28" style="font:10 Dotum;"/>
-              <Static id="Static03" taborder="5" text="Static01" visible="false" left="63.03%" top="0" width="10" height="48" style="background:coral;opacity:30;"/>
+              <Combo id="cbo_location" taborder="2" text="Combo00" left="658" top="8" width="195" height="28" innerdataset="@ds_location" codecolumn="locationId" datacolumn="locationName" displaynulltext="-전체-" style="align:center middle;"/>
+              <Combo id="cbo_country" taborder="1" text="Combo00" left="349" top="8" width="208" height="28" innerdataset="@ds_country" codecolumn="countryId" datacolumn="countryName" onitemchanged="div_Wselect.cbo_country_onitemchanged" displaynulltext="-전체-" style="align:center middle;"/>
+              <Combo id="cbo_region" taborder="0" text="Combo00" left="77" top="8" width="195" height="28" innerdataset="@ds_region" codecolumn="regionId" datacolumn="regionName" displaynulltext="-전체-" style="align:center middle;" onitemchanged="div_Wselect.cbo_region_onitemchanged" type="dropdown"/>
+              <Static id="sta_location" taborder="4" text="창고위치" onclick="h_date_onclick" left="600" top="8" width="69" height="28" style="font:10 Dotum;"/>
+              <Static id="Static03" taborder="5" text="Static01" visible="false" left="66.09%" top="0" width="10" height="48" style="background:coral;opacity:30;"/>
               <Static id="sta_region" taborder="6" text="지역" onclick="Static00_onclick" left="44" top="8" width="28" height="28"/>
-              <Static id="sta_country" taborder="7" text="국가" onclick="h_date_onclick" left="306" top="8" width="41" height="28" style="font:10 Dotum;"/>
-              <Static id="Static00" taborder="8" text="Static01" visible="false" left="262" top="-2" width="45" height="48" style="background:coral;opacity:30;"/>
-              <Static id="Static01" taborder="9" text="Static01" visible="false" left="33.71%" top="0" width="10" height="48" style="background:coral;opacity:30;"/>
+              <Static id="sta_country" taborder="7" text="국가" onclick="h_date_onclick" left="314" top="8" width="41" height="28" style="font:10 Dotum;"/>
+              <Static id="Static00" taborder="8" text="Static01" visible="false" left="271" top="-2" width="45" height="48" style="background:coral;opacity:30;"/>
+              <Static id="Static01" taborder="9" text="Static01" visible="false" left="34.52%" top="0" width="10" height="48" style="background:coral;opacity:30;"/>
               <Static id="Static04" taborder="11" text="Static01" visible="false" left="6.82%" top="0" width="10" height="48" style="background:coral;opacity:30;"/>
             </Layout>
           </Layouts>
@@ -72,7 +72,7 @@
         <Static id="sta_wsub" taborder="23" text="▣ 창고 목록" onclick="Static00_onclick" left="40" top="91" width="140" height="28" style="font:bold 12 Dotum;"/>
         <Static id="warehouse_title" taborder="25" text="∘ 창고 목록 및 관리" onclick="Static02_onclick" left="40" top="49" width="382" height="40" style="font:bold 16 Dotum;"/>
         <Static id="Static13" taborder="26" text="Static01" visible="false" left="43" top="77" height="20" style="background:coral;opacity:30;" width="92"/>
-        <Static id="Static01" taborder="28" text="Static01" visible="false" left="566" top="123" width="45" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static01" taborder="28" text="Static01" visible="false" left="596" top="123" width="45" height="48" style="background:coral;opacity:30;"/>
         <Static id="Static02" taborder="29" text="Static01" visible="false" left="40" top="121" width="45" height="48" style="background:coral;opacity:30;"/>
         <Static id="Static03" taborder="31" text="Static01" visible="false" left="0" top="209" height="59" style="background:coral;opacity:30;" width="40"/>
         <Static id="Static06" taborder="32" text="Static01" visible="false" left="1021" top="213" width="40" height="60" style="background:coral;opacity:30;"/>

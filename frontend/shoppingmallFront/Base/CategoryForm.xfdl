@@ -105,6 +105,7 @@ this.btn_back_onclick = function(obj, e)
 
 this.CategoryForm_onload = function(obj:Form, e:nexacro.LoadEventInfo)
 {
+	this.on = true;
 	this.fn_count();
 }
 //==============================================================

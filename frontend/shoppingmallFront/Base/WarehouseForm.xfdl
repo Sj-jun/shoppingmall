@@ -964,6 +964,19 @@ this.fn_delete = function()
             this.ds_delete.setColumn(nRow, "warehouseId", this.ds_warehouse.getColumn(i, "warehouseId"));
         }
     }
+    // 기존행 삭제 대상이 없으면 서버 호출 안 함
+    if (this.ds_delete.getRowCount() == 0)
+    {
+        return;
+    }
+    this.transaction(
+        "deleteWarehouse",
+        "http://localhost:8080/warehouses/delete",
+        "ds_delete=ds_delete",
+        "",
+        "",
+        "fn_deleteCallback"
+    );
 };
 
 this.btn_wDelete_onclick = function(obj, e)
@@ -982,14 +995,7 @@ this.btn_wDelete_onclick = function(obj, e)
 
     this.fn_delete();
     
-    this.transaction(
-        "deleteWarehouse",
-        "http://localhost:8080/warehouses/delete",
-        "ds_delete=ds_delete",
-        "",
-        "",
-        "fn_deleteCallback"
-    );
+
 };
 // =====================================================================
 // 창고 삭제 콜백
@@ -1009,8 +1015,10 @@ this.fn_deleteCallback = function(svcID, nErrorCode, sErrorMsg)
         alert(sErrorMsg);
         return;
     }
-    alert("삭제되었습니다.");
+    
     this.fn_removeDeletedRows();
+    alert("삭제되었습니다.");
+    
 }   
        
 // 행만 삭제

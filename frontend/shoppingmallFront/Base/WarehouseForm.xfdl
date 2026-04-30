@@ -938,7 +938,11 @@ this.fn_saveCallback = function(svcID, nErrorCode, sErrorMsg)
 // =====================================================================
 // 삭제
 // =====================================================================
-
+//공통 util 
+this.fn_isNull = function(v)
+{
+    return v == null || v == undefined || String(v).trim() == ""; 
+};
 //체크박스 체크 여부
 this.fn_dCheckedRow = function()
 {
@@ -994,6 +998,7 @@ this.btn_wDelete_onclick = function(obj, e)
     }
 
     this.fn_delete();
+    this.fn_removeDeletedRows();
     
 
 };

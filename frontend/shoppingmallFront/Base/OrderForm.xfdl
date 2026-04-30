@@ -79,8 +79,8 @@
                           <Cell displaytype="checkbox" edittype="checkbox" text="bind:chk"/>
                           <Cell col="1" text="bind:orderId"/>
                           <Cell col="2" style="align:left;padding:5 5 5 5;" text="bind:productName"/>
-                          <Cell col="3" displaytype="number" edittype="text" editfilter="digit" style="align:right;padding:0 5 0 5;" text="bind:quantity" mask="##,###,###" editlimit="8" editlengthunit="utf8"/>
-                          <Cell col="4" displaytype="number" style="align:right;padding:5 5 5 5;" text="bind:totalPrice" mask="#,###,###.##"/>
+                          <Cell col="3" displaytype="number" edittype="text" editfilter="digit" style="align:right;padding:0 5 0 5;" text="bind:quantity" mask="##,###,##0" editlimit="8" editlengthunit="utf8"/>
+                          <Cell col="4" displaytype="number" style="align:right;padding:5 5 5 5;" text="bind:totalPrice" mask="#,###,##0.00"/>
                         </Band>
                       </Format>
                     </Formats>
@@ -192,6 +192,18 @@
           <Column id="orderId" type="STRING" size="256"/>
           <Column id="price" type="STRING" size="256"/>
           <Column id="orderDate" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_submitOrder" oncolumnchanged="ds_order_oncolumnchanged">
+        <ColumnInfo>
+          <Column id="productId" type="STRING" size="256"/>
+          <Column id="productName" type="STRING" size="256"/>
+          <Column id="quantity" type="STRING" size="256"/>
+          <Column id="price" type="STRING" size="256"/>
+          <Column id="totalPrice" type="STRING" size="256"/>
+          <Column id="chk" type="STRING" size="256"/>
+          <Column id="itemId" type="STRING" size="256"/>
+          <Column id="orderId" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
     </Objects>
@@ -798,7 +810,6 @@ this.fn_popupCallback = function(sPopupId, sReturn)
     trace("popup closed" + sReturn);
 
     
-};
-]]></Script>
+};]]></Script>
   </Form>
 </FDL>

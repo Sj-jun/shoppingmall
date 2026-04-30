@@ -5,15 +5,15 @@
     <Layouts>
       <Layout>
         <Static id="title_category" taborder="23" text="∘ 고객주문" onclick="Static02_onclick" left="39" top="49" width="382" height="40" style="font:bold 16 Dotum;"/>
-        <Div id="div_name" taborder="9" left="41" top="122" width="295" height="41" style="background:gainsboro;color:gainsboro;"/>
-        <Static id="sta_name" taborder="2" text="이름" left="61" top="120" width="28" height="46" style="font:10 Dotum;"/>
-        <Static id="Static04" taborder="3" text="Static01" visible="false" left="7.77%" top="120" width="10" height="48" style="background:coral;opacity:30;"/>
-        <Edit id="edt_name" taborder="0" left="94" top="130" width="152" height="26" style="border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;color:#46463dff;padding:5 5 5 5;" lengthunit="utf8" maxlength="85" onkeydown="onkeydown"/>
-        <Button id="btn_login" taborder="4" text="로그인" left="249" top="130" width="70" height="26" style="background:midnightblue;border:1 none #999999ff ;color:ivory;" onclick="btn_login_onclick"/>
-        <Static id="Static03" taborder="14" text="Static01" visible="false" left="3.89%" top="118" width="20" height="48" style="background:coral;opacity:30;"/>
-        <Static id="Static02" taborder="15" text="Static01" visible="false" left="30.9%" top="120" width="20" height="48" style="background:coral;opacity:30;"/>
-        <Static id="Static13" taborder="20" text="Static01" visible="false" left="39" top="163" height="15" style="background:coral;opacity:30;" width="91"/>
-        <Static id="Static06" taborder="21" text="Static01" visible="false" left="41" top="112" height="10" style="background:coral;opacity:30;" width="94"/>
+        <Div id="div_name" taborder="9" left="40" top="123" width="295" height="41" style="background:gainsboro;color:gainsboro;"/>
+        <Static id="sta_name" taborder="2" text="이름" left="60" top="121" width="28" height="46" style="font:10 Dotum;"/>
+        <Static id="Static04" taborder="3" text="Static01" visible="false" left="7.68%" top="121" width="10" height="48" style="background:coral;opacity:30;"/>
+        <Edit id="edt_name" taborder="0" left="93" top="131" width="152" height="26" style="border:1 solid #a6a6a9ff,1 solid #d5d5d5ff,1 solid #d5d5d5ff,1 solid #a6a6a9ff;color:#46463dff;padding:5 5 5 5;" lengthunit="utf8" maxlength="85" onkeydown="onkeydown"/>
+        <Button id="btn_login" taborder="4" text="로그인" left="248" top="131" width="70" height="26" style="background:midnightblue;border:1 none #999999ff ;color:ivory;" onclick="btn_login_onclick"/>
+        <Static id="Static03" taborder="14" text="Static01" visible="false" left="3.79%" top="119" width="20" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static02" taborder="15" text="Static01" visible="false" left="30.8%" top="121" width="20" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static13" taborder="20" text="Static01" visible="false" left="38" top="164" height="15" style="background:coral;opacity:30;" width="91"/>
+        <Static id="Static06" taborder="21" text="Static01" visible="false" left="40" top="113" height="10" style="background:coral;opacity:30;" width="94"/>
         <Static id="sta_order" taborder="22" text="▣ 주문" left="40" top="82" width="69" height="46" style="font:bold 12 Dotum;"/>
         <Static id="Static00" taborder="24" text="Static01" visible="false" left="44" top="78" height="20" style="background:coral;opacity:30;" width="95"/>
         <Static id="Static23" taborder="25" text="Static01" visible="false" left="112" top="0" width="40" height="60" style="background:coral;opacity:30;"/>
@@ -148,7 +148,7 @@
         <Static id="Static09" taborder="31" text="Static01" visible="false" left="532" top="564" width="40" height="60" style="background:coral;opacity:30;"/>
         <Static id="Static01" taborder="32" text="Static01" visible="false" left="3.61%" top="215" width="10" height="48" style="background:coral;opacity:30;"/>
         <Static id="Static05" taborder="33" text="Static01" visible="false" left="95.1%" top="260" width="10" height="48" style="background:coral;opacity:30;"/>
-        <Static id="Static10" taborder="35" text="Static01" visible="false" left="246" top="115" width="4" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static10" taborder="35" text="Static01" visible="false" left="245" top="116" width="4" height="48" style="background:coral;opacity:30;"/>
         <Static id="Static11" taborder="36" text="Static01" visible="false" left="39" top="201" width="91" height="20" style="background:coral;opacity:30;"/>
       </Layout>
     </Layouts>

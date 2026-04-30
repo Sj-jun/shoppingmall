@@ -4,43 +4,43 @@
   <Form id="ProductByCategoryForm" left="0" top="0" width="1062" height="649" titletext="New Form" style="color:ivory;" onload="OrderByCategoryForm_onload" onkeyup="onkeydown">
     <Layouts>
       <Layout>
-        <Static id="div_cond" taborder="8" left="40" top="127" width="982" height="45" style="background:gainsboro;"/>
-        <Grid id="grd_order" taborder="4" left="40" top="180" width="982" height="410" binddataset="ds_pivot" scrollbars="autoboth" autofittype="none">
+        <Static id="div_cond" taborder="8" left="40" top="124" width="982" height="45" style="background:gainsboro;"/>
+        <Grid id="grd_order" taborder="4" left="40" top="176" width="982" height="410" binddataset="ds_pivot" scrollbars="autoboth" autofittype="none">
           <Formats>
             <Format id="default"/>
           </Formats>
         </Grid>
-        <Combo id="cbo_category" taborder="0" text="Combo00" left="144" top="135" width="156" height="28" innerdataset="@ds_category" codecolumn="categoryId" datacolumn="categoryName" style="align:center middle;" onitemchanged="cbo_category_onitemchanged"/>
-        <Static id="sta_category" taborder="5" text="카테고리" left="84" top="135" width="52" height="28" style="font:10 Dotum;"/>
-        <Static id="sta_product" taborder="6" text="상품명" left="344" top="135" width="43" height="28" style="font:10 Dotum;" onclick="sta_product_onclick"/>
-        <Edit id="edt_product" taborder="1" left="391" top="135" width="156" height="28" style="color:#46463dff;" lengthunit="utf8" maxlength="85"/>
-        <Calendar id="cal_to" taborder="3" left="776" top="135" width="120" height="28" style="padding:5 5 5 10;" dateformat="yyyy-MM-dd" value="null" onchanged="cal_onchanged"/>
-        <Calendar id="cal_from" taborder="2" left="637" top="135" width="120" height="28" style="padding:5 5 5 10;" dateformat="yyyy-MM-dd" value="null" editformat="yyyy-MM-dd" onchanged="cal_onchanged"/>
-        <Static id="sta_date" taborder="7" text="주문일" left="591" top="135" width="38" height="28" style="font:10 Dotum;"/>
-        <Static id="Static07" taborder="9" text="Static01" visible="false" left="43.79%" top="172" width="522" height="8" style="background:coral;opacity:30;"/>
+        <Combo id="cbo_category" taborder="0" text="Combo00" left="144" top="132" width="156" height="28" innerdataset="@ds_category" codecolumn="categoryId" datacolumn="categoryName" style="align:center middle;" onitemchanged="cbo_category_onitemchanged"/>
+        <Static id="sta_category" taborder="5" text="카테고리" left="84" top="132" width="52" height="28" style="font:10 Dotum;"/>
+        <Static id="sta_product" taborder="6" text="상품명" left="344" top="132" width="43" height="28" style="font:10 Dotum;" onclick="sta_product_onclick"/>
+        <Edit id="edt_product" taborder="1" left="391" top="132" width="156" height="28" style="color:#46463dff;" lengthunit="utf8" maxlength="85"/>
+        <Calendar id="cal_to" taborder="3" left="776" top="132" width="120" height="28" style="padding:5 5 5 10;" dateformat="yyyy-MM-dd" value="null" onchanged="cal_onchanged"/>
+        <Calendar id="cal_from" taborder="2" left="637" top="132" width="120" height="28" style="padding:5 5 5 10;" dateformat="yyyy-MM-dd" value="null" editformat="yyyy-MM-dd" onchanged="cal_onchanged"/>
+        <Static id="sta_date" taborder="7" text="주문일" left="591" top="132" width="38" height="28" style="font:10 Dotum;"/>
+        <Static id="Static07" taborder="9" text="Static01" visible="false" left="43.79%" top="169" width="522" height="8" style="background:coral;opacity:30;"/>
         <Static id="Static02" taborder="10" text="Static01" visible="false" left="0%" top="85" right="96.05%" height="48" style="background:coral;opacity:30;"/>
-        <Static id="Static01" taborder="11" text="Static01" visible="false" left="12.71%" top="127" width="10" height="48" style="background:coral;opacity:30;"/>
-        <Static id="Static00" taborder="12" text="Static01" visible="false" left="299" top="127" height="48" style="background:coral;opacity:30;" width="45"/>
-        <Static id="Static03" taborder="13" text="Static01" visible="false" left="35.88%" top="127" width="10" height="48" style="background:coral;opacity:30;"/>
-        <Static id="Static04" taborder="14" text="Static01" visible="false" left="546" top="125" height="48" style="background:coral;opacity:30;" width="45"/>
-        <Static id="Static05" taborder="15" text="Static01" visible="false" left="59.13%" top="125" width="10" height="48" style="background:coral;opacity:30;" onclick="Static05_onclick"/>
-        <Static id="Static06" taborder="16" text="~" onclick="Static01_onclick" left="761" top="135" width="12" height="28" style="border:1 none #808080ff ;font:10 Dotum;"/>
-        <Static id="Static08" taborder="17" text="Static01" visible="false" left="757" top="125" width="6" height="48" style="background:coral;opacity:30;"/>
-        <Static id="Static09" taborder="18" text="Static01" visible="false" left="770" top="125" width="6" height="48" style="background:coral;opacity:30;"/>
-        <Button id="btn_search" taborder="19" text="조회" left="880" top="91" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;" onclick="btn_search_onclick"/>
-        <Static id="Static14" taborder="20" text="Static01" visible="false" left="44.07%" top="120" width="522" height="8" style="background:coral;opacity:30;"/>
-        <Static id="sta_title" taborder="21" text="▣ 카테고리별 주문 목록" onclick="Static00_onclick" left="39" top="93" width="222" height="28" style="font:bold 12 Dotum;"/>
+        <Static id="Static01" taborder="11" text="Static01" visible="false" left="12.71%" top="124" width="10" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static00" taborder="12" text="Static01" visible="false" left="299" top="124" height="48" style="background:coral;opacity:30;" width="45"/>
+        <Static id="Static03" taborder="13" text="Static01" visible="false" left="35.88%" top="124" width="10" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static04" taborder="14" text="Static01" visible="false" left="546" top="122" height="48" style="background:coral;opacity:30;" width="45"/>
+        <Static id="Static05" taborder="15" text="Static01" visible="false" left="59.13%" top="122" width="10" height="48" style="background:coral;opacity:30;" onclick="Static05_onclick"/>
+        <Static id="Static06" taborder="16" text="~" onclick="Static01_onclick" left="761" top="132" width="12" height="28" style="border:1 none #808080ff ;font:10 Dotum;"/>
+        <Static id="Static08" taborder="17" text="Static01" visible="false" left="757" top="122" width="6" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static09" taborder="18" text="Static01" visible="false" left="770" top="122" width="6" height="48" style="background:coral;opacity:30;"/>
+        <Button id="btn_search" taborder="19" text="조회" left="880" top="87" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;" onclick="btn_search_onclick"/>
+        <Static id="Static14" taborder="20" text="Static01" visible="false" left="44.07%" top="117" width="522" height="8" style="background:coral;opacity:30;"/>
+        <Static id="sta_title" taborder="21" text="▣ 카테고리별 주문 목록" onclick="Static00_onclick" left="40" top="92" width="222" height="28" style="font:bold 12 Dotum;"/>
         <Static id="Static13" taborder="22" text="Static01" visible="false" left="37" top="79" height="20" style="background:coral;opacity:30;" width="94"/>
         <Static id="title" taborder="23" text="∘ 카테고리별 주문 목록" onclick="Static02_onclick" left="39" top="50" width="382" height="40" style="font:bold 16 Dotum;"/>
         <Static id="Static17" taborder="25" text="Static01" visible="false" left="0" top="174" width="40" height="60" style="background:coral;opacity:30;"/>
         <Static id="Static10" taborder="26" text="Static01" visible="false" left="196" top="0" width="40" height="60" style="background:coral;opacity:30;"/>
-        <Static id="Static11" taborder="27" text="Static01" visible="false" left="1022" top="289" width="40" height="60" style="background:coral;opacity:30;"/>
-        <Static id="Static12" taborder="28" text="Static01" visible="false" left="456" top="589" width="40" height="60" style="background:coral;opacity:30;" onclick="Static12_onclick"/>
-        <Button id="btn_excel" taborder="29" text="엑셀" onclick="btn_excel_onclick" left="952" top="91" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;font:10 Dotum;"/>
+        <Static id="Static11" taborder="27" text="Static01" visible="false" left="1022" top="288" width="40" height="60" style="background:coral;opacity:30;"/>
+        <Static id="Static12" taborder="28" text="Static01" visible="false" left="455" top="588" width="40" height="60" style="background:coral;opacity:30;" onclick="Static12_onclick"/>
+        <Button id="btn_excel" taborder="29" text="엑셀" onclick="btn_excel_onclick" left="952" top="87" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;font:10 Dotum;"/>
         <Static id="Static15" taborder="30" text="Static01" visible="false" left="949" top="83" width="4" height="48" style="background:coral;opacity:30;"/>
-        <Static id="Static16" taborder="32" text="Static01" visible="false" left="40" top="127" width="45" height="48" style="background:coral;opacity:30;"/>
-        <Button id="btn_wReset" taborder="33" onclick="fn_reset" left="843" top="91" width="35" height="30" style="image:URL('Images::reset3.png');background:midnightblue;border:1 none #999999ff ;color:ivory;font:18 Dotum;"/>
-        <Static id="Static18" taborder="34" text="Static01" visible="false" left="877" top="79" width="4" height="48" style="background:coral;opacity:30;"/>
+        <Static id="Static16" taborder="32" text="Static01" visible="false" left="40" top="124" width="45" height="48" style="background:coral;opacity:30;"/>
+        <Button id="btn_wReset" taborder="33" onclick="fn_reset" left="843" top="87" width="35" height="30" style="image:URL('Images::reset3.png');background:midnightblue;border:1 none #999999ff ;color:ivory;font:18 Dotum;"/>
+        <Static id="Static18" taborder="34" text="Static01" visible="false" left="876" top="77" width="4" height="48" style="background:coral;opacity:30;"/>
       </Layout>
     </Layouts>
     <Objects>

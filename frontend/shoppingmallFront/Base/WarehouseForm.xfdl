@@ -172,6 +172,7 @@
           <Column id="cellIndex" type="STRING" size="256"/>
           <Column id="row" type="STRING" size="256"/>
           <Column id="colspan" type="STRING" size="256"/>
+          <Column id="align" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
       <Dataset id="ds_excel"/>
@@ -1298,7 +1299,10 @@ this.fn_makeExcelHeader = function()
         // Grid head cell의 text를 엑셀 헤더명으로 사용한다.
         var headText = this.grd_warehouse.getCellProperty("head", i, "text");
 
+        var excelAlign = this.fn_getExcelBodyAlign(i);
         var row = this.ds_header.addRow();
+       
+		this.ds_header.setColumn(row, "align", excelAlign);
         this.ds_header.setColumn(row, "row", "1");
         this.ds_header.setColumn(row, "cellIndex", String(excelCol));
         this.ds_header.setColumn(row, "colspan", "1");
@@ -1307,6 +1311,25 @@ this.fn_makeExcelHeader = function()
         
         excelCol++;
     }
+};
+//align을 찾아서 넘겨준다.(엑셀 정렬 위해)
+this.fn_getExcelBodyAlign = function(cellIndex)
+{
+ 
+    var bodyAlign = this.grd_warehouse.getCellProperty("body", cellIndex, "align");
+
+    if (bodyAlign)
+    {
+        bodyAlign = String(bodyAlign).toLowerCase();
+
+        if (bodyAlign.indexOf("left") >= 0) return "left";
+        if (bodyAlign.indexOf("right") >= 0) return "right";
+    }
+	trace("cellIndex=" + cellIndex + ", style=" + bodyAlign);
+
+
+    return "center";
+    
 };
 // 오늘 날짜 YYYYMMDD_HHMMSS 반환
 this.fn_getToday = function()

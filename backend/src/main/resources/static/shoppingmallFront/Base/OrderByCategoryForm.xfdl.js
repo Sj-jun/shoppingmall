@@ -42,7 +42,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Dataset("ds_header", this);
-            obj._setContents("<ColumnInfo><Column id=\"colId\" type=\"STRING\" size=\"256\"/><Column id=\"colName\" type=\"STRING\" size=\"256\"/><Column id=\"cellIndex\" type=\"STRING\" size=\"256\"/><Column id=\"row\" type=\"STRING\" size=\"256\"/><Column id=\"colspan\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"colId\" type=\"STRING\" size=\"256\"/><Column id=\"colName\" type=\"STRING\" size=\"256\"/><Column id=\"cellIndex\" type=\"STRING\" size=\"256\"/><Column id=\"row\" type=\"STRING\" size=\"256\"/><Column id=\"colspan\" type=\"STRING\" size=\"256\"/><Column id=\"align\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
             obj = new Dataset("ds_result", this);
@@ -747,6 +747,7 @@
             this.ds_header.setColumn(row, "colspan", "1");
             this.ds_header.setColumn(row, "colId", "categoryName");
             this.ds_header.setColumn(row, "colName", "카테고리명");
+            this.ds_header.setColumn(row, "align", this.fn_getExcelBodyAlign(0));
 
             // 2행: 상품명
             row = this.ds_header.addRow();
@@ -755,6 +756,7 @@
             this.ds_header.setColumn(row, "colspan", "1");
             this.ds_header.setColumn(row, "colId", "productName");
             this.ds_header.setColumn(row, "colName", "상품명");
+            this.ds_header.setColumn(row, "align", this.fn_getExcelBodyAlign(1));
 
             // 2행: 월 헤더
             for (i = 2; i < this.ds_pivot.getColCount(); i++)
@@ -775,7 +777,30 @@
                 this.ds_header.setColumn(row, "colspan", "1");
                 this.ds_header.setColumn(row, "colId", colId);
                 this.ds_header.setColumn(row, "colName", monthName);
+                this.ds_header.setColumn(row, "align", this.fn_getExcelBodyAlign(i));
             }
+        };
+
+        this.fn_getExcelBodyAlign = function(cellIndex)
+        {
+            var bodyAlign = this.grd_order.getCellProperty("body", cellIndex, "align");
+
+            if (bodyAlign)
+            {
+                bodyAlign = String(bodyAlign).toLowerCase();
+
+                if (bodyAlign.indexOf("left") >= 0)
+                {
+                    return "left";
+                }
+
+                if (bodyAlign.indexOf("right") >= 0)
+                {
+                    return "right";
+                }
+            }
+
+            return "center";
         };
 
         this.btn_excel_onclick = function(obj,e)

@@ -37,7 +37,7 @@
             this.addChild(obj.name, obj);
 
             obj = new Dataset("ds_header", this);
-            obj._setContents("<ColumnInfo><Column id=\"colId\" type=\"STRING\" size=\"256\"/><Column id=\"colName\" type=\"STRING\" size=\"256\"/><Column id=\"cellIndex\" type=\"STRING\" size=\"256\"/><Column id=\"row\" type=\"STRING\" size=\"256\"/><Column id=\"colspan\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"colId\" type=\"STRING\" size=\"256\"/><Column id=\"colName\" type=\"STRING\" size=\"256\"/><Column id=\"cellIndex\" type=\"STRING\" size=\"256\"/><Column id=\"row\" type=\"STRING\" size=\"256\"/><Column id=\"colspan\" type=\"STRING\" size=\"256\"/><Column id=\"align\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
             obj = new Dataset("ds_manager2", this);
@@ -824,15 +824,57 @@
                     headText = colId;
                 }
 
+                var excelAlign = this.fn_getExcelBodyAlign(i);
+
                 var row = this.ds_header.addRow();
                 this.ds_header.setColumn(row, "row", "1");
                 this.ds_header.setColumn(row, "cellIndex", String(excelCol));
                 this.ds_header.setColumn(row, "colspan", "1");
                 this.ds_header.setColumn(row, "colId", colId);
                 this.ds_header.setColumn(row, "colName", headText);
+                this.ds_header.setColumn(row, "align", excelAlign);
 
                 excelCol++;
             }
+        };
+
+        this.fn_getExcelBodyAlign = function(cellIndex)
+        {
+            var bodyAlign = this.grdEmployees.getCellProperty("body", cellIndex, "align");
+
+            if (bodyAlign)
+            {
+                bodyAlign = String(bodyAlign).toLowerCase();
+
+                if (bodyAlign.indexOf("left") >= 0)
+                {
+                    return "left";
+                }
+
+                if (bodyAlign.indexOf("right") >= 0)
+                {
+                    return "right";
+                }
+            }
+
+            var bodyStyle = this.grdEmployees.getCellProperty("body", cellIndex, "style");
+
+            if (bodyStyle)
+            {
+                bodyStyle = String(bodyStyle).toLowerCase();
+
+                if (bodyStyle.indexOf("align:left") >= 0)
+                {
+                    return "left";
+                }
+
+                if (bodyStyle.indexOf("align:right") >= 0)
+                {
+                    return "right";
+                }
+            }
+
+            return "center";
         };
 
         this.btn_excel_onclick = function(obj,e)

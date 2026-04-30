@@ -153,6 +153,7 @@
           <Column id="cellIndex" type="STRING" size="256"/>
           <Column id="row" type="STRING" size="256"/>
           <Column id="colspan" type="STRING" size="256"/>
+          <Column id="align" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
       <Dataset id="ds_manager2" oncolumnchanged="ds_manager2_oncolumnchanged">
@@ -578,8 +579,10 @@ this.fn_makeExcelHeader = function()
         {
             headText = colId;
         }
-
+		var excelAlign = this.fn_getExcelBodyAlign(i);
         var row = this.ds_header.addRow();
+       
+		this.ds_header.setColumn(row, "align", excelAlign);
         this.ds_header.setColumn(row, "row", "1");
         this.ds_header.setColumn(row, "cellIndex", String(excelCol));
         this.ds_header.setColumn(row, "colspan", "1");
@@ -588,6 +591,25 @@ this.fn_makeExcelHeader = function()
 
         excelCol++;
     }
+};
+//align을 찾아서 넘겨준다.(엑셀 정렬 위해)
+this.fn_getExcelBodyAlign = function(cellIndex)
+{
+ 
+    var bodyAlign = this.grdEmployees.getCellProperty("body", cellIndex, "align");
+
+    if (bodyAlign)
+    {
+        bodyAlign = String(bodyAlign).toLowerCase();
+
+        if (bodyAlign.indexOf("left") >= 0) return "left";
+        if (bodyAlign.indexOf("right") >= 0) return "right";
+    }
+	trace("cellIndex=" + cellIndex + ", style=" + bodyAlign);
+
+
+    return "center";
+    
 };
 
 this.btn_excel_onclick = function(obj, e)
@@ -613,7 +635,7 @@ this.btn_excel_onclick = function(obj, e)
     args += "fileName=" + fileName;
     args += " sheetName=" + sheetName;
     args += " excelFilePath=" + excelFilePath;
-
+    
     this.transaction(
         "commonExcelCreate",
         "http://localhost:8080/common/excel/create",

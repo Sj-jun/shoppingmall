@@ -21,7 +21,7 @@
               </Band>
               <Band id="body">
                 <Cell style="align:left;padding:5 5 5 5;" text="bind:categoryName"/>
-                <Cell col="1" style="align:right;padding:5 5 5 5;" text="bind:productCount"/>
+                <Cell col="1" displaytype="number" style="align:right;padding:5 5 5 5;cursor:hand;" text="bind:productCount" mask="##,###,##0"/>
               </Band>
             </Format>
           </Formats>
@@ -47,15 +47,15 @@
               </Band>
               <Band id="body">
                 <Cell style="align:left;padding:5 5 5 5;" text="bind:productName" tooltiptext="bind:productName"/>
-                <Cell col="1" style="align:right;padding:5 5 5 5;" text="bind:orderCount"/>
-                <Cell col="2" style="align:right;padding:5 5 5 5;" text="bind:totalOrderQuantity"/>
-                <Cell col="3" style="align:right;padding:5 5 5 5;" text="bind:totalOrderPrice"/>
+                <Cell col="1" displaytype="number" style="align:right;padding:5 5 5 5;" text="bind:orderCount" mask="##,###,##0"/>
+                <Cell col="2" displaytype="number" style="align:right;padding:5 5 5 5;" text="bind:totalOrderQuantity" mask="##,###,##0"/>
+                <Cell col="3" displaytype="number" style="align:right;padding:5 5 5 5;" text="bind:totalOrderPrice" mask="##,###,##0"/>
               </Band>
             </Format>
           </Formats>
         </Grid>
         <Static id="Static00" taborder="6" text="Static01" visible="false" left="3.86%" top="114" width="981" height="8" style="background:coral;opacity:30;"/>
-        <Button id="btn_wReset" taborder="7" onclick="fn_reset" left="986" top="87" width="35" height="28" style="image:URL('Images::reset3.png');background:midnightblue;border:1 none #999999ff ;color:ivory;font:18 Dotum;"/>
+        <Button id="btn_wReset" taborder="7" onclick="fn_reset" left="986" top="85" width="35" height="30" style="image:URL('Images::reset3.png');background:midnightblue;border:1 none #999999ff ;color:ivory;font:18 Dotum;"/>
         <Static id="sta_category" taborder="8" text="▣ 카테고리 별 주문목록 현황" onclick="Static00_onclick" left="39" top="92" width="252" height="28" style="font:bold 12 Dotum;"/>
         <Static id="title_category" taborder="9" text="∘ 카테고리별 현황" onclick="Static02_onclick" left="39" top="50" width="382" height="40" style="font:bold 16 Dotum;"/>
         <Static id="Static13" taborder="10" text="Static01" visible="false" left="43" top="78" height="20" style="background:coral;opacity:30;" width="93"/>

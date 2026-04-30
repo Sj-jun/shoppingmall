@@ -1293,6 +1293,15 @@ this.fn_makeExcelHeader = function()
     {
         // Grid body cell의 text에서 실제 bind 컬럼명을 가져온다.
         var bodyText = this.grd_warehouse.getCellProperty("body", i, "text");
+        var displayType = this.grd_warehouse.getCellProperty("body", i, "displaytype");
+
+		var colId = bodyText.substr(5);
+		
+		//체크박스 행 제거
+		if (colId == "chk" || displayType == "checkbox")
+		{
+			continue;
+		}
 
         var colId = bodyText.substr(5);
 

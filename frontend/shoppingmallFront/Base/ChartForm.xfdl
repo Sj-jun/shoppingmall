@@ -156,7 +156,7 @@ this.fn_tryDrawChart = function()
 
     this.fn_drawChart();
 };
-/*
+
 this.sp_year_onchanged = function(obj:Spin, e:nexacro.ChangeEventInfo)
 {
 	this.mQuantity = [];
@@ -164,12 +164,13 @@ this.sp_year_onchanged = function(obj:Spin, e:nexacro.ChangeEventInfo)
 	this.ds_cond.setColumn(0,"year", this.sp_year.value);
 	this.fn_monthOrder();
 }
-*/
+
 this.sp_year_onspin = function(obj:Spin, e:nexacro.SpinEventInfo)
 {
 	this.mQuantity = [];
 	this.fv_chartDataReady = false;
 	this.ds_cond.setColumn(0,"year", this.sp_year.value);
+	
 	this.fn_monthOrder();
 }
 ]]></Script>

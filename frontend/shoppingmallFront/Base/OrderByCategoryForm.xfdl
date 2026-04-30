@@ -10,7 +10,7 @@
             <Format id="default"/>
           </Formats>
         </Grid>
-        <Combo id="cbo_category" taborder="0" text="Combo00" left="144" top="135" width="156" height="28" innerdataset="@ds_category" codecolumn="categoryId" datacolumn="categoryName" style="align:center middle;"/>
+        <Combo id="cbo_category" taborder="0" text="Combo00" left="144" top="135" width="156" height="28" innerdataset="@ds_category" codecolumn="categoryId" datacolumn="categoryName" style="align:center middle;" onitemchanged="cbo_category_onitemchanged"/>
         <Static id="sta_category" taborder="5" text="카테고리" left="84" top="135" width="52" height="28" style="font:10 Dotum;"/>
         <Static id="sta_product" taborder="6" text="상품명" left="344" top="135" width="43" height="28" style="font:10 Dotum;" onclick="sta_product_onclick"/>
         <Edit id="edt_product" taborder="1" left="391" top="135" width="156" height="28" style="color:#46463dff;" lengthunit="utf8" maxlength="85"/>
@@ -39,6 +39,8 @@
         <Button id="btn_excel" taborder="29" text="엑셀" onclick="btn_excel_onclick" left="952" top="91" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;font:10 Dotum;"/>
         <Static id="Static15" taborder="30" text="Static01" visible="false" left="949" top="83" width="4" height="48" style="background:coral;opacity:30;"/>
         <Static id="Static16" taborder="32" text="Static01" visible="false" left="40" top="127" width="45" height="48" style="background:coral;opacity:30;"/>
+        <Button id="btn_wReset" taborder="33" onclick="fn_reset" left="843" top="91" width="35" height="30" style="image:URL('Images::reset3.png');background:midnightblue;border:1 none #999999ff ;color:ivory;font:18 Dotum;"/>
+        <Static id="Static18" taborder="34" text="Static01" visible="false" left="877" top="79" width="4" height="48" style="background:coral;opacity:30;"/>
       </Layout>
     </Layouts>
     <Objects>
@@ -242,7 +244,7 @@ this.fn_makePivot = function()
 	//월 컬럼 동적 추가
     for (var i = 0; i < monthKeys.length; i++)
     {
-        dsPivot.addColumn(monthKeys[i], "STRING", 256);
+        dsPivot.addColumn(monthKeys[i], "INT", 256);
     }
 	
 	//피벗 데이터셋 채우기
@@ -279,7 +281,7 @@ this.fn_makePivot = function()
 		// 현재 행의 해당 월 컬럼 값을 꺼내서 기존 값에 더함
         dsPivot.setColumn(
             row, monthKey,
-            String(nexacro.toNumber(dsPivot.getColumn(row, monthKey), 0) + quantity)
+            nexacro.toNumber(dsPivot.getColumn(row, monthKey), 0) + quantity
         );
     }
 
@@ -376,7 +378,8 @@ this.fn_makePivotGridFormat = function(monthKeys)
 
     for (var i = 0; i < monthKeys.length; i++)
     {
-        format.push("<Cell col=\"" + (i + 2) + "\" text=\"bind:" + monthKeys[i] + "\" style=\"align:right;  padding:5px;\"/>");
+        format.push( "<Cell col=\"" + (i + 2) + "\" text=\"bind:" + monthKeys[i] + "\" " + 
+			"displaytype=\"number\" " + "mask=\"##,###,##0\" " + "style=\"align:right; padding:5px;\"/>" );
     }
 
     format.push("</Band>");
@@ -580,12 +583,12 @@ this.btn_excel_onclick = function(obj, e)
     var fileName = "category_monthly_orders_" + this.fn_getToday();
     var sheetName = "Sheet1";
     var excelFilePath = "";
-
+	
     var args = "";
     args += "fileName=" + fileName;
     args += " sheetName=" + sheetName;
     args += " excelFilePath=" + excelFilePath;
-
+	trace(this.ds_header.saveXML());
     this.transaction(
         "commonExcelCreate",
         "http://localhost:8080/common/excel/create",
@@ -676,6 +679,25 @@ this.FileDownloadExcel_onerror = function(obj, e)
 {
     alert("엑셀 다운로드 실패: " + e.errormsg);
 };
+
+
+this.fn_reset = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.cbo_category.set_value("");
+	this.edt_product.set_value("");
+	this.cal_from.set_value("");
+	this.cal_to.set_value("");
+	
+	this.ds_cond.clearData();
+ 
+    var nRow = this.ds_cond.addRow();
+    this.ds_cond.setColumn(nRow, "categoryId", "");
+    this.ds_cond.setColumn(nRow, "productName", "");
+	this.ds_cond.setColumn(nRow, "fromDate", "");
+	this.ds_cond.setColumn(nRow, "toDate", "");
+
+}
+
 
 ]]></Script>
   </Form>

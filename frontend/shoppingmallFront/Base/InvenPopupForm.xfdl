@@ -1,59 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="1.5">
   <TypeDefinition url="..\default_typedef.xml"/>
-  <Form id="InvenPopupForm" left="0" top="0" width="640" height="325" titletext="New Form" onload="InvenPopupForm_onload" onclose="InvenPopupForm__close">
+  <Form id="InvenPopupForm" left="0" top="0" width="847" height="325" titletext="New Form" onload="InvenPopupForm_onload" onclose="InvenPopupForm__close">
     <Layouts>
       <Layout>
-        <Div id="div_warehouse" taborder="10" left="119" top="87" width="500" height="32" style="border:1 solid black ;">
+        <Div id="div_warehouse" taborder="10" left="119" top="87" width="708" height="32" style="border:1 solid black ;">
           <Layouts>
             <Layout/>
           </Layouts>
         </Div>
-        <Div id="div_product" taborder="19" left="119" top="118" width="500" height="32" style="border:1 solid black ;">
+        <Div id="div_product" taborder="19" left="119" top="118" width="708" height="32" style="border:1 solid black ;">
           <Layouts>
             <Layout/>
           </Layouts>
         </Div>
-        <Div id="div_category" taborder="20" left="119" top="56" width="500" height="32" style="border:1 solid black ;">
+        <Div id="div_category" taborder="20" left="119" top="56" width="708" height="32" style="border:1 solid black ;">
           <Layouts>
             <Layout/>
           </Layouts>
         </Div>
-        <Div id="div_price" taborder="17" left="119" top="149" width="500" height="32" style="border:1 solid black ;"/>
-        <Div id="div_description" taborder="18" left="119" top="180" width="500" height="125" style="border:1 solid black ;"/>
+        <Div id="div_price" taborder="17" left="119" top="149" width="708" height="32" style="border:1 solid black ;"/>
+        <Div id="div_description" taborder="18" left="119" top="180" width="708" height="125" style="border:1 solid black ;"/>
         <Static id="sta_category" taborder="11" text="카테고리" left="20" top="56" width="100" height="32" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
         <Static id="sta_productId" taborder="12" text="상품관리번호" onclick="div_product_Static01_onclick" left="20" top="118" width="100" height="32" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
         <Static id="sta_description" taborder="13" text="비고" left="20" top="180" width="100" height="125" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
-        <Static id="sta_price" taborder="14" text="가격" left="279" top="149" width="100" height="32" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
-        <Static id="Static00" taborder="15" text="Static01" visible="false" left="9.53%" top="48" width="522" height="8" style="background:coral;opacity:30;"/>
-        <Static id="sta_productName" taborder="16" text="상품명" onclick="div_product_Static01_onclick" left="279" top="118" width="100" height="32" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
+        <Static id="sta_price" taborder="14" text="가격" left="281" top="149" width="100" height="32" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
+        <Static id="Static00" taborder="15" text="Static01" visible="false" left="34.24%" top="48" width="522" height="8" style="background:coral;opacity:30;"/>
+        <Static id="sta_productName" taborder="16" text="상품명" onclick="div_product_Static01_onclick" left="281" top="118" width="100" height="32" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
         <Static id="sta_quantity" taborder="21" text="수량" onclick="div_product_Static01_onclick" left="20" top="149" width="100" height="32" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
-        <Combo id="cbo_category" taborder="0" text="Combo00" left="123" top="59" width="153" height="26" enable="true" readonly="true" style="padding:0 0 0 0;align:center middle;"/>
-        <Combo id="cbo_warehouse" taborder="1" text="Combo00" left="123" top="90" width="153" height="26" innerdataset="@ds_warehouse" codecolumn="warehouseId" datacolumn="warehouseName" onitemchanged="cbo_warehouse_onitemchanged" style="padding:0 0 0 0;align:center middle;"/>
+        <Combo id="cbo_category" taborder="0" text="Combo00" left="123" top="59" width="155" height="26" enable="true" readonly="true" style="padding:0 0 0 0;align:center middle;"/>
+        <Combo id="cbo_warehouse" taborder="1" text="Combo00" left="123" top="90" width="155" height="26" innerdataset="@ds_warehouse" codecolumn="warehouseId" datacolumn="warehouseName" onitemchanged="cbo_warehouse_onitemchanged" style="padding:0 0 0 0;align:center middle;"/>
         <Static id="sta_warehouse" taborder="22" text="창고" left="20" top="87" width="100" height="32" style="background:navajowhite;border:1 solid #808080ff ;align:center middle;"/>
-        <Edit id="edt_region" taborder="2" left="279" top="90" width="110" height="26" enable="true" readonly="true" style="padding:5 5 5 5; :readonly {border:1 solid #808080ff ;}"/>
-        <Edit id="edt_country" taborder="3" left="392" top="90" width="110" height="26" enable="true" readonly="true" style="padding:5 5 5 5; :readonly {border:1 solid #808080ff ;}"/>
-        <Edit id="edt_location" taborder="4" left="505" top="90" width="110" height="26" enable="true" readonly="true" style="border:1 solid #808080ff ;padding:5 5 5 5;"/>
-        <Edit id="edt_productId" taborder="5" left="123" top="121" width="153" height="26" enable="true" style="padding:5 5 5 5;align:center middle; :disabled {align:right middle;} :readonly {border:1 solid #808080ff ;}" readonly="true"/>
-        <Edit id="edt_productName" taborder="6" left="382" top="121" width="233" height="26" enable="true" style="padding:5 5 5 5; :disabled {align:right middle;} :readonly {border:1 solid #808080ff ;}" readonly="true"/>
-        <Edit id="edt_description" taborder="9" left="123" top="183" width="492" height="119" enable="true" style="padding:5 5 5 5; :disabled {padding:5 5 5 5;align:left top;} :readonly {border:1 solid #808080ff ;padding:5 5 5 5;align:left top;}" readonly="true"/>
+        <Edit id="edt_region" taborder="2" left="281" top="90" width="167" height="26" enable="true" readonly="true" style="padding:5 5 5 5; :readonly {border:1 solid #808080ff ;}" displaynulltext="MIDDLE EAST AND AFRICA"/>
+        <Edit id="edt_country" taborder="3" left="451" top="90" width="184" height="26" enable="true" readonly="true" style="padding:5 5 5 5; :readonly {border:1 solid #808080ff ;}" oneditclick="edt_country_oneditclick" displaynulltext="UNITED STATES OF AMERICA"/>
+        <Edit id="edt_location" taborder="4" left="638" top="90" width="185" height="26" enable="true" readonly="true" style="border:1 solid #808080ff ;padding:5 5 5 5;"/>
+        <Edit id="edt_productId" taborder="5" left="123" top="121" width="155" height="26" enable="true" style="padding:5 5 5 5;align:center middle; :disabled {align:right middle;} :readonly {border:1 solid #808080ff ;}" readonly="true"/>
+        <Edit id="edt_productName" taborder="6" left="384" top="121" width="439" height="26" enable="true" style="padding:5 5 5 5; :disabled {align:right middle;} :readonly {border:1 solid #808080ff ;}" readonly="true"/>
+        <Edit id="edt_description" taborder="9" left="123" top="183" width="700" height="119" enable="true" style="padding:5 5 5 5; :disabled {padding:5 5 5 5;align:left top;} :readonly {border:1 solid #808080ff ;padding:5 5 5 5;align:left top;}" readonly="true"/>
         <Static id="Static01" taborder="23" text="Static01" visible="false" left="86" top="0" width="522" height="20" style="background:coral;opacity:30;"/>
-        <Button id="btn_update" taborder="24" text="수정" left="477" top="19" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;" onclick="btn_update_onclick"/>
-        <Button id="btn_index" taborder="25" text="목록" left="549" top="19" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;" onclick="btn_index_onclick"/>
+        <Button id="btn_update" taborder="24" text="수정" left="686" top="19" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;" onclick="btn_update_onclick"/>
+        <Button id="btn_index" taborder="25" text="목록" left="758" top="19" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;" onclick="btn_index_onclick"/>
         <Static id="Static10" taborder="26" text="Static01" visible="false" left="546" top="9" width="4" height="48" style="background:coral;opacity:30;"/>
         <Static id="Static02" taborder="27" text="Static01" visible="false" left="0" top="102" width="20" height="50" style="background:coral;opacity:30;"/>
         <Static id="sta_inven" taborder="28" text="▣ 재고 수정" left="20" top="14" width="145" height="38" style="font:12 Dotum;"/>
-        <Static id="Static03" taborder="29" text="Static01" visible="false" left="619" top="122" width="20" height="50" style="background:coral;opacity:30;"/>
+        <Static id="Static03" taborder="29" text="Static01" visible="false" left="827" top="120" width="20" height="50" style="background:coral;opacity:30;"/>
         <Static id="Static04" taborder="30" text="Static01" visible="false" left="94" top="305" width="522" height="20" style="background:coral;opacity:30;"/>
-        <MaskEdit id="edt_price" taborder="8" left="382" top="152" width="153" height="26" mask="#,###,###.##" style="background:#fbf8f1ff;border:1 solid #808080ff ;padding:5 5 5 5;" readonly="true"/>
-        <MaskEdit id="edt_quantity" taborder="7" left="123" top="152" width="153" height="26" style="background:#ffffffff;border:1 solid #808080ff ;padding:5 5 5 5;" mask="##,###,###" onchar="edt_quantity_onchar" autoskip="false" clipmode="includespace"/>
-        <Static id="Static05" taborder="31" text="Static01" visible="false" left="615" top="217" width="3" height="50" style="background:coral;opacity:30;"/>
+        <MaskEdit id="edt_price" taborder="8" left="384" top="152" width="439" height="26" mask="#,###,###.##" style="background:#fbf8f1ff;border:1 solid #808080ff ;padding:5 5 5 5;" readonly="true"/>
+        <MaskEdit id="edt_quantity" taborder="7" left="123" top="152" width="155" height="26" style="background:#ffffffff;border:1 solid #808080ff ;padding:5 5 5 5;" mask="##,###,###" onchar="edt_quantity_onchar" autoskip="false" clipmode="includespace"/>
+        <Static id="Static05" taborder="31" text="Static01" visible="false" left="823" top="222" width="3" height="50" style="background:coral;opacity:30;"/>
         <Static id="Static06" taborder="32" text="Static01" visible="false" left="120" top="69" width="3" height="150" style="background:coral;opacity:30;"/>
-        <Static id="Static07" taborder="33" text="Static01" visible="false" left="276" top="83" width="3" height="100" style="background:coral;opacity:30;"/>
-        <Static id="Static08" taborder="34" text="Static01" visible="false" left="379" top="122" width="3" height="50" style="background:coral;opacity:30;"/>
-        <Static id="Static09" taborder="35" text="Static01" visible="false" left="615" top="90" width="3" height="50" style="background:coral;opacity:30;"/>
-        <Static id="Static11" taborder="36" text="Static01" visible="false" left="502" top="70" width="3" height="50" style="background:coral;opacity:30;"/>
-        <Static id="Static12" taborder="37" text="Static01" visible="false" left="389" top="68" width="3" height="50" style="background:coral;opacity:30;"/>
+        <Static id="Static07" taborder="33" text="Static01" visible="false" left="278" top="19" width="3" height="100" style="background:coral;opacity:30;"/>
+        <Static id="Static08" taborder="34" text="Static01" visible="false" left="381" top="122" width="3" height="50" style="background:coral;opacity:30;"/>
+        <Static id="Static09" taborder="35" text="Static01" visible="false" left="823" top="90" width="3" height="80" style="background:coral;opacity:30;"/>
+        <Static id="Static11" taborder="36" text="Static01" visible="false" left="635" top="70" width="3" height="50" style="background:coral;opacity:30;"/>
+        <Static id="Static12" taborder="37" text="Static01" visible="false" left="448" top="68" width="3" height="50" style="background:coral;opacity:30;"/>
+        <Static id="Static13" taborder="38" text="Static01" visible="false" left="278" top="120" width="3" height="50" style="background:coral;opacity:30;"/>
       </Layout>
     </Layouts>
     <Objects>
@@ -362,6 +363,7 @@ this.edt_quantity_onchar = function(obj:MaskEdit, e:nexacro.CharEventInfo)
 
     return true;
 }
+
 ]]></Script>
   </Form>
 </FDL>

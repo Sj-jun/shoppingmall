@@ -63,7 +63,7 @@
         </Div>
         <Button id="btn_insert" taborder="2" text="등록" left="879" top="85" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;" onclick="btn_insert_onclick"/>
         <Button id="btn_search" taborder="3" text="조회" onclick="btn_search_onclick" left="807" top="85" width="70" height="30" style="background:midnightblue;border:1 none #999999ff ;color:ivory;"/>
-        <Button id="btn_reset" taborder="4" onclick="fn_reset" left="770" top="85" width="35" height="30" style="image:URL('Images::reset3.png');background:midnightblue;border:1 none #999999ff ;color:ivory;font:18 Dotum;"/>
+        <Button id="btn_reset" taborder="4" onclick="fn_reset" left="770" top="85" width="35" height="30" style="image:URL('Images::reset3.png');background:midnightblue;border:1 none #999999ff ;color:ivory;padding:0 0 0 0;font:18 Dotum;"/>
         <Static id="Static12" taborder="6" text="Static01" visible="false" left="948" top="84" width="4" height="48" style="background:coral;opacity:30;"/>
         <Static id="Static04" taborder="7" text="Static01" visible="false" left="12.34%" top="122" width="10" height="48" style="background:coral;opacity:30;" onclick="Static04_onclick"/>
         <Static id="Static13" taborder="8" text="Static01" visible="false" left="42" top="78" height="20" style="background:coral;opacity:30;" onclick="Static13_onclick" width="92"/>
@@ -162,6 +162,7 @@
           <Column id="cellIndex" type="STRING" size="256"/>
           <Column id="row" type="STRING" size="256"/>
           <Column id="colspan" type="STRING" size="256"/>
+          <Column id="align" type="STRING" size="256"/>
         </ColumnInfo>
       </Dataset>
     </Objects>
@@ -757,7 +758,7 @@ this.btn_excel_onclick = function(obj, e)
     args += "fileName=" + fileName;
     args += " sheetName=" + sheetName;
     args += " excelFilePath=" + excelFilePath;
-
+	trace(this.ds_header.saveXML());
     this.transaction(
         "commonExcelCreate",
         "http://localhost:8080/common/excel/create",

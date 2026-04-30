@@ -635,7 +635,7 @@ this.btn_excel_onclick = function(obj, e)
     args += "fileName=" + fileName;
     args += " sheetName=" + sheetName;
     args += " excelFilePath=" + excelFilePath;
-    
+    trace(this.ds_header.saveXML());
     this.transaction(
         "commonExcelCreate",
         "http://localhost:8080/common/excel/create",

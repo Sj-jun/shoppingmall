@@ -1535,8 +1535,19 @@
             {
                 // Grid body cell의 text에서 실제 bind 컬럼명을 가져온다.
                 var bodyText = this.grd_warehouse.getCellProperty("body", i, "text");
+                var displayType = this.grd_warehouse.getCellProperty("body", i, "displaytype");
+
+                if (!bodyText || bodyText.indexOf("bind:") != 0)
+                {
+                    continue;
+                }
 
                 var colId = bodyText.substr(5);
+
+                if (colId == "chk" || displayType == "checkbox")
+                {
+                    continue;
+                }
 
                 // Grid head cell의 text를 엑셀 헤더명으로 사용한다.
                 var headText = this.grd_warehouse.getCellProperty("head", i, "text");

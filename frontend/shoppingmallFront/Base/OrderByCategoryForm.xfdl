@@ -31,7 +31,7 @@
         <Static id="Static14" taborder="20" text="Static01" visible="false" left="44.07%" top="117" width="522" height="8" style="background:coral;opacity:30;"/>
         <Static id="sta_title" taborder="21" text="▣ 카테고리별 주문 목록" onclick="Static00_onclick" left="40" top="92" width="222" height="28" style="font:bold 12 Dotum;"/>
         <Static id="Static13" taborder="22" text="Static01" visible="false" left="37" top="79" height="20" style="background:coral;opacity:30;" width="94"/>
-        <Static id="title" taborder="23" text="∘ 카테고리별 주문 목록" onclick="Static02_onclick" left="39" top="50" width="382" height="40" style="font:bold 16 Dotum;"/>
+        <Static id="title" taborder="23" text="∘ 카테고리별 주문 목록" onclick="Static02_onclick" left="40" top="50" width="382" height="40" style="font:bold 16 Dotum;"/>
         <Static id="Static17" taborder="25" text="Static01" visible="false" left="0" top="174" width="40" height="60" style="background:coral;opacity:30;"/>
         <Static id="Static10" taborder="26" text="Static01" visible="false" left="196" top="0" width="40" height="60" style="background:coral;opacity:30;"/>
         <Static id="Static11" taborder="27" text="Static01" visible="false" left="1022" top="288" width="40" height="60" style="background:coral;opacity:30;"/>

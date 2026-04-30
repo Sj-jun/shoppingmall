@@ -70,7 +70,7 @@
         <Button id="btn_wReset" taborder="21" left="483" top="86" width="35" height="30" style="image:URL('Images::reset3.png');background:midnightblue;border:1 none #999999ff ;color:ivory;font:18 Dotum;" onclick="fn_reset"/>
         <Static id="Static10" taborder="22" text="Static01" visible="false" left="517" top="85" width="4" height="48" style="background:coral;opacity:30;"/>
         <Static id="sta_wsub" taborder="23" text="▣ 창고 목록" onclick="Static00_onclick" left="40" top="91" width="140" height="28" style="font:bold 12 Dotum;"/>
-        <Static id="warehouse_title" taborder="25" text="∘ 창고 목록 및 관리" onclick="Static02_onclick" left="39" top="49" width="382" height="40" style="font:bold 16 Dotum;"/>
+        <Static id="warehouse_title" taborder="25" text="∘ 창고 목록 및 관리" onclick="Static02_onclick" left="40" top="49" width="382" height="40" style="font:bold 16 Dotum;"/>
         <Static id="Static13" taborder="26" text="Static01" visible="false" left="43" top="77" height="20" style="background:coral;opacity:30;" width="92"/>
         <Static id="Static01" taborder="28" text="Static01" visible="false" left="566" top="123" width="45" height="48" style="background:coral;opacity:30;"/>
         <Static id="Static02" taborder="29" text="Static01" visible="false" left="40" top="121" width="45" height="48" style="background:coral;opacity:30;"/>

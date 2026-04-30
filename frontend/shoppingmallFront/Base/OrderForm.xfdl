@@ -4,7 +4,7 @@
   <Form id="OrderForm" left="0" top="0" width="1081" height="624" titletext="New Form">
     <Layouts>
       <Layout>
-        <Static id="title_category" taborder="23" text="∘ 고객주문" onclick="Static02_onclick" left="39" top="49" width="382" height="40" style="font:bold 16 Dotum;"/>
+        <Static id="title_category" taborder="23" text="∘ 고객주문" onclick="Static02_onclick" left="40" top="49" width="382" height="40" style="font:bold 16 Dotum;"/>
         <Div id="div_name" taborder="9" left="40" top="123" width="295" height="41" style="background:gainsboro;color:gainsboro;"/>
         <Static id="sta_name" taborder="2" text="이름" left="60" top="121" width="28" height="46" style="font:10 Dotum;"/>
         <Static id="Static04" taborder="3" text="Static01" visible="false" left="7.68%" top="121" width="10" height="48" style="background:coral;opacity:30;"/>

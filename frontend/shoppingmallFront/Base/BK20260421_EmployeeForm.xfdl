@@ -41,7 +41,7 @@
         <Button id="btnSearch" taborder="5" text="조회" top="86" height="30" onclick="btnSearch_onclick" style="background:midnightblue;border:1 none #999999ff ;color:ivory;font:10 Dotum;" width="70" left="808"/>
         <Button id="btnAdd" taborder="6" text="등록" top="86" height="30" onclick="btnAdd_onclick" style="background:midnightblue;border:1 none #999999ff ;color:ivory;font:10 Dotum;" width="70" left="880"/>
         <Static id="sub" taborder="8" text="▣ 직원 목록" left="40" top="91" height="28" onclick="Static00_onclick" style="font:bold 12 Dotum;" width="140"/>
-        <Static id="title" taborder="13" text="∘ 직원 목록 및 관리" left="39" top="49" style="font:bold 16 Dotum;" width="382" height="40" onclick="Static02_onclick"/>
+        <Static id="title" taborder="13" text="∘ 직원 목록 및 관리" left="40" top="49" style="font:bold 16 Dotum;" width="382" height="40" onclick="Static02_onclick"/>
         <Div id="div_cond" taborder="3" left="40" top="123" height="45" style="background:gainsboro;color:darkgray;" width="982">
           <Layouts>
             <Layout>

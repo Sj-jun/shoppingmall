@@ -3,6 +3,8 @@ package com.company.shoppingmall.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.company.shoppingmall.dto.CategoryDto;
@@ -18,8 +20,6 @@ import com.nexacro.xapi.tx.HttpPlatformResponse;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.web.bind.annotation.GetMapping;
-
 @RestController
 public class CategoryController {
     private final CategoryService categoryService;
@@ -29,7 +29,7 @@ public class CategoryController {
     }
 
     // 카테고리 목록 조회
-    @GetMapping("/categoryList")
+    @RequestMapping(value = "/categoryList", method = {RequestMethod.GET, RequestMethod.POST})
     public void getCategoryList(HttpServletRequest request, HttpServletResponse response) throws Exception {
         List<CategoryDto> list = categoryService.getCategoryList();
 
@@ -91,7 +91,7 @@ public class CategoryController {
     }
 
     // 카테고리별 상품 수 조회
-    @GetMapping("/category/products")
+    @RequestMapping(value = "/category/products", method = {RequestMethod.GET, RequestMethod.POST})
     public void countProductsByCategory(HttpServletRequest request, HttpServletResponse response) throws Exception {
         HttpPlatformRequest platformRequest = new HttpPlatformRequest(request.getInputStream());
         platformRequest.receiveData();
